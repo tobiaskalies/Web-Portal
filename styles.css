@@ -1,4 +1,8 @@
 /* Reset and Base Styles */
+:root {
+    --navbar-height: 60px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -63,7 +67,7 @@ body {
     color: white;
     padding: 150px 0 100px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: var(--navbar-height);
 }
 
 .hero h2 {

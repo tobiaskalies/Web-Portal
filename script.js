@@ -1,10 +1,13 @@
+// Constants
+const NAVBAR_HEIGHT = 60;
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 60;
+            const offsetTop = target.offsetTop - NAVBAR_HEIGHT;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -19,7 +22,7 @@ if (ctaButton) {
     ctaButton.addEventListener('click', () => {
         const servicesSection = document.querySelector('#services');
         if (servicesSection) {
-            const offsetTop = servicesSection.offsetTop - 60;
+            const offsetTop = servicesSection.offsetTop - NAVBAR_HEIGHT;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -35,9 +38,22 @@ if (contactForm) {
         e.preventDefault();
         
         // Get form values
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = contactForm.querySelector('input[type="text"]').value.trim();
+        const email = contactForm.querySelector('input[type="email"]').value.trim();
+        const message = contactForm.querySelector('textarea').value.trim();
+        
+        // Validate form inputs
+        if (!name || !email || !message) {
+            alert('Bitte füllen Sie alle Felder aus.');
+            return;
+        }
+        
+        // Email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+            return;
+        }
         
         // Show success message (in a real application, you would send this to a server)
         alert(`Vielen Dank für Ihre Nachricht, ${name}! Wir werden uns bald bei Ihnen melden.`);
@@ -57,7 +73,7 @@ window.addEventListener('scroll', () => {
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= (sectionTop - 80)) {
+        if (window.pageYOffset >= (sectionTop - NAVBAR_HEIGHT - 20)) {
             current = section.getAttribute('id');
         }
     });
