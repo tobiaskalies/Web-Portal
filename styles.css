@@ -16,7 +16,8 @@
   transition: background 0.18s;
   text-shadow: none;
   filter: none;
-  backdrop-filter: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 .category-label.energie {
   color: #fff;
@@ -94,7 +95,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 .news-modal-content {
   background: #fff;
@@ -193,6 +195,7 @@ body{
   position:sticky;top:0;z-index:50;
   display:flex;align-items:center;gap:18px;
   background:rgba(255,255,255,.84);backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
   border-bottom:1px solid rgba(0,0,0,.06);
   padding:12px clamp(16px,3vw,40px);
 }
@@ -719,6 +722,7 @@ details[open]{border-color:#dfe7e5}
   background:rgba(22,27,32,.95);
   border-color:var(--dark-border);
   backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 
 :root[data-theme="dark"] .wordmark .name{
