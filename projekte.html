@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projekte – DRIVEPLAN</title>
+  <meta name="description" content="Referenzprojekte von DRIVEPLAN: Ladeinfrastruktur, Mikronetze, Wärmewende – Einblicke in realisierte Lösungen.">
+  <meta property="og:title" content="Projekte – DRIVEPLAN">
+  <meta property="og:description" content="Einblicke in realisierte Lösungen: Energie, Mobilität, Infrastruktur.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="styles.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />  
+  <!-- Favicon entfernt: Dateien fehlen -->
+</head>
+<body class="subpage">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="DRIVEPLAN Startseite">
+      <svg class="logo" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="42" fill="none" stroke="#3A3A3A" stroke-width="10"/>
+        <path d="M60 18 A42 42 0 1 1 60 102" fill="none" stroke="#2E7D6D" stroke-width="10"/>
+        <path d="M60 60 h34" stroke="#2E7D6D" stroke-width="10"/>
+        <path d="M100 60 l-12 -8 v16 z" fill="#2E7D6D"/>
+      </svg>
+      <div class="wordmark">
+        <span class="name">DRIVEPLAN</span>
+        <span class="tagline">Ingenieurbüro für nachhaltige Technik &amp; Mobilität</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Start</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a class="active" href="projekte.html">Projekte</a>
+      <a href="news.html">News & Blog</a>
+      <a class="btn btn-outline" href="kontakt.html">Kontakt</a>
+    </nav>
+    <button class="mode-toggle" aria-label="Darstellung umschalten">🌙</button>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <section class="page-hero compact">
+    <h1 class="reveal-up">Projekte</h1>
+    <p class="reveal-up delay-1">Einblicke in realisierte Lösungen: Energie, Mobilität, Infrastruktur.</p>
+  </section>
+
+  <section class="project-list">
+    <article id="ladehub" class="project-detail reveal-up delay-1">
+      <div class="pd-media" data-bg="assets/ladehub.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="pd-body">
+        <h2>Ladehub – urbane Schnelllade-Achse</h2>
+        <p>Standortwahl, Lastmanagement, Ladeprofile und Betriebskonzepte für hohe Durchsätze bei minimalen Spitzenlasten.</p>
+        <ul class="stats">
+          <li><strong>12</strong> Ladepunkte</li>
+          <li><strong>500 kW</strong> Peak</li>
+          <li><strong>−18%</strong> Netzspitzen</li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="mikronetz" class="project-detail reveal-up delay-2">
+      <div class="pd-media" data-bg="assets/Micro.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="pd-body">
+        <h2>Mikronetz mit PV & Speicher</h2>
+        <p>Optimierte Sektorkopplung aus PV, Wärmepumpe und Batteriespeicher inkl. Regelstrategie für CAPEX/OPEX-Optimum.</p>
+        <ul class="stats">
+          <li><strong>1.2 MWh</strong> Speicher</li>
+          <li><strong>−24%</strong> CO₂</li>
+          <li><strong>ROI</strong> 6.5 Jahre</li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="smartcharge360" class="project-detail reveal-up delay-3">
+      <div class="pd-media" data-bg="assets/Apps.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="pd-body">
+        <h2>SmartCharge360 – Intelligentes Energie- & Lademanagementsystem</h2>
+        <p>SmartCharge360 ist ein KI-gestütztes Energie- und Lademanagementsystem zur intelligenten Steuerung und Optimierung von Ladeinfrastruktur in Wohn- und Gewerbegebäuden.</p>
+        <ul class="stats">
+          <li><strong>24</strong> Ladepunkte</li>
+          <li><strong>400 kW</strong> Peak</li>
+          <li><strong>−30%</strong> Lastspitzen</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <footer class="site-footer">
+    <div>© <span id="y"></span> DRIVEPLAN</div>
+    <nav><a href="kontakt.html#impressum">Impressum</a><a href="kontakt.html#datenschutz">Datenschutz</a></nav>
+  </footer>
+
+  <button class="scroll-to-top" aria-label="Nach oben scrollen" title="Nach oben">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <div class="snowfall" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

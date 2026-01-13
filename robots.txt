@@ -1,0 +1,10 @@
+# robots.txt für DRIVEPLAN
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.driveplan.de/sitemap.xml
+
+# Crawl-Delay (optional, falls Server-Last reduziert werden soll)
+# Crawl-delay: 1
