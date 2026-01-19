@@ -12,7 +12,26 @@ console.log('DEBUG: script.js geladen');
 
 // Jahr im Footer
 // News-&-Blog: Modal/Popup für News-Details
-const newsDetails = [];
+const newsDetails = [
+  `<h2>Neue Ladeinfrastruktur für Unternehmen</h2>
+  <p><strong>Datum:</strong> 28. Dezember 2025</p>
+  <p><em>Wie ein mittelständisches Unternehmen zum Vorreiter der Elektromobilität wurde:</em></p>
+  <p>Stellen Sie sich vor, Ihr Firmenparkplatz wird zum Innovationszentrum. 2025 begleitete DRIVEPLAN ein traditionsreiches Logistikunternehmen auf dem Weg zur eigenen Ladeinfrastruktur. Nach einer umfassenden Analyse entwickelten wir ein maßgeschneidertes Konzept: 20 Ladepunkte, intelligente Steuerung, Solarstrom vom eigenen Dach und ein dynamisches Lastmanagement, das auch in Spitzenzeiten für reibungslosen Betrieb sorgt. Die Geschäftsführung berichtet heute von gesunkenen Betriebskosten, motivierten Mitarbeitenden und einem neuen Image als nachhaltiger Arbeitgeber. <br><br><strong>Unser Versprechen:</strong> Wir machen Ihr Unternehmen fit für die Zukunft – mit Technik, die begeistert, und Lösungen, die sich rechnen. Lassen Sie sich inspirieren und erfahren Sie, wie auch Sie von unserer Erfahrung profitieren können!</p>`,
+  `<h2>Energiemanagement: Trends 2026</h2>
+  <p><strong>Datum:</strong> 15. Dezember 2025</p>
+  <p><em>Die Zukunft der Energie ist digital, vernetzt und nachhaltig.</em></p>
+  <p>2026 steht im Zeichen der Transformation: Unternehmen setzen auf smarte Energiemanagement-Systeme, die nicht nur den Verbrauch überwachen, sondern aktiv steuern. Ein Beispiel aus der Praxis: Ein Industriebetrieb konnte durch die Einführung von KI-gestützter Verbrauchsoptimierung seine Energiekosten um 18% senken – und das bei wachsender Produktion! DRIVEPLAN begleitet Sie von der ersten Analyse bis zur Implementierung modernster Technologien. <br><br>Wir zeigen Ihnen, wie Sie mit intelligenten Speicherlösungen, flexiblen Tarifen und der Integration erneuerbarer Energien nicht nur Kosten sparen, sondern auch Ihre Nachhaltigkeitsziele erreichen. <strong>Entdecken Sie die Trends, die Ihr Unternehmen 2026 prägen werden!</strong></p>`,
+  `<h2>Fördermöglichkeiten 2026: So profitieren Unternehmen</h2>
+  <p><strong>Datum:</strong> 01. Dezember 2025</p>
+  <p><em>Förderprogramme als Schlüssel zur nachhaltigen Transformation:</em></p>
+  <p>2026 steht im Zeichen der nachhaltigen Entwicklung und Digitalisierung. Unternehmen, die in innovative Technologien, Energieeffizienz oder neue Mobilitätslösungen investieren, können von einer Vielzahl an Fördermöglichkeiten profitieren. Doch der Weg durch die Förderlandschaft ist oft komplex: Es gilt, die passenden Programme zu finden, die eigenen Ziele klar zu definieren und überzeugende Konzepte zu entwickeln.<br><br>
+DRIVEPLAN begleitet Unternehmen auf diesem Weg – von der ersten Idee bis zur erfolgreichen Umsetzung. Wir analysieren gemeinsam die individuellen Potenziale, beraten zu aktuellen Trends und helfen, Projekte strategisch auszurichten. So wird Förderung nicht nur zum finanziellen Vorteil, sondern zum echten Innovationsmotor. <br><br>
+Wer die Chancen erkennt und gezielt nutzt, kann sein Unternehmen zukunftssicher aufstellen, neue Märkte erschließen und nachhaltigen Mehrwert schaffen. Lassen Sie sich inspirieren, wie Fördermöglichkeiten 2026 Ihr Unternehmen voranbringen können!</p>`,
+  `<h2>Mobilitätskonzepte 2026: Die Stadt bewegt sich neu</h2>
+  <p><strong>Datum:</strong> 15. Dezember 2025</p>
+  <p><em>Wie innovative Ideen Städte verändern:</em></p>
+  <p>DRIVEPLAN arbeitet mit Kommunen und Unternehmen an der Mobilität von morgen. In einem aktuellen Projekt wurde ein ganzes Stadtquartier mit Sharing-Angeboten, E-Bussen und smarten Ladepunkten ausgestattet. Das Ergebnis: weniger Verkehr, bessere Luft und mehr Lebensqualität für die Bewohner. <br><br>Unsere Konzepte verbinden Ökologie, Ökonomie und soziale Aspekte – und machen Städte zu Vorreitern der Mobilitätswende. <strong>Erleben Sie, wie wir gemeinsam mit Ihnen neue Wege gehen und nachhaltige Mobilität erlebbar machen!</strong></p>`
+];
 
 function openNewsModal(idx) {
   const modal = document.getElementById('news-modal');

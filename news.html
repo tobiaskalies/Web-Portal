@@ -57,22 +57,38 @@
 
   <section class="blog-list">
     <div class="blog-grid">
-      <article class="blog-card reveal-up delay-1">
-        <div class="blog-img" style="background-image:url('assets/Ladesäule.png')"><span class="blog-label">Top News</span></div>
-        <div class="blog-content">
-          <h2>Neue Ladeinfrastruktur für Unternehmen</h2>
-          <p class="date">28. Dezember 2025</p>
-          <div class="share-buttons">
+      <article class="blog-card reveal-up delay-1" style="display:grid;grid-template-columns:1fr 1.1fr;gap:0;min-height:420px;height:100%;align-items:stretch;border-radius:24px;overflow:hidden;">
+        <div class="blog-img" style="padding:0;overflow:hidden;height:100%;display:flex;align-items:stretch;justify-content:center;background:#000;border-radius:24px 0 0 24px;">
+          <video controls playsinline autoplay muted loop preload="auto" style="width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:24px 0 0 24px;display:block;background:#000;">
+              <source src="assets/Unternehmen.webm" type="video/webm">
+              <source src="assets/Unternehmen.mp4" type="video/mp4">
+                <img src="assets/Ladesäulen.jpg" alt="Fallback Bild Unternehmen" style="width:100%;height:100%;object-fit:cover;border-radius:24px 0 0 24px;display:block;background:#000;">
+              Ihr Browser unterstützt kein Video.
+            </video>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var video = document.querySelector('.blog-img video');
+                if(video) video.playbackRate = 0.5;
+              });
+            </script>
+        </div>
+          <div class="blog-content top-news-content" style="border-radius:0 24px 24px 0;padding:48px 40px 40px 40px;display:flex;flex-direction:column;justify-content:center;min-height:260px;position:relative;transition:background 0.2s;color:var(--ink);">
+          <span class="category-label energie" style="z-index:2;position:absolute;top:32px;left:40px;font-size:1.08rem;padding:6px 18px;background:var(--label-bg,rgba(15,140,255,0.10));color:var(--label-color,#fff);">⚡ Top News</span>
+          <h2 style="font-size:2rem;line-height:1.15;margin-bottom:18px;">Neue Ladeinfrastruktur für Unternehmen</h2>
+          <p class="date" style="font-size:1.08rem;color:var(--date-color);margin-bottom:18px;">12. Januar 2026</p>
+          <div class="share-buttons" style="margin-bottom:18px;">
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://deine-domain.tld/news.html" target="_blank" rel="noopener" aria-label="Auf LinkedIn teilen" title="Auf LinkedIn teilen">🔗</a>
             <a href="https://twitter.com/intent/tweet?url=https://deine-domain.tld/news.html&text=Neue%20Ladeinfrastruktur%20f%C3%BCr%20Unternehmen%20bei%20DRIVEPLAN" target="_blank" rel="noopener" aria-label="Auf X/Twitter teilen" title="Auf X/Twitter teilen">🐦</a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://deine-domain.tld/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
-          <p>DRIVEPLAN unterstützt Unternehmen bei der Planung und Umsetzung moderner Ladehubs. Erfahren Sie mehr über unsere aktuellen Projekte und Innovationen im Bereich Elektromobilität.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(0);return false;">Mehr erfahren</a>
+          <p style="font-size:1.13rem;line-height:1.5;margin-bottom:22px;">DRIVEPLAN unterstützt Unternehmen bei der Planung und Umsetzung moderner Ladehubs. Erfahren Sie mehr über unsere aktuellen Projekte und Innovationen im Bereich Elektromobilität.Dabei verbinden wir technische Expertise mit wirtschaftlicher Effizienz und nachhaltigen Energiekonzepten.</p>
+          <a href="#" class="btn btn-primary" style="font-size:1.08rem;padding:14px 32px;align-self:flex-start;" onclick="openNewsModal(0);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-2">
-        <div class="blog-img" style="background-image:url('assets/Energiemanagement.png')"><span class="blog-label">Trends</span></div>
+        <div class="blog-img" style="background-image:url('assets/Energiemanagement.png')">
+          <span class="category-label infrastruktur">📊 Trends</span>
+        </div>
         <div class="blog-content">
           <h2>Energiemanagement: Trends 2026</h2>
           <p class="date">15. Dezember 2025</p>
@@ -81,12 +97,14 @@
             <a href="https://twitter.com/intent/tweet?url=https://deine-domain.tld/news.html&text=Energiemanagement%3A%20Trends%202026%20bei%20DRIVEPLAN" target="_blank" rel="noopener" aria-label="Auf X/Twitter teilen" title="Auf X/Twitter teilen">🐦</a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://deine-domain.tld/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
-          <p>Welche Entwicklungen prägen das Energiemanagement im kommenden Jahr? Unsere Experten geben einen Ausblick und zeigen Lösungen für nachhaltige Energieversorgung.</p>
+          <p>Welche Entwicklungen prägen das Energiemanagement im kommenden Jahr? Unsere Experten geben einen Ausblick und zeigen Lösungen für nachhaltige Energieversorgung.Über DrivePlan können Sie die richtigen Trends setzen</p>
           <a href="#" class="btn btn-primary" onclick="openNewsModal(1);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-3">
-        <div class="blog-img" style="background-image:url('assets/Fördermöglichkeiten.png')"><span class="blog-label">Förderung</span></div>
+        <div class="blog-img" style="background-image:url('assets/Fördermöglichkeiten.png')">
+          <span class="category-label energie">💶 Förderung</span>
+        </div>
         <div class="blog-content">
           <h2>Fördermöglichkeiten 2026: So profitieren Unternehmen</h2>
           <p class="date">01. Dezember 2025</p>
@@ -100,7 +118,9 @@
         </div>
       </article>
       <article class="blog-card reveal-up delay-4">
-        <div class="blog-img" style="background-image:url('assets/Mobilitätskonzepte.png')"><span class="blog-label">Mobilität</span></div>
+        <div class="blog-img" style="background-image:url('assets/Ladesäulen.jpg')">
+          <span class="category-label mobilitaet">🚗 Mobilität</span>
+        </div>
         <div class="blog-content">
           <h2>Mobilitätskonzepte 2026: Die Stadt bewegt sich neu</h2>
           <p class="date">15. Dezember 2025</p>
