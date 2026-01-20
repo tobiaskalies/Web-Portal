@@ -63,8 +63,9 @@
   </section>
 
   <section class="contact">
-  <form name="kontakt" method="POST" netlify action="/success.html" class="contact-form">
+    <form name="kontakt" method="POST" netlify class="contact-form" autocomplete="off" novalidate>
       <input type="hidden" name="form-name" value="kontakt">
+      <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
       <div class="grid">
         <label>Vorname, Nachname
           <input name="name" type="text" required>
@@ -84,17 +85,6 @@
       </label>
       <button class="btn btn-primary" type="submit">Senden</button>
     </form>
-    
-    <div class="form-feedback" role="alert" aria-live="polite" style="display:none;">
-      <svg class="feedback-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-      </svg>
-      <div class="feedback-content">
-        <strong class="feedback-title">Vielen Dank!</strong>
-        <p class="feedback-message">Ihre Nachricht wurde erfolgreich versendet. Wir melden uns schnellstmöglich bei Ihnen.</p>
-      </div>
-    </div>
   </section>
 
   <section id="impressum" class="legal">
