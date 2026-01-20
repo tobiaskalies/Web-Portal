@@ -1,0 +1,21 @@
+{
+  "name": "DRIVEPLAN - Ingenieurbüro für nachhaltige Technik & Mobilität",
+  "short_name": "DRIVEPLAN",
+  "description": "Experten für Ladeinfrastruktur, Energiemanagement und Campusplanung",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E7D6D",
+  "icons": [
+    {
+      "src": "assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
