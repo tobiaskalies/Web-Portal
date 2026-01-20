@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var data = new FormData(form);
     var params = new URLSearchParams();
     data.forEach(function(value, key) { params.append(key, value); });
-    fetch('/', {
+    fetch('/kontakt.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
