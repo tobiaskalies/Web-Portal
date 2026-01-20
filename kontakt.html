@@ -63,8 +63,10 @@
   </section>
 
   <section class="contact">
-    <form name="kontakt" method="POST" data-netlify="true" class="contact-form" autocomplete="off" novalidate id="contact-form">
+    <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" autocomplete="off" novalidate id="contact-form">
       <input type="hidden" name="form-name" value="kontakt">
+      <input type="hidden" name="bot-field">
+      <!-- ...existing code... -->
       <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite" style="display:none"></div>
       <div class="grid">
         <label>Vorname, Nachname

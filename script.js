@@ -196,24 +196,28 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var data = new FormData(form);
-    var xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.getAttribute('action') || window.location.pathname);
-    xhr.setRequestHeader('Accept', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      if (xhr.status === 200) {
+    var params = new URLSearchParams();
+    data.forEach(function(value, key) { params.append(key, value); });
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+    .then(function(response) {
+      if (response.ok) {
         feedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">✔️</span><div class="feedback-content"><span class="feedback-title">Vielen Dank!</span><span class="feedback-message">Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.</span></div>';
         feedback.className = 'form-feedback success visible';
         feedback.style.display = 'flex';
         form.reset();
       } else {
-        feedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">❌</span><div class="feedback-content"><span class="feedback-title">Fehler!</span><span class="feedback-message">Leider konnte die Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail.</span></div>';
-        feedback.className = 'form-feedback error visible';
-        feedback.style.display = 'flex';
+        throw new Error('Fehler beim Senden');
       }
-    };
-    var params = new URLSearchParams();
-    data.forEach(function(value, key) { params.append(key, value); });
-    xhr.send(params.toString());
+    })
+    .catch(function() {
+      feedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">❌</span><div class="feedback-content"><span class="feedback-title">Fehler!</span><span class="feedback-message">Leider konnte die Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail.</span></div>';
+      feedback.className = 'form-feedback error visible';
+      feedback.style.display = 'flex';
+    });
   });
 });
 
