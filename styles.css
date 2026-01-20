@@ -703,6 +703,7 @@ details[open]{border-color:#dfe7e5}
   .hero-cta{flex-direction:column;width:100%}
   .hero-cta .btn{width:100%;justify-content:center}
   .cta-band{flex-direction:column;text-align:center}
+  .snowflake { font-size: 0.6rem; }
 }
 
 /* Toggle-Button */
