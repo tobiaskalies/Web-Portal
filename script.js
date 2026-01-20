@@ -188,58 +188,8 @@ if (scrollBtn) {
   });
 }
 
-// Modernes Inline-Feedback für Kontaktformular
-const contactForm = document.querySelector('form[name="kontakt"]');
-const formFeedback = document.getElementById('form-feedback');
-if (contactForm && formFeedback) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Wird gesendet...';
-    }
-    // Ladeindikator anzeigen
-    formFeedback.innerHTML = '<span class="spinner" aria-hidden="true"></span><div class="feedback-content"><span class="feedback-title">Nachricht wird gesendet...</span><span class="feedback-message">Bitte einen Moment Geduld.</span></div>';
-    formFeedback.className = 'form-feedback visible';
-    formFeedback.setAttribute('role', 'alert');
-    // Daten sammeln
-    const formData = new FormData(contactForm);
-    // Netlify Forms: fetch an die eigene Seite
-    try {
-      const response = await fetch(contactForm.getAttribute('action') || window.location.pathname, {
-        method: 'POST',
-        headers: { 'Accept': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      });
-      if (response.ok) {
-        // Erfolg
-        formFeedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">✔️</span><div class="feedback-content"><span class="feedback-title">Vielen Dank!</span><span class="feedback-message">Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.</span></div>';
-        formFeedback.className = 'form-feedback success visible';
-        contactForm.reset();
-        setTimeout(() => {
-          formFeedback.classList.remove('visible');
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Senden';
-          }
-        }, 5000);
-      } else {
-        throw new Error('Serverfehler');
-      }
-    } catch (err) {
-      formFeedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">❌</span><div class="feedback-content"><span class="feedback-title">Fehler!</span><span class="feedback-message">Leider konnte die Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail.</span></div>';
-      formFeedback.className = 'form-feedback error visible';
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Senden';
-      }
-      setTimeout(() => {
-        formFeedback.classList.remove('visible');
-      }, 7000);
-    }
-  });
-}
+// Kein eigenes JavaScript-Handling für das Kontaktformular mehr.
+// Netlify-Forms übernimmt das Senden und die Bestätigung.
 
 // Snowfall Effect
 const snowfallContainer = document.querySelector('.snowfall');
