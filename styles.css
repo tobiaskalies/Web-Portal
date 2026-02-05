@@ -954,6 +954,10 @@ details[open]{border-color:#dfe7e5}
   border-color:var(--dark-border);
 }
 
+:root[data-theme="dark"] .nav-toggle span{
+  background:var(--dark-text-secondary);
+}
+
 /* Buttons */
 :root[data-theme="dark"] .btn-primary{
   background:var(--dark-green);
