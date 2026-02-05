@@ -1320,3 +1320,14 @@ details[open]{border-color:#dfe7e5}
   color: #7ee8c1;
   border-bottom-color: #7ee8c1;
 }
+/* USt-IdNr. auf kleinen Displays in neue Zeile umbrechen */
+@media (max-width: 600px) {
+  .legal .separator {
+    display: none;
+  }
+  
+  .legal .ust-info {
+    display: block;
+    margin-top: 4px;
+  }
+}
