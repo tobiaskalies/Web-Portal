@@ -1294,3 +1294,25 @@ details[open]{border-color:#dfe7e5}
 :root[data-theme="dark"] .quick-links a:hover{
   color:var(--dark-green-hover);
 }
+/* Links in Impressum und Datenschutz */
+.legal a {
+  color: #2E7D6D;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 125, 109, 0.3);
+  transition: all 0.2s ease;
+}
+
+.legal a:hover {
+  color: #276e60;
+  border-bottom-color: #276e60;
+}
+
+:root[data-theme="dark"] .legal a {
+  color: #a7f3d0;
+  border-bottom-color: rgba(167, 243, 208, 0.3);
+}
+
+:root[data-theme="dark"] .legal a:hover {
+  color: #7ee8c1;
+  border-bottom-color: #7ee8c1;
+}
