@@ -210,41 +210,136 @@ if (contactForm && formFeedback) {
   }
 }
 
-// Snowfall Effect
-const snowfallContainer = document.querySelector('.snowfall');
-if (snowfallContainer) {
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake';
-    snowflake.textContent = '❄';
-    
-    // Random position
-    snowflake.style.left = Math.random() * 100 + '%';
-    
-    // Random size (0.5 - 1.5)
-    const size = 0.5 + Math.random();
-    snowflake.style.fontSize = size + 'rem';
-    
-    // Random duration (8-15 seconds)
-    const duration = 8 + Math.random() * 7;
-    snowflake.style.animationDuration = duration + 's';
-    
-    // Random delay
-    snowflake.style.animationDelay = Math.random() * 2 + 's';
-    
-    snowfallContainer.appendChild(snowflake);
-    
-    // Remove after animation
-    setTimeout(() => {
-      snowflake.remove();
-    }, (duration + 2) * 1000);
+// === FRÜHLING — KIRSCHBLÜTEN GARTEN ===
+const _sc = document.querySelector('.snowfall');
+if (_sc && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+  const PETALS = [
+    ['#f4c3d8','#e88bae','#fff4f7'],
+    ['#fad2e0','#f0a0c0','#fffafc'],
+    ['#f0bcdb','#d878a8','#fce8f4']
+  ];
+  const BFLY = [
+    { w1:'#f5943e', w2:'#c46018', vein:'#6a2e00', body:'#1a0a00' },
+    { w1:'#7bb8e8', w2:'#3d7cb8', vein:'#1a3d5c', body:'#080e18' },
+    { w1:'#aad45a', w2:'#70aa22', vein:'#354f0a', body:'#141e04' }
+  ];
+  const isMobile = window.innerWidth < 650;
+
+  // --- Bodenbepflanzung (einmalig) ---
+  (function buildGround() {
+    const cfg = [
+      { n: isMobile ? 10 : 22, hmin:16, hmax:26, wmin:1.4, wmax:2.2, op:.20, ca:'#56b870', cb:'#3a8a50', fq:.18 },
+      { n: isMobile ?  8 : 18, hmin:26, hmax:44, wmin:2,   wmax:3.2, op:.30, ca:'#6ccc86', cb:'#46a864', fq:.22 },
+      { n: isMobile ?  5 : 12, hmin:40, hmax:62, wmin:2.6, wmax:4.2, op:.42, ca:'#84d89e', cb:'#52b472', fq:.28 }
+    ];
+    cfg.forEach(c => {
+      for (let i = 0; i < c.n; i++) {
+        const g = document.createElement('span');
+        g.className = 'sp-grass';
+        const h  = c.hmin + Math.random() * (c.hmax - c.hmin);
+        const w  = c.wmin + Math.random() * (c.wmax - c.wmin);
+        const tl = (Math.random() * 20 - 10).toFixed(1);
+        const sd = (3.4 + Math.random() * 4.2).toFixed(2);
+        const sa = (Math.random() * 2.8).toFixed(2);
+        g.style.left       = (Math.random() * 100).toFixed(2) + '%';
+        g.style.height     = h.toFixed(1) + 'px';
+        g.style.width      = w.toFixed(1) + 'px';
+        g.style.opacity    = c.op;
+        g.style.background = `linear-gradient(180deg,${c.ca},${c.cb})`;
+        g.style.setProperty('--tl', tl + 'deg');
+        g.style.setProperty('--sd', sd + 's');
+        g.style.setProperty('--sa', sa + 's');
+        _sc.appendChild(g);
+        if (Math.random() < c.fq) {
+          const fc = PETALS[Math.floor(Math.random() * PETALS.length)];
+          const fl = document.createElement('span');
+          fl.className = 'sp-gflower';
+          fl.style.left    = (parseFloat(g.style.left) + (Math.random() * 3 - 1.5)).toFixed(2) + '%';
+          fl.style.bottom  = (h * 0.84).toFixed(1) + 'px';
+          fl.style.opacity = Math.min(c.op + 0.12, 0.62);
+          fl.style.setProperty('--petal', fc[0]);
+          fl.style.setProperty('--sd', sd + 's');
+          fl.style.setProperty('--sa', (parseFloat(sa) + 0.4).toFixed(2) + 's');
+          _sc.appendChild(fl);
+        }
+      }
+    });
+  })();
+
+  // --- Fallende Sakura-Blüte ---
+  function mkPetal() {
+    const pal = PETALS[Math.floor(Math.random() * PETALS.length)];
+    const el  = document.createElement('div');
+    el.className = 'sp-petal';
+    el.style.left = (Math.random() * 112 - 6).toFixed(2) + '%';
+    const dur = (8 + Math.random() * 9).toFixed(2);
+    const sz  = (0.62 + Math.random() * 0.54).toFixed(3);
+    const op  = (0.50 + Math.random() * 0.32).toFixed(2);
+    const dR  = isMobile ? 0.5 : 1;
+    const dx1 = (Math.random() * 80  * dR - 40 * dR).toFixed(1);
+    const dx2 = (Math.random() * 100 * dR - 50 * dR).toFixed(1);
+    const dx3 = (Math.random() * 70  * dR - 35 * dR).toFixed(1);
+    const r0  = Math.random() * 360 | 0;
+    const r1  = r0 + (Math.random() * 150 - 75  | 0);
+    const r2  = r1 + (Math.random() * 150 - 75  | 0);
+    const r3  = r2 + (Math.random() * 150 - 75  | 0);
+    el.innerHTML = `<svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><g transform="translate(13,13)"><ellipse rx="3.4" ry="5.4" fill="${pal[0]}" transform="rotate(0) translate(0,-5)"/><ellipse rx="3.4" ry="5.4" fill="${pal[0]}" transform="rotate(72) translate(0,-5)"/><ellipse rx="3.4" ry="5.4" fill="${pal[1]}" transform="rotate(144) translate(0,-5)"/><ellipse rx="3.4" ry="5.4" fill="${pal[1]}" transform="rotate(216) translate(0,-5)"/><ellipse rx="3.4" ry="5.4" fill="${pal[0]}" transform="rotate(288) translate(0,-5)"/><circle r="2.2" fill="${pal[2]}"/></g></svg>`;
+    el.style.setProperty('--sz',  sz);
+    el.style.setProperty('--dur', dur + 's');
+    el.style.setProperty('--op',  op);
+    el.style.setProperty('--dx1', dx1 + 'px');
+    el.style.setProperty('--dx2', dx2 + 'px');
+    el.style.setProperty('--dx3', dx3 + 'px');
+    el.style.setProperty('--r0',  r0 + 'deg');
+    el.style.setProperty('--r1',  r1 + 'deg');
+    el.style.setProperty('--r2',  r2 + 'deg');
+    el.style.setProperty('--r3',  r3 + 'deg');
+    _sc.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + 2) * 1000);
   }
-  
-  // Create initial snowflakes
-  for (let i = 0; i < 30; i++) {
-    setTimeout(createSnowflake, i * 200);
+
+  // --- Atmosphärisches Lichtstäubchen ---
+  function mkDust() {
+    const el = document.createElement('div');
+    el.className = 'sp-dust';
+    el.style.left   = (Math.random() * 100).toFixed(2) + '%';
+    el.style.bottom = (Math.random() * 40).toFixed(1) + 'px';
+    const dur   = (14 + Math.random() * 14).toFixed(2);
+    const drift = (Math.random() * 60  - 30).toFixed(1);
+    const op    = (0.26 + Math.random() * 0.28).toFixed(2);
+    const sz    = (1.6  + Math.random() * 2.8).toFixed(1);
+    el.style.setProperty('--dur',   dur + 's');
+    el.style.setProperty('--drift', drift + 'px');
+    el.style.setProperty('--op',    op);
+    el.style.setProperty('--sz',    sz + 'px');
+    _sc.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + 1) * 1000);
   }
-  
-  // Continuously add new snowflakes
-  setInterval(createSnowflake, 400);
+
+  // --- Seltener Schmetterling ---
+  function mkButterfly() {
+    const pal = BFLY[Math.floor(Math.random() * BFLY.length)];
+    const el  = document.createElement('div');
+    el.className = 'sp-butterfly';
+    el.style.left = (12 + Math.random() * 76).toFixed(2) + '%';
+    const dur = (14 + Math.random() * 8).toFixed(2);
+    el.style.setProperty('--dur',  dur + 's');
+    const bR = isMobile ? 0.48 : 1;
+    el.style.setProperty('--bx1', (Math.random() * 110 * bR - 55 * bR).toFixed(1) + 'px');
+    el.style.setProperty('--bx2', (Math.random() * 120 * bR - 60 * bR).toFixed(1) + 'px');
+    el.style.setProperty('--bx3', (Math.random() * 80  * bR - 40 * bR).toFixed(1) + 'px');
+    el.style.setProperty('--sz',  (0.70 + Math.random() * 0.36).toFixed(2));
+    el.innerHTML = `<svg viewBox="0 0 64 44" aria-hidden="true" focusable="false"><g class="bw-l"><path d="M30,22 C22,7 5,4 4,14 C3,23 14,26 30,22Z" fill="${pal.w1}" opacity=".86"/><path d="M30,22 C12,22 5,35 12,39 C18,42 26,33 30,22Z" fill="${pal.w2}" opacity=".80"/><path d="M30,22 C22,14 10,9 4,14" stroke="${pal.vein}" stroke-width=".55" fill="none" opacity=".42"/></g><g class="bw-r"><path d="M34,22 C42,7 59,4 60,14 C61,23 50,26 34,22Z" fill="${pal.w1}" opacity=".86"/><path d="M34,22 C52,22 59,35 52,39 C46,42 38,33 34,22Z" fill="${pal.w2}" opacity=".80"/><path d="M34,22 C42,14 54,9 60,14" stroke="${pal.vein}" stroke-width=".55" fill="none" opacity=".42"/></g><ellipse cx="32" cy="22" rx="1.9" ry="10" fill="${pal.body}" opacity=".88"/><circle cx="32" cy="12" r="2" fill="${pal.body}" opacity=".88"/><path d="M31,11 C28,5 24,2 20,2" stroke="${pal.body}" stroke-width=".9" fill="none"/><path d="M33,11 C36,5 40,2 44,2" stroke="${pal.body}" stroke-width=".9" fill="none"/><circle cx="20" cy="2" r="1.4" fill="${pal.body}"/><circle cx="44" cy="2" r="1.4" fill="${pal.body}"/></svg>`;
+    _sc.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + 2) * 1000);
+  }
+
+  // --- Spawn ---
+  for (let i = 0; i < (isMobile ? 5 : 10); i++) setTimeout(mkPetal, i * 620);
+  for (let i = 0; i < (isMobile ? 4 :  8); i++) setTimeout(mkDust,  300 + i * 900);
+  setInterval(mkPetal, isMobile ? 1900 : 1050);
+  setInterval(mkDust,  isMobile ? 4500 : 2400);
+  setTimeout(mkButterfly, 5000 + Math.random() * 6000);
+  setInterval(() => { if (Math.random() < .72) mkButterfly(); }, isMobile ? 30000 : 20000);
 }

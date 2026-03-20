@@ -588,39 +588,198 @@ details[open]{border-color:#dfe7e5}
   text-decoration:underline;
 }
 
-/* Snowfall */
+/* =============================================
+   FRÜHLING — KIRSCHBLÜTEN-GARTEN
+   ============================================= */
 .snowfall{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;
   pointer-events:none;
   z-index:9999;
   overflow:hidden;
 }
-.snowflake{
+.snowfall::after{
+  content:'';
   position:absolute;
-  top:-10px;
-  color:#fff;
-  font-size:1rem;
-  opacity:.8;
-  animation:fall linear infinite;
-  text-shadow:0 0 8px rgba(255,255,255,.6);
+  bottom:0;left:0;right:0;
+  height:72px;
+  background:linear-gradient(180deg,transparent 0%,rgba(66,148,86,.07) 45%,rgba(46,120,66,.12) 100%);
+  pointer-events:none;
 }
-@keyframes fall{
+
+/* --- Sakura-Blüte --- */
+.sp-petal{
+  position:absolute;
+  top:-28px;
+  width:22px;height:22px;
+  opacity:0;
+  animation:petalFall var(--dur,12s) cubic-bezier(.22,.08,.18,.95) forwards;
+  will-change:transform,opacity;
+  filter:drop-shadow(0 1px 4px rgba(210,100,150,.18));
+}
+.sp-petal svg{display:block;width:100%;height:100%;overflow:visible}
+@keyframes petalFall{
   0%{
-    transform:translateY(0) rotate(0deg);
-    opacity:.8;
+    transform:translateX(-50%) translateY(0) rotate(var(--r0,0deg)) scale(var(--sz,.9));
+    opacity:0;
+  }
+  9%{ opacity:var(--op,.7) }
+  34%{
+    transform:translateX(calc(-50% + var(--dx1,22px))) translateY(34vh) rotate(var(--r1,110deg)) scale(var(--sz,.9));
+  }
+  66%{
+    transform:translateX(calc(-50% + var(--dx2,-28px))) translateY(68vh) rotate(var(--r2,240deg)) scale(var(--sz,.9));
+    opacity:var(--op,.7);
+  }
+  91%{ opacity:.18 }
+  100%{
+    transform:translateX(calc(-50% + var(--dx3,14px))) translateY(108vh) rotate(var(--r3,360deg)) scale(var(--sz,.9));
+    opacity:0;
+  }
+}
+
+/* --- Lichtstäubchen --- */
+.sp-dust{
+  position:absolute;
+  width:var(--sz,2px);
+  height:var(--sz,2px);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,244,160,.94) 0%,rgba(255,218,80,.36) 55%,transparent 100%);
+  opacity:0;
+  animation:dustFloat var(--dur,18s) ease-in-out forwards;
+  will-change:transform,opacity;
+}
+@keyframes dustFloat{
+  0%{
+    transform:translateX(-50%) translateY(0) scale(1);
+    opacity:0;
+  }
+  20%{ opacity:var(--op,.42) }
+  74%{ opacity:var(--op,.42) }
+  100%{
+    transform:translateX(calc(-50% + var(--drift,0px))) translateY(-62vh) scale(.38);
+    opacity:0;
+  }
+}
+
+/* --- Schmetterling --- */
+.sp-butterfly{
+  position:absolute;
+  bottom:-12px;
+  width:52px;height:36px;
+  opacity:0;
+  animation:bflyFlight var(--dur,16s) ease-in-out forwards;
+  will-change:transform,opacity;
+  filter:drop-shadow(0 2px 6px rgba(60,40,20,.18));
+}
+.sp-butterfly svg{display:block;width:100%;height:100%;overflow:visible}
+.sp-butterfly .bw-l{
+  transform-origin:30px 22px;
+  animation:bwFlapL .34s ease-in-out infinite alternate;
+}
+.sp-butterfly .bw-r{
+  transform-origin:34px 22px;
+  animation:bwFlapR .34s ease-in-out infinite alternate;
+  animation-delay:.17s;
+}
+@keyframes bwFlapL{
+  0%{transform:scaleX(1)}
+  100%{transform:scaleX(.22)}
+}
+@keyframes bwFlapR{
+  0%{transform:scaleX(1)}
+  100%{transform:scaleX(.22)}
+}
+@keyframes bflyFlight{
+  0%{
+    transform:translateX(-50%) translateY(0) scale(var(--sz,1));
+    opacity:0;
+  }
+  10%{ opacity:.76 }
+  30%{
+    transform:translateX(calc(-50% + var(--bx1,40px))) translateY(-26vh) scale(var(--sz,1)) rotate(-4deg);
+  }
+  58%{
+    transform:translateX(calc(-50% + var(--bx2,-35px))) translateY(-55vh) scale(var(--sz,1)) rotate(3deg);
+    opacity:.70;
+  }
+  85%{
+    transform:translateX(calc(-50% + var(--bx3,20px))) translateY(-84vh) scale(var(--sz,1)) rotate(-2deg);
+    opacity:.54;
   }
   100%{
-    transform:translateY(100vh) rotate(360deg);
-    opacity:.3;
+    transform:translateX(calc(-50% + var(--bx3,20px))) translateY(-112vh) scale(var(--sz,1)) rotate(0deg);
+    opacity:0;
   }
 }
-:root[data-theme="dark"] .snowflake{
-  color:#e0f2fe;
-  text-shadow:0 0 10px rgba(224,242,254,.8);
+
+/* --- Grashalme --- */
+.sp-grass{
+  position:absolute;
+  bottom:0;
+  border-radius:55% 55% 8% 8% / 88% 88% 8% 8%;
+  transform-origin:bottom center;
+  transform:rotate(var(--tl,0deg));
+  animation:grassSway var(--sd,4s) ease-in-out var(--sa,0s) infinite alternate;
+  will-change:transform;
+}
+@keyframes grassSway{
+  0%{ transform:rotate(var(--tl,0deg)) }
+  100%{ transform:rotate(calc(var(--tl,0deg) + 5deg)) }
+}
+
+/* --- Kleine Bodenblüten --- */
+.sp-gflower{
+  position:absolute;
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--petal,#f2b8cc);
+  box-shadow:0 0 5px 1.5px rgba(255,200,220,.34);
+  transform:translateX(-50%);
+  animation:gflowerBob var(--sd,4s) ease-in-out var(--sa,0s) infinite alternate;
+  will-change:transform;
+}
+@keyframes gflowerBob{
+  0%{ transform:translateX(-50%) translateY(0) scale(1) }
+  100%{ transform:translateX(-50%) translateY(-1.8px) scale(1.08) }
+}
+
+/* --- Dark Mode --- */
+:root[data-theme="dark"] .sp-petal{
+  filter:drop-shadow(0 1px 5px rgba(200,130,200,.28));
+}
+:root[data-theme="dark"] .sp-dust{
+  background:radial-gradient(circle,rgba(160,255,180,.92) 0%,rgba(60,200,80,.34) 55%,transparent 100%);
+}
+:root[data-theme="dark"] .sp-butterfly{
+  filter:drop-shadow(0 2px 8px rgba(120,200,255,.28));
+}
+:root[data-theme="dark"] .sp-grass{
+  filter:brightness(1.25) saturate(1.2);
+}
+:root[data-theme="dark"] .sp-gflower{
+  filter:brightness(1.3);
+  box-shadow:0 0 6px 2px rgba(200,220,255,.28);
+}
+:root[data-theme="dark"] .snowfall::after{
+  background:linear-gradient(180deg,transparent 0%,rgba(46,120,66,.10) 45%,rgba(30,90,50,.16) 100%);
+}
+
+/* --- Smartphone-Optimierung --- */
+@media (max-width:600px){
+  .sp-petal{ width:15px; height:15px }
+  .sp-butterfly{ width:38px; height:27px }
+  .snowfall::after{ height:48px }
+  .sp-petal,
+  .sp-butterfly,
+  .sp-dust,
+  .sp-grass,
+  .sp-gflower{ will-change:auto }
+}
+
+/* --- Reduzierte Bewegung (Barrierefreiheit) --- */
+@media (prefers-reduced-motion:reduce){
+  .snowfall{ display:none }
 }
 
 /* Form Feedback */
