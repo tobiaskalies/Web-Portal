@@ -188,27 +188,38 @@ if (scrollBtn) {
   });
 }
 
-// Form Feedback
-const contactForm = document.querySelector('form[name="kontakt"]');
-const formFeedback = document.querySelector('.form-feedback');
-
-if (contactForm && formFeedback) {
-  contactForm.addEventListener('submit', (e) => {
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.textContent = 'Wird gesendet...';
-      submitBtn.disabled = true;
-    }
+// Netlify-Forms: Inline-Bestätigung nach Absenden (ohne Weiterleitung)
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contact-form');
+  var feedback = document.getElementById('form-feedback');
+  if (!form || !feedback) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var params = new URLSearchParams();
+    data.forEach(function(value, key) { params.append(key, value); });
+    fetch('/kontakt.html', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+    .then(function(response) {
+      if (response.ok) {
+        feedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">✔️</span><div class="feedback-content"><span class="feedback-title">Vielen Dank!</span><span class="feedback-message">Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.</span></div>';
+        feedback.className = 'form-feedback success visible';
+        feedback.style.display = 'flex';
+        form.reset();
+      } else {
+        throw new Error('Fehler beim Senden');
+      }
+    })
+    .catch(function() {
+      feedback.innerHTML = '<span class="feedback-icon" aria-hidden="true">❌</span><div class="feedback-content"><span class="feedback-title">Fehler!</span><span class="feedback-message">Leider konnte die Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail.</span></div>';
+      feedback.className = 'form-feedback error visible';
+      feedback.style.display = 'flex';
+    });
   });
-  
-  // Netlify Form Success Handler
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('success') === 'true') {
-    formFeedback.style.display = 'flex';
-    contactForm.style.display = 'none';
-    window.scrollTo({ top: formFeedback.offsetTop - 100, behavior: 'smooth' });
-  }
-}
+});
 
 // === FRÜHLING — KIRSCHBLÜTEN GARTEN ===
 const _sc = document.querySelector('.snowfall');

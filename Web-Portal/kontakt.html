@@ -4,24 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontakt – DRIVEPLAN</title>
-  <meta name="description" content="Kontaktieren Sie DRIVEPLAN für Ihr nächstes Projekt. Wir beraten Sie gerne zu Energie, Mobilität &amp; Infrastruktur.">
+  <meta name="description" content="Kontakt zu DRIVEPLAN in Neuenhagen bei Berlin. Jetzt Beratung zu Ladeinfrastruktur, Energiemanagement und Mobilitätskonzepten für Ihr Projekt anfragen.">
+  <meta name="keywords" content="Ingenieurbüro Kontakt, Beratung Ladeinfrastruktur, Energiemanagement Anfrage, Mobilitätskonzept Beratung, Neuenhagen bei Berlin, Brandenburg">
   <meta property="og:title" content="Kontakt – DRIVEPLAN">
   <meta property="og:description" content="Kontaktieren Sie uns für Ihr nächstes Projekt. Wir beraten Sie gerne.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.driveplan-engineering.de/kontakt.html">
+  <meta property="og:image" content="https://www.driveplan-engineering.de/assets/Logo2.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kontakt – DRIVEPLAN">
+  <meta name="twitter:description" content="Kontaktieren Sie uns für Ihr nächstes Projekt. Wir beraten Sie gerne.">
+  <meta name="twitter:image" content="https://www.driveplan-engineering.de/assets/Logo2.png">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.driveplan-engineering.de/kontakt.html">
+  <meta name="geo.region" content="DE-BB">
+  <meta name="geo.placename" content="Neuenhagen bei Berlin">
+  <meta name="geo.position" content="52.53;13.69">
+  <meta name="ICBM" content="52.53, 13.69">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="styles.css" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   
-  <!-- Favicon entfernt: Dateien fehlen -->
+  <link rel="icon" href="assets/favicon1.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon1.png">
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "url": "https://driveplan.de/kontakt.html",
+    "url": "https://driveplan-engineering.de/kontakt.html",
+    "keywords": "Kontakt, Ladeinfrastruktur Beratung, Energiemanagement, Mobilitätskonzepte, Ingenieurbüro Neuenhagen",
     "mainEntity": {
       "@type": "Organization",
       "name": "DRIVEPLAN",
@@ -43,7 +57,7 @@
       <img src="assets/Logo2.png" alt="DrivePlan Logo Symbol" class="logo" />
       <div class="wordmark">
         <span class="name">DrivePlan Engineering</span>
-        <span class="tagline">Ingenieurbüro für nachhaltige Technik &amp; Mobilität</span>
+        <span class="tagline">Ingenieurbüro für nachhaltige Fahrzeug- &amp; Ladeinfrastrukturkonzepte</span>
       </div>
     </a>
     <nav class="main-nav">
@@ -63,8 +77,11 @@
   </section>
 
   <section class="contact">
-    <form name="kontakt" method="POST" data-netlify="true" action="/kontakt.html?success=true" class="contact-form">
+    <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" autocomplete="off" novalidate id="contact-form">
       <input type="hidden" name="form-name" value="kontakt">
+      <input type="hidden" name="bot-field">
+      <!-- ...existing code... -->
+      <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite" style="display:none"></div>
       <div class="grid">
         <label>Vorname, Nachname
           <input name="name" type="text" required>
@@ -84,23 +101,12 @@
       </label>
       <button class="btn btn-primary" type="submit">Senden</button>
     </form>
-    
-    <div class="form-feedback" role="alert" aria-live="polite" style="display:none;">
-      <svg class="feedback-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-      </svg>
-      <div class="feedback-content">
-        <strong class="feedback-title">Vielen Dank!</strong>
-        <p class="feedback-message">Ihre Nachricht wurde erfolgreich versendet. Wir melden uns schnellstmöglich bei Ihnen.</p>
-      </div>
-    </div>
   </section>
 
   <section id="impressum" class="legal">
     <h2>Impressum</h2>
-    <p>DRIVEPLAN – Usedomstrasse 19, 15366 Neuenhagen</p>
-    <p>E-Mail: info@driveplan-engineering.de · USt-IdNr.: DE123456789</p>
+    <p>DrivePlan Engineering – Usedomstrasse 19, 15366 Neuenhagen</p>
+    <p>E-Mail: <a href="mailto:info@driveplan-engineering.de">info@driveplan-engineering.de</a> · Telefon: <a href="tel:+4933426998894">03342 / 6998894</a><span class="separator"> · </span><span class="ust-info">USt-IdNr.: DE459667207</span></p>
   </section>
 
   <section id="datenschutz" class="legal">
@@ -108,7 +114,8 @@
     
     <h3>1. Verantwortlicher</h3>
     <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
-    <p>DRIVEPLAN<br>
+    <p>Ing. Tobias Kalies<br>
+    DrivePlan Engineering<br>
     Usedomstraße 19<br>
     15366 Neuenhagen<br>
     Deutschland</p>
