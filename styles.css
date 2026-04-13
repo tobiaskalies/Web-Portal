@@ -432,17 +432,16 @@ body{
 .about-cta{margin-top:12px}
 
 /* Mitgliedschaft */
-.membership{max-width:1200px;margin:0 auto;padding:0 16px 64px}
+.membership{max-width:1200px;margin:0 auto;padding:0 16px 56px}
 .membership-card{
-  display:grid;
-  grid-template-columns:minmax(320px, 470px) 1fr;
-  gap:28px;
-  align-items:stretch;
-  padding:28px 32px;
-  border:1px solid #d9dfdf;
-  border-radius:20px;
-  background:linear-gradient(135deg, rgba(255,255,255,.98), rgba(250,251,251,.98));
-  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:20px 24px;
+  border:1px solid #e2e6e7;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
   position:relative;
   overflow:hidden;
 }
@@ -450,15 +449,15 @@ body{
   content:"";
   position:absolute;
   inset:0 auto 0 0;
-  width:4px;
-  background:linear-gradient(180deg, #d80f18, #8f0e14);
+  width:2px;
+  background:linear-gradient(180deg, #d80f18, #a80810);
 }
 .membership-lockup{
   display:flex;
   align-items:center;
-  gap:22px;
-  padding-right:28px;
-  border-right:1px solid #e7ebeb;
+  gap:16px;
+  padding:0;
+  border:none;
 }
 .membership-logo-link{
   display:flex;
@@ -472,22 +471,22 @@ body{
 .membership-icon{
   display:block;
   position:relative;
-  flex:0 0 116px;
-  width:116px;
-  height:84px;
+  flex:0 0 90px;
+  width:90px;
+  height:68px;
   overflow:hidden;
-  border-radius:18px;
-  background:linear-gradient(180deg, #f5f5f5, #eceff0);
-  border:1px solid #d6dbdd;
+  border-radius:14px;
+  background:linear-gradient(180deg, #f8f8f8, #f0f1f2);
+  border:1px solid #dfe2e4;
 }
 .membership-arc{
   display:block;
   position:absolute;
-  left:-26px;
-  top:-18px;
-  width:114px;
-  height:114px;
-  border:9px solid #c7c9cb;
+  left:-22px;
+  top:-16px;
+  width:100px;
+  height:100px;
+  border:8px solid #d4d6d8;
   border-right-color:transparent;
   border-bottom-color:transparent;
   border-radius:50%;
@@ -527,57 +526,43 @@ body{
   height:3px;
   background:#e10613;
 }
-.membership-brand{min-width:0}
-.membership-content{
+.membership-brand{
   min-width:0;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  gap:2px;
 }
 .membership-kicker{
-  margin:0 0 6px;
-  font-size:.76rem;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#687176;
+  display:none;
 }
 .membership-title{
   margin:0;
   font-family:Montserrat,sans-serif;
-  font-size:clamp(24px,2.7vw,34px);
-  line-height:1.06;
+  font-size:clamp(16px,2.2vw,20px);
+  line-height:1.2;
   color:#1f2428;
+  font-weight:600;
 }
-.membership-title span{color:#d80f18;display:block}
+.membership-title span{
+  display:none;
+}
 .membership-meta{
-  margin:10px 0 0;
-  color:#3a3f43;
-  font-size:1.02rem;
+  margin:0;
+  color:#5a6268;
+  font-size:.9rem;
+  font-weight:500;
+}
+.membership-content{
+  display:none;
 }
 .membership-copy{
-  margin:0;
-  color:#4b5156;
-  font-size:1rem;
-  line-height:1.7;
+  display:none;
 }
 .membership-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
+  display:none;
 }
 .membership-tags span{
-  display:inline-flex;
-  align-items:center;
-  min-height:34px;
-  padding:0 12px;
-  border-radius:999px;
-  border:1px solid #e2e6e7;
-  background:#f6f8f8;
-  color:#374046;
-  font-size:.88rem;
-  font-weight:600;
+  display:none;
 }
 
 /* FAQ */
@@ -1037,10 +1022,12 @@ details[open]{border-color:#dfe7e5}
   .feature-grid,.project-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr}
   .about{grid-template-columns:1fr}
-  .membership-card{grid-template-columns:1fr;padding:24px}
-  .membership-lockup{flex-direction:column;align-items:flex-start;padding-right:0;padding-bottom:20px;border-right:none;border-bottom:1px solid #e7ebeb}
-  .membership-icon{flex-basis:96px;width:96px;height:74px}
-  .membership-arc{left:-24px;top:-20px;width:102px;height:102px}
+  .membership-card{gap:14px;padding:18px 20px}
+  .membership-lockup{flex-direction:column;align-items:flex-start;gap:12px}
+  .membership-icon{flex-basis:80px;width:80px;height:62px;border-radius:12px}
+  .membership-arc{left:-20px;top:-16px;width:92px;height:92px;border-width:7px}
+  .membership-title{font-size:clamp(15px,7vw,18px)}
+  .membership-meta{font-size:.85rem}
   .service{grid-template-columns:1fr}
   .project-detail{grid-template-columns:1fr}
 }
@@ -1061,9 +1048,11 @@ details[open]{border-color:#dfe7e5}
   .membership{padding:0 12px 52px}
   .membership-card{padding:18px 16px;gap:18px;border-radius:16px}
   .membership-card::before{width:3px}
-  .membership-lockup{gap:12px;padding-bottom:14px}
-  .membership-icon{flex-basis:78px;width:78px;height:62px;border-radius:14px}
-  .membership-arc{left:-20px;top:-18px;width:86px;height:86px;border-width:7px}
+  .membership{padding:0 12px 44px}
+  .membership-card{gap:12px;padding:16px}
+  .membership-lockup{gap:10px}
+  .membership-icon{flex-basis:72px;width:72px;height:56px;border-radius:11px}
+  .membership-arc{left:-18px;top:-14px;width:84px;height:84px;border-width:6px}
   .membership-kicker{font-size:.68rem;letter-spacing:.12em}
   .membership-title{font-size:clamp(20px,8vw,26px);line-height:1.1}
   .membership-meta{margin-top:6px;font-size:.92rem}
@@ -1462,53 +1451,31 @@ details[open]{border-color:#dfe7e5}
 }
 
 :root[data-theme="dark"] .membership-card{
-  background:linear-gradient(135deg, rgba(24,29,32,.98), rgba(30,36,39,.98));
-  border-color:var(--dark-border);
-  box-shadow:0 10px 28px rgba(0,0,0,.35);
+  background:#1a1e22;
+  border-color:#2a3139;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
 }
 
 :root[data-theme="dark"] .membership-card::before{
-  background:linear-gradient(180deg, #e3353f, #8f0e14);
-}
-
-:root[data-theme="dark"] .membership-lockup{
-  border-color:rgba(255,255,255,.08);
+  background:linear-gradient(180deg, #e3353f, #a80810);
 }
 
 :root[data-theme="dark"] .membership-icon{
-  background:linear-gradient(180deg, #20272a, #1b2124);
-  border-color:rgba(255,255,255,.08);
+  background:linear-gradient(180deg, #22282d, #1d2227);
+  border-color:#3a4149;
 }
 
 :root[data-theme="dark"] .membership-arc{
-  border-top-color:#858b8f;
-  border-left-color:#858b8f;
-}
-
-:root[data-theme="dark"] .membership-kicker{
-  color:var(--dark-text-tertiary);
+  border-top-color:#4a5157;
+  border-left-color:#4a5157;
 }
 
 :root[data-theme="dark"] .membership-title{
-  color:var(--dark-text-primary);
-}
-
-:root[data-theme="dark"] .membership-title span{
-  color:#ff575f;
+  color:#e8ecf1;
 }
 
 :root[data-theme="dark"] .membership-meta{
-  color:var(--dark-text-secondary);
-}
-
-:root[data-theme="dark"] .membership-copy{
-  color:var(--dark-text-secondary);
-}
-
-:root[data-theme="dark"] .membership-tags span{
-  background:rgba(255,255,255,.04);
-  border-color:rgba(255,255,255,.08);
-  color:var(--dark-text-primary);
+  color:#a8b1b9;
 }
 
 /* FAQ */
