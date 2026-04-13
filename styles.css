@@ -1049,9 +1049,12 @@ details[open]{border-color:#dfe7e5}
   .membership-card{padding:18px 16px;gap:18px;border-radius:16px}
   .membership-card::before{width:3px}
   .membership{padding:0 12px 44px}
-  .membership-card{gap:12px;padding:16px;flex-direction:column;align-items:center;text-align:center}
-  .membership-lockup{gap:10px;flex-direction:column;align-items:center}
-  .membership-brand{text-align:center}
+  .membership-card{gap:8px;padding:12px 14px;flex-wrap:wrap}
+  .membership-lockup{gap:8px}
+  .membership-icon{flex-basis:64px;width:64px;height:50px;border-radius:10px}
+  .membership-arc{left:-16px;top:-12px;width:80px;height:80px;border-width:5px}
+  .membership-title{font-size:clamp(14px,3vw,16px);line-height:1.2}
+  .membership-meta{font-size:.85rem;margin-top:2px}
   .membership-icon{flex-basis:72px;width:72px;height:56px;border-radius:11px}
   .membership-arc{left:-18px;top:-14px;width:84px;height:84px;border-width:6px}
   .membership-kicker{font-size:.68rem;letter-spacing:.12em}
