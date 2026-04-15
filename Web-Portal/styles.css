@@ -449,6 +449,16 @@ details[open]{border-color:#dfe7e5}
 .service-body{padding:18px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:8px 0 0;list-style:none}
 .tags li{background:#f2f7f6;border:1px solid #e5ecea;color:#2a2f34;border-radius:999px;padding:6px 10px;font-weight:600;font-size:.86rem}
+.tags li.tag-item{cursor:pointer;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease}
+.tags li.tag-item:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(46,125,109,.12)}
+.tags li.tag-item.is-active{border-color:rgba(46,125,109,.45);background:#eaf5f2;color:#1f3a34}
+.tags li.tag-item:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.tag-detail{margin-top:10px;padding:0;border:1px solid transparent;border-radius:12px;background:transparent;color:#4b5156;font-size:.92rem;line-height:1.5;opacity:0;max-height:0;overflow:hidden;transform:translateY(-4px);transition:opacity .22s ease, transform .22s ease, max-height .25s ease, padding .22s ease, border-color .22s ease}
+.tag-detail.is-visible{padding:10px 12px;border-color:#dfe8e5;background:linear-gradient(180deg,#f9fcfb,#f4f9f7);opacity:1;max-height:240px;transform:translateY(0)}
+.tag-detail-label{display:block;margin-bottom:4px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#5c7770}
+.tag-detail-title{display:block;margin-bottom:3px;color:#253238;font-weight:700}
+.tag-detail-text{display:block}
+.advantage{margin-top:14px;padding-top:12px;border-top:1px solid #e5ecea;color:#2a2f34;font-size:.95rem;line-height:1.6}
 
 /* Projekt-Details */
 .project-list{max-width:1100px;margin:12px auto 64px;padding:0 16px;display:grid;gap:20px}
@@ -905,6 +915,18 @@ details[open]{border-color:#dfe7e5}
   .hero-cta{flex-direction:column;width:100%}
   .hero-cta .btn{width:100%;justify-content:center}
   .cta-band{flex-direction:column;text-align:center}
+  /* Leistungsseite Smartphone */
+  .subpage .page-hero{padding:36px 14px 12px}
+  .subpage .page-hero h1{font-size:1.6rem}
+  .subpage .page-hero p{font-size:.95rem}
+  .service-sections{gap:14px;padding:0 10px;margin-bottom:36px}
+  .service-media{min-height:160px}
+  .service-body{padding:14px 12px}
+  .service-body h2{font-size:1.05rem}
+  .service-body p{font-size:.9rem}
+  .tags{gap:6px;margin-top:10px}
+  .tags li{font-size:.8rem;padding:5px 9px}
+  .tag-detail.is-visible{padding:8px 10px;font-size:.88rem}
   .snowflake { font-size: 0.18rem !important; }
 
   /* Noch weniger Schneeflocken auf dem Handy anzeigen */
@@ -1346,6 +1368,34 @@ details[open]{border-color:#dfe7e5}
   background:var(--dark-bg-elevated);
   border-color:var(--dark-border);
   color:var(--dark-text-secondary);
+}
+
+:root[data-theme="dark"] .tags li.tag-item.is-active{
+  border-color:rgba(87,179,153,.55);
+  background:rgba(87,179,153,.16);
+  color:var(--dark-text-primary);
+}
+
+:root[data-theme="dark"] .tag-detail{
+  color:var(--dark-text-secondary);
+}
+
+:root[data-theme="dark"] .tag-detail.is-visible{
+  border-color:var(--dark-border);
+  background:var(--dark-bg-elevated);
+}
+
+:root[data-theme="dark"] .tag-detail-label{
+  color:var(--dark-text-secondary);
+}
+
+:root[data-theme="dark"] .tag-detail-title{
+  color:var(--dark-text-primary);
+}
+
+:root[data-theme="dark"] .advantage{
+  border-top-color:var(--dark-border);
+  color:var(--dark-text-primary);
 }
 
 /* Forms */

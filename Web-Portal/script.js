@@ -105,6 +105,80 @@ const obs = new IntersectionObserver((entries) => {
 }, {threshold: 0.12});
 reveals.forEach(el => obs.observe(el));
 
+// Leistungs-Keywords: Klick zeigt professionelle Kurzinfo
+function initServiceKeywordInfo() {
+  const tags = document.querySelectorAll('.tags .tag-item');
+  if (!tags.length) return;
+
+  function hideDetail(detail) {
+    detail.classList.remove('is-visible');
+    window.setTimeout(() => {
+      if (!detail.classList.contains('is-visible')) detail.hidden = true;
+    }, 230);
+  }
+
+  function showTagInfo(tag) {
+    const serviceBody = tag.closest('.service-body');
+    if (!serviceBody) return;
+
+    const detail = serviceBody.querySelector('.tag-detail');
+    if (!detail) return;
+
+    const tagGroup = serviceBody.querySelectorAll('.tags .tag-item');
+    const isSameActive = tag.classList.contains('is-active') && detail.classList.contains('is-visible');
+
+    tagGroup.forEach(item => {
+      item.setAttribute('aria-pressed', 'false');
+      item.classList.remove('is-active');
+    });
+
+    if (isSameActive) {
+      hideDetail(detail);
+      return;
+    }
+
+    tag.setAttribute('aria-pressed', 'true');
+    tag.classList.add('is-active');
+
+    const info = tag.getAttribute('data-info') || '';
+    const title = (tag.textContent || '').trim();
+
+    if (!info) {
+      hideDetail(detail);
+      return;
+    }
+
+    detail.innerHTML = '';
+    const label = document.createElement('span');
+    label.className = 'tag-detail-label';
+    label.textContent = 'Leistungsdetail';
+
+    const heading = document.createElement('span');
+    heading.className = 'tag-detail-title';
+    heading.textContent = title;
+
+    const body = document.createElement('span');
+    body.className = 'tag-detail-text';
+    body.textContent = info;
+
+    detail.append(label, heading, body);
+    detail.hidden = false;
+    requestAnimationFrame(() => detail.classList.add('is-visible'));
+  }
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', () => showTagInfo(tag));
+    tag.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showTagInfo(tag);
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initServiceKeywordInfo);
+
 // Counter animation
 function animateCount(el) {
   const target = Number(el.getAttribute('data-count') || '0');
