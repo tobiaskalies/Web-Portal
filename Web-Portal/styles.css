@@ -269,10 +269,11 @@ body{
 .section-head p{color:#51585e;margin:0 auto;max-width:680px}
 .feature-grid{max-width:1200px;margin:0 auto 56px;padding:0 16px;display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .card{background:#fff;border:1px solid #e9edef;border-radius:16px;box-shadow:var(--shadow);padding:18px;
-  will-change:transform;transition:transform .3s ease,box-shadow .3s ease}
+  will-change:transform;transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.12)}
 .card h3{font-family:Montserrat,sans-serif;margin:12px 0 6px}
 .card p{color:#4b5156;margin:0 0 8px}
+.card-link-row{margin-top:auto;padding-top:12px}
 .card .link{color:var(--green);font-weight:600;text-decoration:none}
 .card .link:hover{text-decoration:underline}
 .card-media{height:140px;border-radius:12px;background:#eef3f2;margin:-18px -18px 12px -18px;
@@ -287,7 +288,7 @@ body{
 .projects-teaser{background:linear-gradient(180deg,#ffffffcc,#f6fbfa)}
 .project-grid{max-width:1200px;margin:0 auto 64px;padding:0 16px;display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .project{position:relative;border:1px solid #e7ecee;border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow);text-decoration:none;color:inherit;
-  will-change:transform;transition:transform .3s ease,box-shadow .3s ease}
+  will-change:transform;transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
 .project:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.12)}
 .project .thumb{height:160px;background:#eaf2f0;contain:layout style paint}
 .tech-bg{background: url("assets/pattern-tech.svg") center/cover no-repeat, linear-gradient(180deg,#f6fbfa,#eef5f3)}
@@ -300,6 +301,9 @@ body{
 .badge .icon.infra{background:#f4a11e;box-shadow:0 0 0 2px rgba(244,161,30,.18)}
 .project .meta {
   padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .project .meta h3 {
   margin: 0 0 7px 0;
@@ -311,7 +315,8 @@ body{
   font-size: 1em;
   font-weight: 400;
   opacity: 0.82;
-  margin-top: 2px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 /* Blog/News Bereich */
