@@ -248,8 +248,9 @@ body{
 /* Hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.06);
   will-change:transform;contain:layout style paint}
-.hero-bg{position:absolute;inset:0;pointer-events:none}
-.hero-bg img{position:absolute;inset:auto 0 0 auto;opacity:.18;width:min(60vw,900px)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;isolation:isolate}
+.hero-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(248,249,250,.98) 0%, rgba(248,249,250,.86) 33%, rgba(248,249,250,.38) 60%, rgba(248,249,250,0) 82%);z-index:1}
+.hero-bg img{position:absolute;inset:auto 0 0 auto;opacity:.16;width:min(60vw,900px);filter:saturate(.88) contrast(.95) brightness(.98);z-index:0}
 .hero-noise{position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
   background-size:14px 14px;opacity:.15;mix-blend-mode:multiply}
 .hero-grid{position:absolute;inset:0;background:
@@ -1303,6 +1304,15 @@ details[open]{border-color:#dfe7e5}
 /* Hero */
 :root[data-theme="dark"] .hero{
   border-color:var(--dark-border);
+}
+
+:root[data-theme="dark"] .hero-bg::before{
+  background:linear-gradient(90deg, rgba(11,17,20,.90) 0%, rgba(11,17,20,.74) 34%, rgba(11,17,20,.28) 62%, rgba(11,17,20,0) 84%);
+}
+
+:root[data-theme="dark"] .hero-bg img{
+  opacity:.18;
+  filter:saturate(.94) contrast(1) brightness(.97);
 }
 
 :root[data-theme="dark"] .hero h1{
