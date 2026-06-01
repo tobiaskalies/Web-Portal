@@ -41,6 +41,7 @@
       <a href="index.html">Start</a>
       <a href="leistungen.html">Leistungen</a>
       <a href="projekte.html">Projekte</a>
+      <a href="wissen.html">Wissen</a>
       <a href="news.html" class="active">News & Blog</a>
       <a class="btn btn-outline" href="kontakt.html">Kontakt</a>
     </nav>
@@ -48,52 +49,102 @@
     <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
 
-  <section class="page-hero compact">
-    <h1 class="reveal-up">News & Blog</h1>
-    <p class="reveal-up delay-1">Aktuelle Themen, Neuigkeiten und Fachbeiträge von DRIVEPLAN.</p>
+  <section class="page-hero compact news-hero">
+    <div class="news-hero-bg" aria-hidden="true">
+      <video class="news-hero-video is-active" playsinline muted autoplay preload="auto" poster="assets/Ladesäulen.jpg" data-news-hero-video="0">
+        <source src="assets/Video Project 3_web.mp4" type="video/mp4">
+      </video>
+      <video class="news-hero-video" playsinline muted autoplay preload="auto" poster="assets/Ladesäulen.jpg" data-news-hero-video="1" aria-hidden="true">
+        <source src="assets/Video Project 3_web.mp4" type="video/mp4">
+      </video>
+      <div class="news-hero-overlay"></div>
+    </div>
+    <div class="news-hero-inner">
+      <div class="news-hero-copy">
+        <span class="news-kicker reveal-up">Aktuelle Einblicke</span>
+        <h1 class="news-title reveal-up">Neuigkeiten &amp; Fachimpulse</h1>
+        <p class="news-subtitle reveal-up delay-1">Fachbeiträge, Projektimpulse und aktuelle Entwicklungen rund um Elektromobilität, Energie und wirtschaftliche Infrastrukturplanung.</p>
+      </div>
+    </div>
   </section>
 
   <section class="blog-list">
     <div class="blog-grid">
   <article class="blog-card reveal-up delay-1" style="display:grid;grid-template-columns:1fr 1.1fr;gap:0;min-height:420px;height:100%;align-items:stretch;border-radius:24px;overflow:hidden;">
-        <div class="blog-img" style="padding:0;overflow:hidden;height:100%;display:flex;align-items:stretch;justify-content:center;background:#000;border-radius:24px 0 0 24px;">
-          <video playsinline muted loop preload="auto" style="width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:24px 0 0 24px;display:block;background:#000;">
-              <source src="assets/Video Project 3_web.mp4" type="video/mp4">
-                <img src="assets/Ladesäulen.jpg" alt="Fallback Bild Unternehmen" style="width:100%;height:100%;object-fit:cover;border-radius:24px 0 0 24px;display:block;background:#000;">
-              Ihr Browser unterstützt kein Video.
-            </video>
+        <div class="blog-img" style="padding:0;overflow:hidden;height:100%;display:flex;align-items:stretch;justify-content:center;background:#000;border-radius:24px 0 0 24px;background-image:url('assets/E-LKW.png');background-size:cover;background-position:center center;">
+          <span class="category-label mobilitaet" style="z-index:2;position:absolute;top:32px;left:32px;font-size:1.02rem;padding:6px 16px;background:var(--label-bg,rgba(15,140,255,0.10));color:var(--label-color,#fff);">🚛 E-LKW Flotten</span>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
-                var video = document.querySelector('.blog-img video');
-                if (!video) return;
-                video.playbackRate = 1.0;
-                video.load();
-                video.addEventListener('canplaythrough', function() {
+                var heroVideos = Array.prototype.slice.call(document.querySelectorAll('.news-hero-video'));
+                if (heroVideos.length < 2) return;
+
+                var fadeDurationMs = 600;
+                var crossfadeLeadTime = 0.8;
+
+                function playVideo(video) {
+                  video.currentTime = 0;
                   video.playbackRate = 1.0;
-                  video.play();
-                }, { once: true });
-                video.addEventListener('waiting', function() {
-                  video.pause();
-                  video.addEventListener('canplay', function resume() {
-                    video.playbackRate = 1.0;
-                    video.play();
-                    video.removeEventListener('canplay', resume);
-                  });
+                  var playPromise = video.play();
+                  if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(function() {});
+                  }
+                }
+
+                function makeActive(video) {
+                  video.classList.add('is-active');
+                  video.style.opacity = '1';
+                  playVideo(video);
+                }
+
+                heroVideos.forEach(function(video, index) {
+                  video.removeAttribute('loop');
+                  video.style.transition = 'opacity ' + (fadeDurationMs / 1000) + 's ease';
+                  video.style.opacity = index === 0 ? '1' : '0';
                 });
+
+                function armCrossfade(activeVideo, standbyVideo) {
+                  function onTimeUpdate() {
+                    if (!activeVideo.duration || activeVideo.duration === Infinity) return;
+                    if (activeVideo.duration - activeVideo.currentTime <= crossfadeLeadTime) {
+                      activeVideo.removeEventListener('timeupdate', onTimeUpdate);
+                      standbyVideo.currentTime = 0;
+                      standbyVideo.classList.add('is-active');
+                      standbyVideo.style.opacity = '1';
+                      var playPromise = standbyVideo.play();
+                      if (playPromise && typeof playPromise.catch === 'function') {
+                        playPromise.catch(function() {});
+                      }
+                      activeVideo.style.opacity = '0';
+
+                      window.setTimeout(function() {
+                        activeVideo.pause();
+                        activeVideo.currentTime = 0;
+                        activeVideo.classList.remove('is-active');
+                        armCrossfade(standbyVideo, activeVideo);
+                      }, fadeDurationMs);
+                    }
+                  }
+
+                  activeVideo.addEventListener('timeupdate', onTimeUpdate);
+                }
+
+                makeActive(heroVideos[0]);
+                heroVideos[1].style.opacity = '0';
+                heroVideos[1].load();
+                armCrossfade(heroVideos[0], heroVideos[1]);
               });
             </script>
         </div>
           <div class="blog-content top-news-content" style="border-radius:0 24px 24px 0;padding:48px 40px 40px 40px;display:flex;flex-direction:column;justify-content:center;min-height:260px;position:relative;transition:background 0.2s;color:var(--ink);">
-          <span class="category-label energie" style="z-index:2;position:absolute;top:32px;left:40px;font-size:1.08rem;padding:6px 18px;background:var(--label-bg,rgba(15,140,255,0.10));color:var(--label-color,#fff);">⚡ Top News</span>
-          <h2 style="font-size:2rem;line-height:1.15;margin-bottom:18px;">Neue Ladeinfrastruktur für Unternehmen</h2>
-          <p class="date" style="font-size:1.08rem;color:var(--date-color);margin-bottom:18px;">12. Januar 2026</p>
+          <h2 style="font-size:2rem;line-height:1.15;margin-bottom:18px;">E-LKW Flotten im Wandel: Vom Pilotprojekt zur skalierbaren Logistikstrategie</h2>
+          <p class="date" style="font-size:1.08rem;color:var(--date-color);margin-bottom:18px;">30. März 2026</p>
           <div class="share-buttons" style="margin-bottom:18px;">
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf LinkedIn teilen" title="Auf LinkedIn teilen">🔗</a>
-            <a href="https://twitter.com/intent/tweet?url=https://www.driveplan-engineering.de/news.html&text=Neue%20Ladeinfrastruktur%20f%C3%BCr%20Unternehmen%20bei%20DRIVEPLAN" target="_blank" rel="noopener" aria-label="Auf X/Twitter teilen" title="Auf X/Twitter teilen">🐦</a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.driveplan-engineering.de/news.html&text=E-LKW%20Flotten%20im%20Wandel%3A%20Vom%20Pilotprojekt%20zur%20skalierbaren%20Logistikstrategie" target="_blank" rel="noopener" aria-label="Auf X/Twitter teilen" title="Auf X/Twitter teilen">🐦</a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
-          <p style="font-size:1.13rem;line-height:1.5;margin-bottom:22px;">DRIVEPLAN unterstützt Unternehmen bei der Planung und Umsetzung moderner Ladehubs. Erfahren Sie mehr über unsere aktuellen Projekte und Innovationen im Bereich Elektromobilität.Dabei verbinden wir technische Expertise mit wirtschaftlicher Effizienz und nachhaltigen Energiekonzepten.</p>
-          <a href="#" class="btn btn-primary" style="font-size:1.08rem;padding:14px 32px;align-self:flex-start;" onclick="openNewsModal(0);return false;">Mehr erfahren</a>
+          <p style="font-size:1.13rem;line-height:1.5;margin-bottom:22px;">Elektrische LKW-Flotten werden zum Schlüsselelement einer resilienten Logistik. Wer Tourenplanung, Ladeinfrastruktur und Energiesystem ganzheitlich verbindet, senkt Betriebskosten, erhöht Verfügbarkeit und schafft einen echten Wettbewerbsvorteil im Transportmarkt.</p>
+          <a href="#" class="btn btn-primary" style="font-size:1.08rem;padding:14px 32px;align-self:flex-start;" onclick="openNewsModal(5);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-2">
@@ -109,7 +160,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
           <p>Welche Entwicklungen prägen das Energiemanagement im kommenden Jahr? Unsere Experten geben einen Ausblick und zeigen Lösungen für nachhaltige Energieversorgung.Über DrivePlan können Sie die richtigen Trends setzen</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(1);return false;">Mehr erfahren</a>
+          <a href="#" class="btn btn-primary" onclick="openNewsModal(0);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-3">
@@ -125,7 +176,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
           <p>Welche Förderprogramme gibt es für nachhaltige Energie, Ladeinfrastruktur und Digitalisierung? DRIVEPLAN gibt einen Überblick und zeigt, wie Sie maximale Unterstützung für Ihr Projekt erhalten.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(2);return false;">Mehr erfahren</a>
+          <a href="#" class="btn btn-primary" onclick="openNewsModal(1);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-4">
@@ -141,7 +192,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
           <p>Wie innovative Mobilitätskonzepte Städte lebenswerter, nachhaltiger und vernetzter machen. DRIVEPLAN zeigt, wie die Mobilitätswende gelingt.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(3);return false;">Mehr erfahren</a>
+          <a href="#" class="btn btn-primary" onclick="openNewsModal(2);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-5">
@@ -157,7 +208,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
           <p>Die Energiewende startet nicht erst bei Windrad oder Photovoltaikfeld, sondern im Zusammenspiel des gesamten Energiesystems. Warum Industrie, Gebäude, Mobilität und Stromerzeugung jetzt zu einer vernetzten Infrastruktur zusammenwachsen und was das für Unternehmen bedeutet.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(4);return false;">Mehr erfahren</a>
+          <a href="#" class="btn btn-primary" onclick="openNewsModal(3);return false;">Mehr erfahren</a>
         </div>
       </article>
       <article class="blog-card reveal-up delay-6">
@@ -173,23 +224,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
           </div>
           <p>Ladeinfrastruktur wird zum aktiven Bestandteil des Energiesystems. Die Verbindung aus Photovoltaik, Speicher und intelligentem Lastmanagement senkt Netzbelastung, steigert Wirtschaftlichkeit und schafft echte Flexibilität im Betrieb.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(5);return false;">Mehr erfahren</a>
-        </div>
-      </article>
-      <article class="blog-card reveal-up delay-7">
-        <div class="blog-img" style="background-image:url('assets/E-LKW.png')">
-          <span class="category-label mobilitaet">🚛 E-LKW Flotten</span>
-        </div>
-        <div class="blog-content">
-          <h2>E-LKW Flotten im Wandel: Vom Pilotprojekt zur skalierbaren Logistikstrategie</h2>
-          <p class="date">30. März 2026</p>
-          <div class="share-buttons">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf LinkedIn teilen" title="Auf LinkedIn teilen">🔗</a>
-            <a href="https://twitter.com/intent/tweet?url=https://www.driveplan-engineering.de/news.html&text=E-LKW%20Flotten%20im%20Wandel%3A%20Vom%20Pilotprojekt%20zur%20skalierbaren%20Logistikstrategie" target="_blank" rel="noopener" aria-label="Auf X/Twitter teilen" title="Auf X/Twitter teilen">🐦</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.driveplan-engineering.de/news.html" target="_blank" rel="noopener" aria-label="Auf Facebook teilen" title="Auf Facebook teilen">📘</a>
-          </div>
-          <p>Elektrische LKW-Flotten werden zum Schlüsselelement einer resilienten Logistik. Wer Tourenplanung, Ladeinfrastruktur und Energiesystem ganzheitlich verbindet, senkt Betriebskosten, erhöht Verfügbarkeit und schafft einen echten Wettbewerbsvorteil im Transportmarkt.</p>
-          <a href="#" class="btn btn-primary" onclick="openNewsModal(6);return false;">Mehr erfahren</a>
+          <a href="#" class="btn btn-primary" onclick="openNewsModal(4);return false;">Mehr erfahren</a>
         </div>
       </article>
     </div>
@@ -206,7 +241,7 @@
 
   <footer class="site-footer">
     <div>© <span id="y">2025</span> DRIVEPLAN</div>
-    <nav><a href="kontakt.html#impressum">Impressum</a><a href="kontakt.html#datenschutz">Datenschutz</a></nav>
+    <nav><a href="https://www.linkedin.com/company/111772886" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><img src="assets/linkedin-logo.png" alt="LinkedIn" style="width:18px;height:18px;display:block;"></a><a href="https://www.youtube.com/@DrivePlanEngineering" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><img src="assets/youtube-logo.png" alt="YouTube" style="width:18px;height:18px;display:block;"></a><a href="https://www.instagram.com/drive.plan.engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><img src="assets/instagram-logo.svg" alt="Instagram" style="width:18px;height:18px;display:block;"></a><a href="kontakt.html">Kontakt</a><a class="footer-quick-link" href="mailto:info@driveplan-engineering.de">E-Mail</a><a class="footer-quick-link" href="tel:+4933426998894">Telefon</a><a href="kontakt.html#impressum">Impressum</a><a href="kontakt.html#datenschutz">Datenschutz</a></nav>
   </footer>
   <div class="snowfall" aria-hidden="true"></div>
   <script src="script.js" defer></script>

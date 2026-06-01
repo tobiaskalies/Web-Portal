@@ -13,10 +13,6 @@ console.log('DEBUG: script.js geladen');
 // Jahr im Footer
 // News-&-Blog: Modal/Popup für News-Details
 const newsDetails = [
-  `<h2>Neue Ladeinfrastruktur für Unternehmen</h2>
-  <p><strong>Datum:</strong> 28. Dezember 2025</p>
-  <p><em>Wie ein mittelständisches Unternehmen zum Vorreiter der Elektromobilität wurde:</em></p>
-  <p>Stellen Sie sich vor, Ihr Firmenparkplatz wird zum Innovationszentrum. 2025 begleitete DRIVEPLAN ein traditionsreiches Logistikunternehmen auf dem Weg zur eigenen Ladeinfrastruktur. Nach einer umfassenden Analyse entwickelten wir ein maßgeschneidertes Konzept: 20 Ladepunkte, intelligente Steuerung, Solarstrom vom eigenen Dach und ein dynamisches Lastmanagement, das auch in Spitzenzeiten für reibungslosen Betrieb sorgt. Die Geschäftsführung berichtet heute von gesunkenen Betriebskosten, motivierten Mitarbeitenden und einem neuen Image als nachhaltiger Arbeitgeber. <br><br><strong>Unser Versprechen:</strong> Wir machen Ihr Unternehmen fit für die Zukunft – mit Technik, die begeistert, und Lösungen, die sich rechnen. Lassen Sie sich inspirieren und erfahren Sie, wie auch Sie von unserer Erfahrung profitieren können!</p>`,
   `<h2>Energiemanagement: Trends 2026</h2>
   <p><strong>Datum:</strong> 15. Dezember 2025</p>
   <p><em>Die Zukunft der Energie ist digital, vernetzt und nachhaltig.</em></p>
@@ -82,6 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
+
+function initFooterContactHints() {
+  const footerContactLinks = document.querySelectorAll('.site-footer .footer-quick-link[href^="mailto:"], .site-footer .footer-quick-link[href^="tel:"]');
+
+  footerContactLinks.forEach((link) => {
+    const href = link.getAttribute('href') || '';
+    const isPhoneLink = href.startsWith('tel:');
+    const copyValue = isPhoneLink ? '03342 / 6998894' : href.replace(/^mailto:/, '');
+    link.dataset.copy = copyValue;
+    link.setAttribute('aria-label', `${link.textContent.trim()} ${copyValue}`);
+  });
+}
+
+initFooterContactHints();
 
 // Mobile Navigation
 const toggle = document.querySelector('.nav-toggle');

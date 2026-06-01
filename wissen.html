@@ -1,0 +1,3095 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wissen | DRIVEPLAN Engineering</title>
+  <meta name="description" content="Wissen zu Ladeinfrastruktur: fundierte Einblicke zu Netzanschluss, Lastmanagement, Förderung, Betrieb und Skalierung für Unternehmen und Kommunen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon1.png" type="image/png">
+  <style>
+    .wissen-page {
+      background:
+        radial-gradient(1080px 520px at -4% -8%, rgba(46, 125, 109, 0.2), transparent 56%),
+        radial-gradient(760px 360px at 110% 18%, rgba(15, 140, 255, 0.12), transparent 58%),
+        linear-gradient(180deg, #f8fbfb, #edf4f3 48%, #ffffff);
+      min-height: 100vh;
+    }
+
+    .wissen-main {
+      display: block;
+    }
+
+    .wissen-hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(20, 31, 44, 0.08);
+    }
+
+    .wissen-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04) 46%, rgba(46, 125, 109, 0.16) 100%),
+        repeating-linear-gradient(90deg, transparent 0 56px, rgba(16, 20, 24, 0.035) 56px 57px);
+      pointer-events: none;
+    }
+
+    .wissen-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(94deg, rgba(248, 251, 251, 0.96) 0%, rgba(248, 251, 251, 0.9) 36%, rgba(248, 251, 251, 0.48) 64%, rgba(248, 251, 251, 0.18) 100%),
+        url("assets/Ladepark.png");
+      background-size: cover, cover;
+      background-position: center, center;
+      opacity: 0.72;
+      filter: saturate(0.94) contrast(0.98);
+      pointer-events: none;
+    }
+
+    .wissen-hero-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(54px, 8vw, 110px) clamp(16px, 3vw, 40px) clamp(30px, 4vw, 44px);
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wissen-hero-copy {
+      max-width: 760px;
+    }
+
+    .wissen-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 125, 109, 0.24);
+      background: rgba(255, 255, 255, 0.72);
+      color: #203533;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .wissen-kicker::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #2e7d6d;
+      box-shadow: 0 0 0 6px rgba(46, 125, 109, 0.18);
+    }
+
+    .wissen-title {
+      margin: 0;
+      max-width: 760px;
+      font-family: Montserrat, sans-serif;
+      font-size: clamp(32px, 4.8vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: #142028;
+    }
+
+    .wissen-subtitle {
+      margin: 18px 0 0;
+      max-width: 700px;
+      font-size: clamp(16px, 1.9vw, 20px);
+      line-height: 1.58;
+      color: #44515b;
+    }
+
+    .wissen-index {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .wissen-index li {
+      border: 1px solid rgba(22, 38, 48, 0.1);
+      background: rgba(255, 255, 255, 0.78);
+      color: #293840;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .wissen-topics {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(32px, 4vw, 46px) 16px 66px;
+    }
+
+    .wissen-topics .section-head {
+      padding-top: 12px;
+      padding-bottom: 20px;
+    }
+
+    .stream-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .topic-card {
+      grid-column: span 4;
+      border: 1px solid #dde5e8;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      cursor: pointer;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(9, 22, 35, 0.14);
+      border-color: rgba(46, 125, 109, 0.3);
+    }
+
+    .topic-card:focus-visible {
+      outline: 3px solid rgba(46, 125, 109, 0.34);
+      outline-offset: 2px;
+    }
+
+    .topic-card.is-active {
+      transform: translateY(-4px);
+      border-color: rgba(46, 125, 109, 0.46);
+      box-shadow: 0 18px 36px rgba(9, 22, 35, 0.16);
+    }
+
+    .topic-card.featured {
+      grid-column: span 8;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 248px;
+    }
+
+    @media (min-width: 1081px) {
+      .stream-grid > .topic-card:nth-child(3) {
+        grid-column: span 3;
+      }
+
+      .stream-grid > .topic-card:nth-child(4) {
+        grid-column: span 5;
+      }
+
+      .stream-grid > .topic-card:nth-child(5) {
+        grid-column: span 4;
+      }
+
+      .stream-grid > .topic-card:nth-child(6) {
+        grid-column: span 5;
+      }
+
+      .stream-grid > .topic-card:nth-child(7) {
+        grid-column: span 3;
+      }
+
+      .stream-grid > .topic-card:nth-child(8) {
+        grid-column: span 4;
+      }
+
+      .stream-grid > .topic-card:nth-child(9) {
+        grid-column: span 5;
+      }
+
+      .stream-grid > .topic-card:nth-child(10) {
+        grid-column: span 7;
+      }
+    }
+
+    .topic-media {
+      min-height: 140px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .topic-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 18, 28, 0.05), rgba(7, 18, 28, 0.42));
+    }
+
+    .topic-body {
+      padding: 15px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .topic-card.featured .topic-body {
+      padding: 22px 22px 20px;
+      justify-content: center;
+    }
+
+    .topic-tag {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(46, 125, 109, 0.22);
+      background: rgba(46, 125, 109, 0.12);
+      color: #245047;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .topic-card h3 {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      color: #17232c;
+    }
+
+    .topic-card.featured h3 {
+      font-size: 1.36rem;
+      line-height: 1.25;
+    }
+
+    .topic-card p {
+      margin: 0;
+      color: #4a565f;
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .topic-link {
+      margin-top: auto;
+      color: #5c6d76;
+      font-size: 0.84rem;
+      font-weight: 500;
+      padding-top: 8px;
+      letter-spacing: 0.01em;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .wissen-page .reveal-up {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .42s cubic-bezier(0.2, 0.7, 0.2, 1), transform .42s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .wissen-page .reveal-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wissen-page .delay-1,
+    .wissen-page .delay-2,
+    .wissen-page .delay-3,
+    .wissen-page .delay-4,
+    .wissen-page .delay-5,
+    .wissen-page .delay-6,
+    .wissen-page .delay-7,
+    .wissen-page .delay-8 {
+      transition-delay: 0s !important;
+    }
+
+    .wissen-page.modal-open {
+      overflow: hidden;
+    }
+
+    .wissen-topic-modal[hidden] {
+      display: none;
+    }
+
+    .wissen-topic-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 11000;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      --accent-1: #2e7d6d;
+      --accent-2: #6ab7ff;
+      --accent-soft: rgba(46, 125, 109, 0.18);
+      --accent-soft-2: rgba(106, 183, 255, 0.2);
+    }
+
+    .wissen-topic-modal[data-tone="teal"] {
+      --accent-1: #2e7d6d;
+      --accent-2: #6ab7ff;
+      --accent-soft: rgba(46, 125, 109, 0.18);
+      --accent-soft-2: rgba(106, 183, 255, 0.2);
+    }
+
+    .wissen-topic-modal[data-tone="blue"] {
+      --accent-1: #1f6fb2;
+      --accent-2: #5ec2ff;
+      --accent-soft: rgba(31, 111, 178, 0.2);
+      --accent-soft-2: rgba(94, 194, 255, 0.2);
+    }
+
+    .wissen-topic-modal[data-tone="amber"] {
+      --accent-1: #a65f11;
+      --accent-2: #d9a23d;
+      --accent-soft: rgba(166, 95, 17, 0.2);
+      --accent-soft-2: rgba(217, 162, 61, 0.2);
+    }
+
+    .wissen-topic-modal[data-tone="slate"] {
+      --accent-1: #3b596f;
+      --accent-2: #5e8fb6;
+      --accent-soft: rgba(59, 89, 111, 0.2);
+      --accent-soft-2: rgba(94, 143, 182, 0.2);
+    }
+
+    .modal-motion {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .modal-motion-dot {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: 0.2;
+      background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--accent-2) 42%, #ffffff 58%), transparent 66%);
+      animation: motionDrift 14s ease-in-out infinite;
+    }
+
+    .modal-motion-dot.one {
+      top: -42px;
+      right: -36px;
+    }
+
+    .modal-motion-dot.two {
+      width: 120px;
+      height: 120px;
+      bottom: 18%;
+      left: -26px;
+      animation-duration: 18s;
+      animation-delay: -6s;
+      opacity: 0.16;
+    }
+
+    .wissen-topic-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 14, 20, 0.56);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .wissen-topic-modal-backdrop::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(620px 320px at 14% 12%, rgba(106, 183, 255, 0.18), transparent 62%),
+        radial-gradient(560px 280px at 88% 86%, rgba(46, 125, 109, 0.2), transparent 64%);
+      animation: modalGlow 10s ease-in-out infinite alternate;
+    }
+
+    .wissen-topic-modal-dialog {
+      position: relative;
+      width: min(860px, 100%);
+      max-height: min(88vh, 820px);
+      overflow: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #d6e2e7;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(233, 245, 242, 0.95));
+      box-shadow: 0 22px 56px rgba(6, 15, 24, 0.26);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .wissen-topic-modal-dialog::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-1), color-mix(in srgb, var(--accent-1) 60%, var(--accent-2) 40%) 50%, var(--accent-2));
+    }
+
+    .wissen-topic-modal-dialog::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(126deg, rgba(251, 254, 254, 0.92) 0%, rgba(251, 254, 254, 0.82) 36%, rgba(251, 254, 254, 0.62) 64%, rgba(251, 254, 254, 0.44) 100%),
+        var(--topic-bg, url("assets/Ladepark.png"));
+      background-size: cover, cover;
+      background-position: center, 64% 46%;
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .wissen-topic-modal-dialog > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wissen-topic-modal-dialog .modal-motion {
+      z-index: 0;
+    }
+
+    .wissen-topic-modal-close {
+      position: sticky;
+      top: 0;
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      z-index: 5;
+      border: 1px solid rgba(29, 45, 57, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1e2e38;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(12, 24, 34, 0.14);
+    }
+
+    .wissen-topic-modal-close:focus-visible {
+      outline: 3px solid rgba(46, 125, 109, 0.34);
+      outline-offset: 1px;
+    }
+
+    .detail-kicker {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: color-mix(in srgb, var(--accent-1) 14%, rgba(255, 255, 255, 0.86));
+      color: color-mix(in srgb, var(--accent-1) 74%, #1f2f37 26%);
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      box-shadow: 0 6px 16px var(--accent-soft);
+    }
+
+    .wissen-topic-modal-dialog h3 {
+      margin: 2px 0 0;
+      font-family: Montserrat, sans-serif;
+      font-size: clamp(1.14rem, 2.2vw, 1.34rem);
+      line-height: 1.3;
+      color: #18262f;
+    }
+
+    .wissen-topic-modal-dialog p {
+      margin: 0;
+      color: #46545e;
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .detail-list {
+      margin: 2px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: #25333d;
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .detail-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric-card {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 10px 12px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .metric-card strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 1rem;
+      color: #18303a;
+      line-height: 1.2;
+    }
+
+    .metric-card span {
+      font-size: 0.82rem;
+      color: #4a5a63;
+      line-height: 1.4;
+    }
+
+    .detail-box {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .detail-box h4 {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #1d2d37;
+      font-family: Montserrat, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .detail-box ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: #30414b;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .detail-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(36, 55, 68, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    .detail-table th,
+    .detail-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(36, 55, 68, 0.1);
+      font-size: 0.86rem;
+      line-height: 1.35;
+      color: #2c3f4a;
+      vertical-align: top;
+    }
+
+    .detail-table th {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      background: rgba(239, 247, 245, 0.9);
+      color: #23424e;
+    }
+
+    .detail-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .factor-bars {
+      display: grid;
+      gap: 8px;
+    }
+
+    .factor-item {
+      display: grid;
+      gap: 4px;
+    }
+
+    .factor-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 0.84rem;
+      color: #2c3e49;
+    }
+
+    .factor-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(23, 39, 50, 0.1);
+      overflow: hidden;
+    }
+
+    .factor-fill {
+      height: 100%;
+      width: var(--score, 50%);
+      background: linear-gradient(90deg, #2e7d6d, #2ca690);
+      border-radius: 999px;
+      box-shadow: 0 0 14px rgba(44, 166, 144, 0.28);
+    }
+
+    .detail-chip-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .detail-chip {
+      border: 1px solid rgba(36, 55, 68, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      color: #2c3f4a;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .detail-actions {
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(28, 43, 53, 0.09);
+      padding-top: 12px;
+    }
+
+    .detail-note {
+      color: #3d4d57;
+      font-size: 0.9rem;
+    }
+
+    @keyframes modalGlow {
+      from { transform: scale(1) translateY(0); }
+      to { transform: scale(1.04) translateY(-4px); }
+    }
+
+    @keyframes motionDrift {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-12px, 10px, 0) scale(1.06); }
+      100% { transform: translate3d(8px, -6px, 0) scale(0.98); }
+    }
+
+    @keyframes riseFade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes growBar {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes cardSheen {
+      from {
+        opacity: 0;
+        transform: translateX(-10%) rotate(28deg);
+      }
+      20% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+        transform: translateX(220%) rotate(28deg);
+      }
+    }
+
+    .detail-fit-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .detail-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .detail-longread {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .detail-longread h4 {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 0.94rem;
+      color: #1b3440;
+    }
+
+    .detail-longread p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.58;
+      color: #3f525d;
+    }
+
+    .detail-highlight-card {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 14px;
+      background: linear-gradient(150deg, rgba(255, 255, 255, 0.96), rgba(230, 244, 241, 0.9));
+      padding: 12px;
+      display: grid;
+      gap: 4px;
+      box-shadow: 0 10px 22px rgba(17, 36, 46, 0.1);
+      transform: translateY(0);
+      transition: transform .28s ease, box-shadow .28s ease;
+      overflow: hidden;
+    }
+
+    .detail-highlight-card::after {
+      content: "";
+      position: absolute;
+      inset: -120% auto auto -160%;
+      width: 70%;
+      height: 300%;
+      transform: rotate(28deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), transparent);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .detail-highlight-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(17, 36, 46, 0.14);
+    }
+
+    .detail-highlight-card strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 1.05rem;
+      color: #18303a;
+      line-height: 1.2;
+    }
+
+    .detail-highlight-card span {
+      font-size: 0.84rem;
+      color: #49606c;
+      line-height: 1.35;
+    }
+
+    .detail-mode-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 1px solid rgba(28, 43, 53, 0.1);
+      padding-top: 12px;
+    }
+
+    .detail-mode-btn {
+      border: 1px solid rgba(36, 55, 68, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #28414d;
+      padding: 9px 12px;
+      min-height: 44px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .detail-mode-btn.is-active {
+      background: linear-gradient(120deg, var(--accent-soft), var(--accent-soft-2));
+      border-color: color-mix(in srgb, var(--accent-1) 44%, #9fb4c4 56%);
+      color: #173742;
+    }
+
+    .detail-panel {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 12px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .detail-panel.panel-animate .timeline-step,
+    .detail-panel.panel-animate .signal-card,
+    .detail-panel.panel-animate .customer-card,
+    .detail-panel.panel-animate .customer-pill,
+    .detail-panel.panel-animate .number-chip,
+    .detail-panel.panel-animate .priority-item,
+    .detail-panel.panel-animate .decision-table-wrap,
+    .detail-panel.panel-animate .matrix-table-wrap,
+    .detail-panel.panel-animate .viz-card,
+    .detail-panel.panel-animate .flow-node,
+    .detail-panel.panel-animate .funnel-step {
+      animation: riseFade 440ms ease both;
+      animation-delay: calc(var(--i, 0) * 55ms);
+    }
+
+    .detail-panel.panel-animate .explain-list li {
+      animation: riseFade 420ms ease both;
+      animation-delay: calc(var(--i, 0) * 60ms);
+    }
+
+    .detail-panel.panel-animate .priority-fill {
+      transform-origin: left center;
+      animation: growBar 760ms cubic-bezier(0.21, 0.7, 0.25, 1) both;
+      animation-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    .wissen-topic-modal.modal-fresh .detail-highlight-card {
+      animation: riseFade 460ms ease both;
+      animation-delay: calc(var(--i, 0) * 60ms + 90ms);
+    }
+
+    .wissen-topic-modal.modal-fresh .detail-highlight-card::after {
+      animation: cardSheen 900ms ease both;
+      animation-delay: calc(var(--i, 0) * 70ms + 180ms);
+    }
+
+    .detail-panel h4 {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 0.97rem;
+      color: #1b3440;
+    }
+
+    .explain-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 7px;
+      color: #2f434f;
+      font-size: 0.9rem;
+      line-height: 1.48;
+    }
+
+    .customer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .customer-card {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 10px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .customer-card strong {
+      font-size: 0.88rem;
+      color: #1e3440;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .customer-card p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: #415965;
+    }
+
+    .decision-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(36, 55, 68, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .decision-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+    }
+
+    .decision-table th,
+    .decision-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(36, 55, 68, 0.1);
+      font-size: 0.85rem;
+      line-height: 1.35;
+      color: #2d414d;
+      vertical-align: top;
+    }
+
+    .decision-table th {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      background: rgba(237, 247, 244, 0.92);
+      color: #22424f;
+    }
+
+    .decision-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .priority-bars {
+      display: grid;
+      gap: 8px;
+    }
+
+    .priority-item {
+      display: grid;
+      gap: 4px;
+    }
+
+    .priority-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 0.84rem;
+      color: #2b3f4b;
+    }
+
+    .priority-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(23, 39, 50, 0.11);
+      overflow: hidden;
+    }
+
+    .priority-fill {
+      height: 100%;
+      width: var(--score, 50%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      box-shadow: 0 0 14px var(--accent-soft-2);
+      transform: scaleX(1);
+    }
+
+    .timeline-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 10px;
+    }
+
+    .timeline-step em {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-style: normal;
+      font-weight: 700;
+      border: 1px solid var(--accent-soft);
+      background: color-mix(in srgb, var(--accent-1) 14%, rgba(255, 255, 255, 0.86));
+      color: color-mix(in srgb, var(--accent-1) 74%, #1f2f37 26%);
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .signal-card {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 10px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .signal-card strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.92rem;
+      color: #1e3440;
+    }
+
+    .signal-card span {
+      font-size: 0.82rem;
+      color: #425a66;
+      line-height: 1.4;
+    }
+
+    .customer-split {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 10px;
+    }
+
+    .customer-pill {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 10px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .customer-pill strong {
+      font-size: 0.88rem;
+      color: #1e3440;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .customer-pill p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: #415965;
+    }
+
+    .number-chip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .number-chip {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .number-chip strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.9rem;
+      color: #1e3440;
+    }
+
+    .number-chip span {
+      font-size: 0.8rem;
+      color: #435966;
+      line-height: 1.35;
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(36, 55, 68, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .matrix-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(36, 55, 68, 0.1);
+      font-size: 0.85rem;
+      line-height: 1.35;
+      color: #2d414d;
+      vertical-align: top;
+    }
+
+    .matrix-table th {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      background: rgba(237, 247, 244, 0.92);
+      color: #22424f;
+    }
+
+    .matrix-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .viz-card {
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .viz-head {
+      display: grid;
+      gap: 4px;
+    }
+
+    .viz-head strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.9rem;
+      color: #1e3440;
+    }
+
+    .viz-head span {
+      font-size: 0.82rem;
+      color: #45606e;
+      line-height: 1.4;
+    }
+
+    .viz-decision {
+      border: 1px solid rgba(36, 55, 68, 0.14);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 8px 10px;
+      font-size: 0.82rem;
+      color: #2f4350;
+      line-height: 1.4;
+    }
+
+    .viz-decision strong {
+      font-family: Montserrat, sans-serif;
+      color: #1d3642;
+    }
+
+    .line-viz {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(36, 55, 68, 0.12);
+      border-radius: 10px;
+      background: rgba(248, 252, 252, 0.95);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      align-items: center;
+    }
+
+    .flow-node {
+      border: 1px solid rgba(23, 39, 50, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 8px;
+      text-align: center;
+      display: grid;
+      gap: 2px;
+    }
+
+    .flow-node strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.84rem;
+      color: #1e3440;
+    }
+
+    .flow-node span {
+      font-size: 0.78rem;
+      color: #48606d;
+      line-height: 1.3;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      font-size: 1rem;
+      color: #55717f;
+      font-weight: 700;
+    }
+
+    .funnel-stack {
+      display: grid;
+      gap: 7px;
+    }
+
+    .funnel-step {
+      border: 1px solid rgba(23, 39, 50, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .funnel-step strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.84rem;
+      color: #1d3440;
+    }
+
+    .funnel-track {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(23, 39, 50, 0.12);
+      overflow: hidden;
+    }
+
+    .funnel-fill {
+      height: 100%;
+      width: var(--w, 80%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    }
+
+    .milestone-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .milestone-card {
+      border: 1px solid rgba(23, 39, 50, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 8px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .milestone-card strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.82rem;
+      color: #1d3440;
+    }
+
+    .milestone-card span {
+      font-size: 0.78rem;
+      color: #49616e;
+    }
+
+    .kpi-cockpit {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .gauge-viz {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .roadmap-step {
+      border: 1px solid rgba(23, 39, 50, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .roadmap-step strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.82rem;
+      color: #1d3440;
+    }
+
+    .roadmap-step span {
+      font-size: 0.78rem;
+      color: #49616e;
+      line-height: 1.35;
+    }
+
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .heat-cell {
+      border-radius: 8px;
+      border: 1px solid rgba(23, 39, 50, 0.1);
+      padding: 7px;
+      font-size: 0.76rem;
+      line-height: 1.3;
+      color: #1f3a46;
+      background: color-mix(in srgb, var(--accent-2) var(--v, 20%), #ffffff);
+    }
+
+    .quad-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .quad-card {
+      border: 1px solid rgba(23, 39, 50, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 8px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .quad-card strong {
+      font-family: Montserrat, sans-serif;
+      font-size: 0.8rem;
+      color: #1d3440;
+    }
+
+    .quad-card span {
+      font-size: 0.76rem;
+      color: #4b6470;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 760px) {
+      .wissen-topic-modal {
+        padding:
+          max(10px, env(safe-area-inset-top))
+          max(10px, env(safe-area-inset-right))
+          max(10px, env(safe-area-inset-bottom))
+          max(10px, env(safe-area-inset-left));
+      }
+
+      .wissen-topic-modal-dialog {
+        width: 100%;
+        max-height: calc(100dvh - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom)));
+        border-radius: 16px;
+        padding: 14px;
+      }
+
+      .wissen-topic-modal-close {
+        top: max(0px, env(safe-area-inset-top));
+      }
+
+      .wissen-topic-modal-dialog h3 {
+        font-size: 1.08rem;
+      }
+
+      .wissen-topic-modal-dialog p,
+      .detail-longread p,
+      .explain-list,
+      .customer-card p,
+      .customer-pill p,
+      .signal-card span,
+      .number-chip span {
+        font-size: 0.88rem;
+      }
+
+      .detail-mode-switch {
+        gap: 10px;
+      }
+
+      .detail-mode-btn {
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+      }
+
+      .detail-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .detail-actions .btn,
+      .brief-cta .btn,
+      .topic-link {
+        min-height: 44px;
+      }
+
+      .detail-actions .btn,
+      .brief-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .detail-note {
+        font-size: 0.86rem;
+      }
+
+      .detail-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-highlight-grid,
+      .customer-grid,
+      .customer-split,
+      .signal-grid,
+      .number-chip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-table,
+      .matrix-table,
+      .detail-table {
+        min-width: 460px;
+      }
+
+      .flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .milestone-row,
+      .roadmap-grid,
+      .heatmap-grid,
+      .quad-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kpi-cockpit {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .wissen-briefing {
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 1px solid #dbe5e8;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(230, 243, 240, 0.88));
+      box-shadow: 0 8px 24px rgba(9, 20, 31, 0.08);
+      overflow: hidden;
+    }
+
+    .briefing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .brief-step {
+      padding: 18px 18px 20px;
+      border-right: 1px solid rgba(24, 37, 47, 0.08);
+    }
+
+    .brief-step:last-child {
+      border-right: 0;
+    }
+
+    .brief-step strong {
+      display: block;
+      font-size: 1.02rem;
+      color: #1b2a34;
+      margin-bottom: 6px;
+    }
+
+    .brief-step span {
+      display: block;
+      color: #4a5861;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .brief-step em {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(46, 125, 109, 0.24);
+      background: rgba(46, 125, 109, 0.14);
+      color: #29554d;
+      font-style: normal;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .brief-cta {
+      border-top: 1px solid rgba(24, 37, 47, 0.09);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.56);
+    }
+
+    .brief-cta span {
+      color: #3f4d57;
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 1080px) {
+      .topic-card.featured {
+        grid-column: span 12;
+      }
+
+      .topic-card {
+        grid-column: span 6;
+      }
+
+      .briefing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brief-step {
+        border-right: 0;
+        border-bottom: 1px solid rgba(24, 37, 47, 0.08);
+      }
+
+      .brief-step:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .wissen-hero::after {
+        background-image:
+          linear-gradient(180deg, rgba(248, 251, 251, 0.9) 0%, rgba(248, 251, 251, 0.76) 42%, rgba(248, 251, 251, 0.3) 100%),
+          url("assets/Ladepark.png");
+      }
+
+      .topic-card {
+        grid-column: span 12;
+      }
+
+      .topic-card.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .brief-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .wissen-index {
+        gap: 6px;
+      }
+
+      .wissen-index li {
+        font-size: 0.78rem;
+        padding: 6px 10px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wissen-hero-inner {
+        padding: 44px 14px 28px;
+      }
+
+      .wissen-title {
+        font-size: clamp(28px, 9vw, 38px);
+      }
+
+      .wissen-subtitle {
+        font-size: 0.98rem;
+      }
+
+      .topic-body,
+      .topic-card.featured .topic-body,
+      .detail-panel,
+      .detail-longread {
+        padding: 12px;
+      }
+
+      .wissen-topic-modal-dialog {
+        padding: 12px;
+      }
+
+      .detail-highlight-card,
+      .customer-card,
+      .customer-pill,
+      .signal-card,
+      .number-chip,
+      .timeline-step {
+        padding: 9px;
+      }
+
+      .detail-mode-btn {
+        flex-basis: 100%;
+      }
+
+      .decision-table,
+      .matrix-table,
+      .detail-table {
+        min-width: 420px;
+      }
+    }
+
+    :root[data-theme="dark"] .wissen-page {
+      background:
+        radial-gradient(1040px 520px at -6% -10%, rgba(74, 222, 128, 0.11), transparent 54%),
+        radial-gradient(760px 360px at 110% 16%, rgba(15, 140, 255, 0.14), transparent 56%),
+        linear-gradient(180deg, #0a0e11, #10161b 44%, #0b1015);
+    }
+
+    :root[data-theme="dark"] .wissen-hero {
+      border-bottom-color: rgba(255, 255, 255, 0.09);
+    }
+
+    :root[data-theme="dark"] .wissen-hero::before {
+      background:
+        linear-gradient(105deg, rgba(19, 29, 36, 0.3), rgba(19, 29, 36, 0.07) 48%, rgba(56, 151, 107, 0.18) 100%),
+        repeating-linear-gradient(90deg, transparent 0 56px, rgba(255, 255, 255, 0.03) 56px 57px);
+    }
+
+    :root[data-theme="dark"] .wissen-hero::after {
+      background-image:
+        linear-gradient(94deg, rgba(10, 14, 17, 0.94) 0%, rgba(10, 14, 17, 0.88) 36%, rgba(10, 14, 17, 0.48) 64%, rgba(10, 14, 17, 0.22) 100%),
+        url("assets/Ladepark.png");
+      opacity: 0.62;
+      filter: saturate(0.9) contrast(1.03) brightness(0.76);
+    }
+
+    :root[data-theme="dark"] .wissen-kicker,
+    :root[data-theme="dark"] .wissen-index li,
+    :root[data-theme="dark"] .topic-card,
+    :root[data-theme="dark"] .wissen-briefing,
+    :root[data-theme="dark"] .brief-cta {
+      background: #1c2228;
+      border-color: #2a3138;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.34);
+    }
+
+    :root[data-theme="dark"] .wissen-kicker,
+    :root[data-theme="dark"] .wissen-index li,
+    :root[data-theme="dark"] .topic-tag,
+    :root[data-theme="dark"] .brief-step em {
+      color: #b9f2d4;
+    }
+
+    :root[data-theme="dark"] .wissen-kicker::before {
+      background: #4ade80;
+      box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.2);
+    }
+
+    :root[data-theme="dark"] .wissen-title,
+    :root[data-theme="dark"] .topic-card h3,
+    :root[data-theme="dark"] .brief-step strong {
+      color: #f4f7f8;
+    }
+
+    :root[data-theme="dark"] .wissen-subtitle,
+    :root[data-theme="dark"] .topic-card p,
+    :root[data-theme="dark"] .brief-step span,
+    :root[data-theme="dark"] .brief-cta span {
+      color: #d1d5db;
+    }
+
+    :root[data-theme="dark"] .topic-link {
+      color: #86efac;
+    }
+
+    :root[data-theme="dark"] .topic-card:hover {
+      border-color: rgba(74, 222, 128, 0.35);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    :root[data-theme="dark"] .topic-card:focus-visible {
+      outline-color: rgba(74, 222, 128, 0.4);
+    }
+
+    :root[data-theme="dark"] .topic-card.is-active {
+      border-color: rgba(74, 222, 128, 0.48);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.55);
+    }
+
+    :root[data-theme="dark"] .brief-step {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    :root[data-theme="dark"] .topic-tag,
+    :root[data-theme="dark"] .brief-step em {
+      background: rgba(74, 222, 128, 0.14);
+      border-color: rgba(74, 222, 128, 0.28);
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-backdrop {
+      background: rgba(5, 10, 14, 0.74);
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-dialog {
+      background: linear-gradient(145deg, #1b2228, #161d22);
+      border-color: #2a3138;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-dialog::after {
+      background-image:
+        linear-gradient(126deg, rgba(9, 14, 18, 0.86) 0%, rgba(9, 14, 18, 0.78) 36%, rgba(9, 14, 18, 0.54) 64%, rgba(9, 14, 18, 0.38) 100%),
+        var(--topic-bg, url("assets/Ladepark.png"));
+      opacity: 0.44;
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-close {
+      background: rgba(24, 31, 37, 0.94);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #e7eef2;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    :root[data-theme="dark"] .detail-kicker {
+      color: #e7f0f4;
+      border-color: color-mix(in srgb, var(--accent-2) 44%, rgba(255, 255, 255, 0.22) 56%);
+      background: color-mix(in srgb, var(--accent-1) 20%, rgba(18, 25, 31, 0.9));
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-dialog h3 {
+      color: #f4f7f8;
+    }
+
+    :root[data-theme="dark"] .wissen-topic-modal-dialog p,
+    :root[data-theme="dark"] .detail-list,
+    :root[data-theme="dark"] .detail-note {
+      color: #d1d5db;
+    }
+
+    :root[data-theme="dark"] .detail-actions {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    :root[data-theme="dark"] .metric-card,
+    :root[data-theme="dark"] .detail-box {
+      background: rgba(16, 22, 27, 0.84);
+      border-color: rgba(255, 255, 255, 0.11);
+    }
+
+    :root[data-theme="dark"] .metric-card strong,
+    :root[data-theme="dark"] .detail-box h4 {
+      color: #ecf3f5;
+    }
+
+    :root[data-theme="dark"] .metric-card span,
+    :root[data-theme="dark"] .detail-box ul {
+      color: #c8d1d8;
+    }
+
+    :root[data-theme="dark"] .detail-table-wrap {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(17, 23, 28, 0.92);
+    }
+
+    :root[data-theme="dark"] .detail-table th,
+    :root[data-theme="dark"] .detail-table td {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      color: #d2dae0;
+    }
+
+    :root[data-theme="dark"] .detail-table th {
+      background: rgba(24, 32, 39, 0.95);
+      color: #b9f2d4;
+    }
+
+    :root[data-theme="dark"] .factor-head {
+      color: #d4dde3;
+    }
+
+    :root[data-theme="dark"] .factor-track {
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    :root[data-theme="dark"] .factor-fill {
+      background: linear-gradient(90deg, #35b89f, #6ab7ff);
+      box-shadow: 0 0 14px rgba(106, 183, 255, 0.26);
+    }
+
+    :root[data-theme="dark"] .detail-highlight-card,
+    :root[data-theme="dark"] .detail-panel,
+    :root[data-theme="dark"] .detail-longread,
+    :root[data-theme="dark"] .customer-card {
+      background: rgba(18, 25, 31, 0.88);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    :root[data-theme="dark"] .detail-highlight-card strong,
+    :root[data-theme="dark"] .detail-panel h4,
+    :root[data-theme="dark"] .detail-longread h4,
+    :root[data-theme="dark"] .customer-card strong {
+      color: #ecf3f5;
+    }
+
+    :root[data-theme="dark"] .detail-highlight-card span,
+    :root[data-theme="dark"] .explain-list,
+    :root[data-theme="dark"] .detail-longread p,
+    :root[data-theme="dark"] .customer-card p,
+    :root[data-theme="dark"] .priority-head {
+      color: #c8d3da;
+    }
+
+    :root[data-theme="dark"] .detail-mode-switch {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    :root[data-theme="dark"] .detail-mode-btn {
+      background: rgba(20, 28, 34, 0.9);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: #d7e0e6;
+    }
+
+    :root[data-theme="dark"] .detail-mode-btn.is-active {
+      background: linear-gradient(120deg, color-mix(in srgb, var(--accent-1) 24%, rgba(18, 24, 30, 0.86)), color-mix(in srgb, var(--accent-2) 24%, rgba(18, 24, 30, 0.86)));
+      border-color: color-mix(in srgb, var(--accent-2) 56%, rgba(255, 255, 255, 0.24));
+      color: #eaf3f7;
+    }
+
+    :root[data-theme="dark"] .decision-table-wrap {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(17, 23, 28, 0.92);
+    }
+
+    :root[data-theme="dark"] .decision-table th,
+    :root[data-theme="dark"] .decision-table td {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      color: #d1dae1;
+    }
+
+    :root[data-theme="dark"] .decision-table th {
+      background: rgba(24, 32, 39, 0.95);
+      color: #b9f2d4;
+    }
+
+    :root[data-theme="dark"] .priority-track {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    :root[data-theme="dark"] .priority-fill {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      box-shadow: 0 0 14px color-mix(in srgb, var(--accent-2) 36%, rgba(0, 0, 0, 0.22));
+    }
+
+    :root[data-theme="dark"] .detail-chip {
+      background: rgba(23, 31, 38, 0.92);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: #d7e0e6;
+    }
+
+    :root[data-theme="dark"] .timeline-step,
+    :root[data-theme="dark"] .signal-card,
+    :root[data-theme="dark"] .customer-pill,
+    :root[data-theme="dark"] .number-chip {
+      background: rgba(18, 25, 31, 0.88);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    :root[data-theme="dark"] .timeline-step em {
+      color: #e7f0f4;
+      border-color: color-mix(in srgb, var(--accent-2) 44%, rgba(255, 255, 255, 0.22) 56%);
+      background: color-mix(in srgb, var(--accent-1) 20%, rgba(18, 25, 31, 0.9));
+    }
+
+    :root[data-theme="dark"] .signal-card strong,
+    :root[data-theme="dark"] .customer-pill strong,
+    :root[data-theme="dark"] .number-chip strong {
+      color: #ecf3f5;
+    }
+
+    :root[data-theme="dark"] .signal-card span,
+    :root[data-theme="dark"] .customer-pill p,
+    :root[data-theme="dark"] .number-chip span {
+      color: #c8d3da;
+    }
+
+    :root[data-theme="dark"] .matrix-table-wrap {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(17, 23, 28, 0.92);
+    }
+
+    :root[data-theme="dark"] .matrix-table th,
+    :root[data-theme="dark"] .matrix-table td {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      color: #d1dae1;
+    }
+
+    :root[data-theme="dark"] .matrix-table th {
+      background: rgba(24, 32, 39, 0.95);
+      color: #b9f2d4;
+    }
+
+    :root[data-theme="dark"] .viz-card,
+    :root[data-theme="dark"] .viz-decision,
+    :root[data-theme="dark"] .flow-node,
+    :root[data-theme="dark"] .funnel-step,
+    :root[data-theme="dark"] .milestone-card,
+    :root[data-theme="dark"] .roadmap-step,
+    :root[data-theme="dark"] .heat-cell,
+    :root[data-theme="dark"] .quad-card,
+    :root[data-theme="dark"] .line-viz {
+      background: rgba(18, 25, 31, 0.9);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    :root[data-theme="dark"] .viz-head strong,
+    :root[data-theme="dark"] .viz-decision strong,
+    :root[data-theme="dark"] .flow-node strong,
+    :root[data-theme="dark"] .funnel-step strong,
+    :root[data-theme="dark"] .milestone-card strong,
+    :root[data-theme="dark"] .roadmap-step strong,
+    :root[data-theme="dark"] .quad-card strong {
+      color: #ecf3f5;
+    }
+
+    :root[data-theme="dark"] .viz-head span,
+    :root[data-theme="dark"] .viz-decision,
+    :root[data-theme="dark"] .flow-node span,
+    :root[data-theme="dark"] .milestone-card span,
+    :root[data-theme="dark"] .roadmap-step span,
+    :root[data-theme="dark"] .quad-card span,
+    :root[data-theme="dark"] .flow-arrow {
+      color: #c8d3da;
+    }
+
+    :root[data-theme="dark"] .modal-motion-dot {
+      opacity: 0.3;
+      background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--accent-2) 44%, #f4f8fc 56%), transparent 68%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wissen-topic-modal-backdrop::before,
+      .modal-motion-dot,
+      .detail-panel.panel-animate .timeline-step,
+      .detail-panel.panel-animate .signal-card,
+      .detail-panel.panel-animate .customer-card,
+      .detail-panel.panel-animate .customer-pill,
+      .detail-panel.panel-animate .number-chip,
+      .detail-panel.panel-animate .priority-item,
+      .detail-panel.panel-animate .decision-table-wrap,
+      .detail-panel.panel-animate .matrix-table-wrap,
+      .detail-panel.panel-animate .explain-list li,
+      .detail-panel.panel-animate .priority-fill,
+      .wissen-topic-modal.modal-fresh .detail-highlight-card,
+      .wissen-topic-modal.modal-fresh .detail-highlight-card::after {
+        animation: none !important;
+      }
+    }
+
+  </style>
+</head>
+<body class="wissen-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="DrivePlan Engineering Startseite">
+      <img src="assets/Logo2.png" alt="DrivePlan Logo Symbol" class="logo" />
+      <div class="wordmark">
+        <span class="name">DrivePlan <span style="color: #22c55e;">Engineering</span></span>
+        <span class="tagline">Ingenieurbüro für nachhaltige Fahrzeug- &amp; Ladeinfrastrukturkonzepte</span>
+      </div>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="projekte.html">Projekte</a>
+      <a class="active" href="wissen.html">Wissen</a>
+      <a href="news.html">News & Blog</a>
+      <a href="kontakt.html" class="btn btn-outline">Kontakt</a>
+    </nav>
+    <button class="mode-toggle" aria-label="Darstellung umschalten">🌙</button>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="wissen-main">
+    <section class="wissen-hero">
+      <div class="wissen-hero-inner">
+        <div class="wissen-hero-copy">
+          <span class="wissen-kicker reveal-up">Wissen für sichere Investitionsentscheidungen</span>
+          <h1 class="wissen-title reveal-up delay-1">Ladeinfrastruktur mit Weitblick.</h1>
+          <p class="wissen-subtitle reveal-up delay-2">Von Netzanschluss über Betriebskonzepte bis zur Skalierung: Wir bündeln hier die Themen, die für Unternehmen, Flotten und Kommunen in der Projektentwicklung wirklich entscheidend sind.</p>
+          <ul class="wissen-index reveal-up delay-3" aria-label="Themenindex">
+            <li>Netzanschluss</li>
+            <li>Lastmanagement</li>
+            <li>PV und Speicher</li>
+            <li>Förderung</li>
+            <li>Betrieb</li>
+            <li>Skalierung</li>
+            <li>Bus-Depots</li>
+            <li>E-LKW-Hubs</li>
+            <li>Tankstellen-Umrüstung</li>
+            <li>Tiefgaragen-Umrüstung</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wissen-topics" id="themen" aria-labelledby="wissen-themen-title">
+      <header class="section-head">
+        <h2 id="wissen-themen-title" class="reveal-up">Die zentralen Bausteine für erfolgreiche Ladeinfrastruktur-Projekte</h2>
+        <p class="reveal-up delay-1">Strukturiert von der Planung über die Umsetzung bis zum wirtschaftlichen Dauerbetrieb.</p>
+      </header>
+
+      <div class="stream-grid">
+        <article class="topic-card featured reveal-up" data-topic="netz" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Netzanschluss.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Planung</span>
+            <h3>Netzanschluss im Fokus</h3>
+            <p>Eine belastbare Anschlussstrategie vermeidet kostspielige Nachrüstungen. Entscheidend sind Leistungsbedarf, Ausbaustufen und Reserven für zukünftige Ladepunkte.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-1" data-topic="last" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Lademanagement (2).png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Technologie</span>
+            <h3>Lastmanagement im Betrieb</h3>
+            <p>Die intelligente Verteilung von Ladeleistung reduziert Lastspitzen, stabilisiert den Betrieb und verbessert die Wirtschaftlichkeit. Gleichzeitig bleibt genügend Reserve, um zusätzliche Ladepunkte schrittweise zu integrieren.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-2" data-topic="energie" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Batteriesystem.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Energie</span>
+            <h3>PV und Speicher</h3>
+            <p>PV-Anlagen und Batteriespeicher erhöhen den Eigenverbrauch und glätten Leistungsspitzen im Netzbezug. In Kombination mit intelligenter Steuerung sinken Energiekosten spuerbar und Lastfenster werden planbarer.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-3" data-topic="foerderung" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Förderung.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Finanzierung</span>
+            <h3>Förderung 2026</h3>
+            <p>Kombinierbare Programme und eine saubere Antragslogik reduzieren Risiken und verbessern die Investitionssicherheit. Wer Fristen, Nachweise und Vergabeschritte früh ordnet, erhöht die Chance auf eine förderfähige und zügige Umsetzung.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-4" data-topic="betrieb" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Dashboard.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Betrieb</span>
+            <h3>Betrieb und Abrechnung</h3>
+            <p>Ein tragfähiges Betriebsmodell verbindet Authentifizierung, Abrechnung, Wartung und transparente Leistungsdaten. Dadurch lassen sich Servicequalitaet, Verfuegbarkeit und Kosten im Alltag sauber steuern.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-5" data-topic="skalierung" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Kommune.jpg"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Skalierung</span>
+            <h3>Flotten & kommunale Rollouts</h3>
+            <p>Mit wachsender Elektrifizierung steigen die Anforderungen an Verfügbarkeit, Standortlogik und Lastreserven. Standardisierte Rollout-Strukturen helfen, mehrere Standorte schneller und mit gleichbleibender Qualitaet umzusetzen. Zusätzlich lassen sich Betrieb, Beschaffung und Priorisierung dadurch besser aufeinander abstimmen.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-6" data-topic="busdepot" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Bus Ladehub.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">ÖPNV</span>
+            <h3>Bus-Depots elektrifizieren</h3>
+            <p>Ladefenster, Umlaufzeiten und Depotlogik müssen präzise abgestimmt werden, damit die Fahrzeugverfügbarkeit im Schichtbetrieb gesichert bleibt. Ergänzend braucht es Reservekonzepte für Störungen, damit der Betrieb auch bei Lastspitzen stabil bleibt.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-7" data-topic="elkw" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/LKW.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Schwerlastverkehr</span>
+            <h3>E-LKW-Hubs und Korridore</h3>
+            <p>Für E-LKW sind hohe Anschlussleistungen, kurze Ladezeiten und klare Korridorstrategien entscheidend für einen wirtschaftlichen Fernverkehrsbetrieb. Entscheidend ist zudem, Ladehubs entlang der realen Touren zu priorisieren und nicht nur nach Flächenverfügbarkeit zu planen.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up delay-8" data-topic="tankstelle" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Tankstellen.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Bestand</span>
+            <h3>Tankstellen umrüsten</h3>
+            <p>Bei Tankstellen steht die Umrüstung auf hohe Verfügbarkeit, klare Verkehrsführung und wirtschaftlichen Betrieb unter laufender Nutzung im Fokus. So entsteht ein belastbarer Ladehub, ohne das Tagesgeschaeft unnoetig zu unterbrechen.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+
+        <article class="topic-card reveal-up" data-topic="tiefgarage" role="button" tabindex="0" aria-expanded="false" aria-haspopup="dialog" aria-controls="wissen-topic-modal">
+          <div class="topic-media" data-bg="assets/Tiefgarage.png"></div>
+          <div class="topic-body">
+            <span class="topic-tag">Immobilien</span>
+            <h3>Tiefgaragen elektrifizieren</h3>
+            <p>Das Thema fokussiert die systematische Elektrifizierung von Tiefgaragen mit klarer Laststrategie, Sicherheitskonzept und wirtschaftlichem Betriebsmodell. So lässt sich Bestand schrittweise aktivieren, ohne die technische Komplexität unnötig zu erhöhen.</p>
+            <span class="topic-link">Mehr zum Thema</span>
+          </div>
+        </article>
+      </div>
+
+      <section class="wissen-briefing reveal-up delay-6" aria-label="Wissenspfad">
+        <div class="briefing-grid">
+          <div class="brief-step">
+            <em>01</em>
+            <strong>Projektaufnahme</strong>
+            <span>Standort, Lastprofil, Zielbild und Ausbauhorizont werden zu einer belastbaren Ausgangsbasis zusammengeführt.</span>
+          </div>
+          <div class="brief-step">
+            <em>02</em>
+            <strong>Systemdesign</strong>
+            <span>Netz, Ladeleistung, Speicher und Steuerung werden als integriertes Gesamtsystem geplant und bewertet.</span>
+          </div>
+          <div class="brief-step">
+            <em>03</em>
+            <strong>Betriebsstrategie</strong>
+            <span>Abrechnung, Wartung, Monitoring und Skalierung werden auf einen wirtschaftlichen Dauerbetrieb ausgerichtet.</span>
+          </div>
+        </div>
+        <div class="brief-cta">
+          <span>Sie möchten eines dieser Themen direkt in Ihr Projekt überführen?</span>
+          <a class="btn btn-primary" href="kontakt.html">Gespräch vereinbaren</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>© <span id="y"></span> DRIVEPLAN</div>
+    <nav>
+      <a href="https://www.linkedin.com/company/111772886" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><img src="assets/linkedin-logo.png" alt="LinkedIn" style="width:18px;height:18px;display:block;"></a>
+      <a href="https://www.youtube.com/@DrivePlanEngineering" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><img src="assets/youtube-logo.png" alt="YouTube" style="width:18px;height:18px;display:block;"></a>
+      <a href="https://www.instagram.com/drive.plan.engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><img src="assets/instagram-logo.svg" alt="Instagram" style="width:18px;height:18px;display:block;"></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="footer-quick-link" href="mailto:info@driveplan-engineering.de">E-Mail</a>
+      <a class="footer-quick-link" href="tel:+4933426998894">Telefon</a>
+      <a href="kontakt.html#impressum">Impressum</a>
+      <a href="kontakt.html#datenschutz">Datenschutz</a>
+    </nav>
+  </footer>
+
+  <div id="wissen-topic-modal" class="wissen-topic-modal" hidden>
+    <div class="wissen-topic-modal-backdrop" data-close-modal="true"></div>
+    <section class="wissen-topic-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="wissen-detail-title" aria-describedby="wissen-detail-intro">
+      <div class="modal-motion" aria-hidden="true">
+        <span class="modal-motion-dot one"></span>
+        <span class="modal-motion-dot two"></span>
+      </div>
+      <button id="wissen-topic-modal-close" type="button" class="wissen-topic-modal-close" aria-label="Details schließen">×</button>
+      <span id="wissen-detail-kicker" class="detail-kicker">Thema</span>
+      <h3 id="wissen-detail-title">Vertiefende Informationen</h3>
+      <p id="wissen-detail-intro">Sie erhalten die entscheidenden Kerninformationen mit direkter Relevanz für Ihr Projekt und Ihre Investitionsentscheidung.</p>
+      <ul id="wissen-detail-fit" class="detail-fit-list" aria-label="Geeignet für"></ul>
+      <div id="wissen-detail-highlights" class="detail-highlight-grid" aria-label="Schnelle Orientierung"></div>
+      <section id="wissen-detail-longread" class="detail-longread" aria-label="Vertiefung"></section>
+      <div class="detail-mode-switch" role="tablist" aria-label="Informationsmodus">
+        <button type="button" class="detail-mode-btn is-active" data-mode="easy" role="tab" aria-selected="true">Kernüberblick</button>
+        <button type="button" class="detail-mode-btn" data-mode="customer" role="tab" aria-selected="false">Kundennutzen</button>
+        <button type="button" class="detail-mode-btn" data-mode="numbers" role="tab" aria-selected="false">Zahlen & Optionen</button>
+      </div>
+      <section id="wissen-detail-panel" class="detail-panel" aria-live="polite"></section>
+      <div class="detail-actions">
+        <span class="detail-note" id="wissen-detail-note">Wir unterstützen bei Analyse, Auslegung und Umsetzung.</span>
+        <a id="wissen-detail-link" class="btn btn-primary" href="kontakt.html">Beratung anfragen</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="snowfall" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = Array.from(document.querySelectorAll(".topic-card[data-topic]"));
+      const modal = document.getElementById("wissen-topic-modal");
+      const modalClose = document.getElementById("wissen-topic-modal-close");
+      const detailKicker = document.getElementById("wissen-detail-kicker");
+      const detailTitle = document.getElementById("wissen-detail-title");
+      const detailIntro = document.getElementById("wissen-detail-intro");
+      const detailFit = document.getElementById("wissen-detail-fit");
+      const detailHighlights = document.getElementById("wissen-detail-highlights");
+      const detailLongread = document.getElementById("wissen-detail-longread");
+      const detailPanel = document.getElementById("wissen-detail-panel");
+      const modeButtons = Array.from(document.querySelectorAll(".detail-mode-btn"));
+      const detailNote = document.getElementById("wissen-detail-note");
+      const detailLink = document.getElementById("wissen-detail-link");
+      let lastTrigger = null;
+      let currentTopic = null;
+      let currentTopicKey = "";
+      let currentMode = "easy";
+
+      if (!cards.length || !modal || !modalClose || !detailKicker || !detailTitle || !detailIntro || !detailFit || !detailHighlights || !detailLongread || !detailPanel || !modeButtons.length || !detailNote || !detailLink) {
+        return;
+      }
+
+      const details = {
+        netz: {
+          kicker: "Netzanschluss",
+          title: "Kerninformation: Ausreichende Leistung am richtigen Standort",
+          intro: "Der Kern liegt in einer belastbaren Anschlussleistung mit Reserve, damit Ihr Projekt planbar startet und in der nächsten Ausbaustufe ohne teure Nachrüstung weiterwächst.",
+          longRead: [
+            "In der Praxis wird der Netzanschluss häufig zu spät betrachtet. Dadurch verschiebt sich nicht nur der Starttermin, sondern auch die gesamte Kostenstruktur des Projekts. Eine frühzeitige Abstimmung mit Netzbetreiber, Lastprofil und Ausbaustufen reduziert dieses Risiko erheblich.",
+            "Professionelle Planung bedeutet, den Bedarf nicht nur für den Erstbetrieb, sondern für die nächste Ausbauphase mitzudenken. So entstehen belastbare Entscheidungen, die auch bei steigender Anzahl von Ladepunkten wirtschaftlich und technisch tragfähig bleiben."
+          ],
+          fit: ["Logistik", "Gewerbe", "Industrie", "Kommunen"],
+          highlights: [
+            { value: "4-10 Monate", label: "Typischer Korridor bis Freigabe" },
+            { value: "bis 30%", label: "Weniger Nachrüstkosten bei guter Reserve" },
+            { value: "3 Stufen", label: "Start, Ausbau, Zielbild" }
+          ],
+          easyPoints: [
+            "Wir bestimmen die Ziel-Leistung aus realen Lastprofilen statt aus pauschalen Annahmen.",
+            "Wir sichern Ausbaureserven so, dass die nächste Stufe ohne Strukturbruch anschließt.",
+            "Wir reduzieren Nachrüstkosten durch frühe Abstimmung von Netz, Trasse und Verteilung."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Planbare Investition statt späterer Überraschungen." },
+            { title: "Ihr Risiko sinkt", text: "Frühe Netzabstimmung reduziert Verzögerungen in der Umsetzung." },
+            { title: "Ihr nächster Schritt", text: "Leistungsbedarf für 3-5 Jahre als Ausbaupfad festlegen." }
+          ],
+          tableRows: [
+            ["Startbetrieb", "200-500 kVA", "Sicherer Einstieg mit Reserve"],
+            ["Ausbauphase", "500-1.200 kVA", "Wachstum ohne Strukturbruch"],
+            ["Zielbild", "> 1.200 kVA", "Langfristig tragfähige Infrastruktur"]
+          ],
+          priorities: [
+            { label: "Netzverfügbarkeit", score: 92 },
+            { label: "Qualität Lastdaten", score: 86 },
+            { label: "Reserveplanung", score: 80 }
+          ],
+          note: "Kundenfrage: Welche Ladeleistung benötigen Sie im Zielbild wirklich?",
+          cta: "Netzanschluss beraten lassen"
+        },
+        last: {
+          kicker: "Lastmanagement",
+          title: "Kerninformation: Ladeleistung intelligent steuern",
+          intro: "Der Kern ist eine priorisierte Leistungssteuerung, damit Verfügbarkeit gesichert bleibt und Lastspitzenkosten im laufenden Betrieb sinken.",
+          longRead: [
+            "Lastmanagement ist der zentrale Hebel zwischen technischer Machbarkeit und wirtschaftlichem Betrieb. Ohne klare Prioritätslogik drohen Lastspitzen, unnötige Netzbelastung und steigende Betriebskosten, obwohl ausreichend Infrastruktur vorhanden ist.",
+            "Entscheidend ist die Verknüpfung aus Fahrzeugprioritäten, Zeitfenstern und Tarifsignalen. Wer diese Steuerung sauber aufsetzt, erreicht eine hohe Verfügbarkeit und schafft gleichzeitig Reserven für zukünftiges Wachstum der Flotte."
+          ],
+          fit: ["Flotten", "Depots", "Servicefahrzeuge", "Gewerbeparks"],
+          highlights: [
+            { value: "10-25%", label: "Peak-Reduktion im Betrieb" },
+            { value: "24/7", label: "Kontinuierliche Priorisierung" },
+            { value: "1 Leitlogik", label: "Einheitliche Steuerung" }
+          ],
+          easyPoints: [
+            "Wir priorisieren Ladevorgänge nach Abfahrtszeit und betrieblicher Kritikalität.",
+            "Wir koppeln Regelung an Netzgrenzen, Tariffenster und Leistungslimits.",
+            "Wir erhöhen nutzbare Ladekapazität, ohne Infrastruktur pauschal zu überdimensionieren."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Niedrigere Betriebskosten durch weniger Lastspitzen." },
+            { title: "Ihr Risiko sinkt", text: "Höhere Verfügbarkeit trotz wachsender Ladepunkte." },
+            { title: "Ihr nächster Schritt", text: "Prioritäten nach Abfahrtszeit und Fahrzeugklasse definieren." }
+          ],
+          tableRows: [
+            ["Basis", "5-15% Peak-Reduktion", "Schneller Einstieg"],
+            ["Dynamisch", "15-25% Peak-Reduktion", "Bessere Kostenkontrolle"],
+            ["Tarif-optimiert", "bis 30% OPEX-Hebel", "Hoher Wirtschaftlichkeitsbeitrag"]
+          ],
+          priorities: [
+            { label: "Betriebsprioritäten", score: 90 },
+            { label: "Datenqualität", score: 78 },
+            { label: "Regelstrategie", score: 84 }
+          ],
+          note: "Kundenfrage: Welche Fahrzeuge müssen zu welchen Zeiten sicher verfügbar sein?",
+          cta: "Lastmanagement planen"
+        },
+        energie: {
+          kicker: "PV und Speicher",
+          title: "Kerninformation: Eigenenergie wirtschaftlich nutzen",
+          intro: "Der Kern ist die gekoppelte Steuerung von PV, Speicher und Laden, um Eigenverbrauch zu steigern und teure Netzspitzen gezielt zu reduzieren.",
+          longRead: [
+            "PV und Speicher entfalten ihren vollen Nutzen erst in einer integrierten Systemarchitektur mit Ladeinfrastruktur und Lastmanagement. Einzelkomponenten liefern oft nur Teilwirkungen, während eine abgestimmte Betriebsstrategie deutliche wirtschaftliche Vorteile ermöglicht.",
+            "Für belastbare Entscheidungen sollten saisonale Erzeugungsprofile, Ladezeiten und Lastspitzen gemeinsam bewertet werden. Dadurch lassen sich Eigenverbrauch, Netzentlastung und Kostenstabilität langfristig in Einklang bringen."
+          ],
+          fit: ["Produktion", "Logistik", "Depots", "Kommunale Betriebe"],
+          highlights: [
+            { value: "bis 40%", label: "Mehr Eigenverbrauch" },
+            { value: "15-30%", label: "Weniger Netzspitzen" },
+            { value: "1 System", label: "PV, Speicher, Laden gekoppelt" }
+          ],
+          easyPoints: [
+            "Wir nutzen PV-Energie in den Ladefenstern mit der größten Netzwirkung.",
+            "Wir setzen Speicher zur Peak-Kappung und Lastverschiebung ein.",
+            "Wir führen Erzeugung, Speicherung und Laden in einer gemeinsamen Betriebslogik zusammen."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Höhere Unabhängigkeit von Strompreisspitzen." },
+            { title: "Ihr Risiko sinkt", text: "Geringerer Druck auf den Netzanschluss in Lastzeiten." },
+            { title: "Ihr nächster Schritt", text: "Energieflussmodell für Sommer/Winter erstellen." }
+          ],
+          tableRows: [
+            ["PV only", "10-20%", "Basisnutzen ohne Speicher"],
+            ["PV + Speicher", "20-40%", "Mehr Eigenverbrauch"],
+            ["Systemgekoppelt", "15-30% weniger Peaks", "Beste Gesamtwirkung"]
+          ],
+          priorities: [
+            { label: "Passung PV zu Ladeprofil", score: 76 },
+            { label: "Speicherauslegung", score: 88 },
+            { label: "Systemsteuerung", score: 91 }
+          ],
+          note: "Kundenfrage: Wo verlieren Sie heute die meiste Energieeffizienz?",
+          cta: "Energiekonzept besprechen"
+        },
+        foerderung: {
+          kicker: "Förderung",
+          title: "Kerninformation: Förderprogramme strategisch kombinieren",
+          intro: "Der Kern ist eine abgestimmte Förderstrategie, die Programme, Fristen und Nachweise entlang Ihres Ausbaupfads synchronisiert.",
+          longRead: [
+            "Fördermittel wirken am stärksten, wenn sie als Teil einer Gesamtstrategie und nicht als Einzelantrag betrachtet werden. Entscheidend sind die richtige Reihenfolge, belastbare Nachweise und die Synchronisierung mit Planungs- und Vergabeschritten.",
+            "Unternehmen und Kommunen profitieren besonders, wenn Förderlogik und technischer Ausbaupfad aufeinander abgestimmt sind. So steigen Planungssicherheit und Kapitalwirkung, während zeitliche und formale Risiken deutlich sinken."
+          ],
+          fit: ["Mittelstand", "Kommunen", "Wohnungswirtschaft", "Industrie"],
+          highlights: [
+            { value: "10-40%", label: "Typische Förderkorridore" },
+            { value: "1 Fahrplan", label: "Klare Reihenfolge im Verfahren" },
+            { value: "hoher Hebel", label: "Spürbare Entlastung am Start" }
+          ],
+          easyPoints: [
+            "Wir matchen Ihr Vorhaben mit Programmen, die fachlich und zeitlich wirklich passen.",
+            "Wir synchronisieren Fristen mit Planung, Vergabe und Umsetzung.",
+            "Wir sichern Nachweise frühzeitig, damit keine Mittel durch Formfehler entfallen."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Besser planbare Investition mit klarer Finanzierungslinie." },
+            { title: "Ihr Risiko sinkt", text: "Weniger Verzögerungen durch geordnete Antragsschritte." },
+            { title: "Ihr nächster Schritt", text: "Programm-Matching nach Projektphase durchführen." }
+          ],
+          tableRows: [
+            ["Einzelmaßnahme", "10-25%", "Schneller Projektstart"],
+            ["Kombi-Förderung", "20-40%", "Höherer finanzieller Hebel"],
+            ["Programmstrategie", "mehrjährig", "Stabile Ausbauplanung"]
+          ],
+          priorities: [
+            { label: "Antragsqualität", score: 89 },
+            { label: "Fristensteuerung", score: 82 },
+            { label: "Dokumentation", score: 86 }
+          ],
+          note: "Kundenfrage: Welche Förderstufe passt zu Ihrem Budget- und Zeitplan?",
+          cta: "Förderstrategie starten"
+        },
+        betrieb: {
+          kicker: "Betrieb",
+          title: "Kerninformation: Betrieb stabil und skalierbar aufsetzen",
+          intro: "Der Kern ist ein belastbares Betriebsmodell, das Verfügbarkeit, Servicequalität und transparente Abrechnung dauerhaft absichert.",
+          longRead: [
+            "Der dauerhafte Erfolg von Ladeinfrastruktur entscheidet sich im Betrieb. Selbst technisch gut geplante Projekte verlieren an Wirkung, wenn Zuständigkeiten, Servicewege und Monitoring nicht klar definiert sind.",
+            "Ein professionelles Betriebsmodell verbindet SLA, Abrechnung, Wartung und Performance-Kennzahlen in einem steuerbaren System. Dadurch entstehen transparente Prozesse, die mit wachsender Nutzung stabil skalieren können."
+          ],
+          fit: ["Betreiber", "Immobilien", "Flotten", "Campusstandorte"],
+          highlights: [
+            { value: "98-99,5%", label: "Typische Verfügbarkeitsziele" },
+            { value: "live", label: "Monitoring und Abrechnung" },
+            { value: "modular", label: "Skalierbarer Betrieb" }
+          ],
+          easyPoints: [
+            "Wir definieren klare Zuständigkeiten für Betrieb, Entstörung und Servicekommunikation.",
+            "Wir steuern Qualität und Kosten mit verbindlichen KPI- und SLA-Regeln.",
+            "Wir gestalten Prozesse so, dass Erweiterungen ohne Reibungsverlust integriert werden."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Weniger Störungen und höhere Nutzerzufriedenheit." },
+            { title: "Ihr Risiko sinkt", text: "Klare SLA vermeiden Unsicherheit im Tagesbetrieb." },
+            { title: "Ihr nächster Schritt", text: "Service-Level und Eskalationswege verbindlich festlegen." }
+          ],
+          tableRows: [
+            ["Basis", "98%", "Einstieg mit Standardservice"],
+            ["Servicevertrag", "99%", "Hohe Betriebssicherheit"],
+            ["Profi-Betrieb", "99,5%", "Für kritische Flottenprozesse"]
+          ],
+          priorities: [
+            { label: "Serviceprozesse", score: 93 },
+            { label: "Monitoring", score: 87 },
+            { label: "Vertragsklarheit", score: 82 }
+          ],
+          note: "Kundenfrage: Welche Verfügbarkeit brauchen Ihre Prozesse wirklich?",
+          cta: "Betriebsmodell entwickeln"
+        },
+        skalierung: {
+          kicker: "Skalierung",
+          title: "Kerninformation: Vom Pilot in den professionellen Rollout",
+          intro: "Der Kern ist die Steuerung mehrerer Standorte als Programm mit klarer Priorisierung, Standards und zentraler Governance.",
+          longRead: [
+            "Viele Projekte funktionieren im Pilot, geraten aber beim Rollout ins Stocken. Der Grund ist meist fehlende Standardisierung bei Planung, Beschaffung, Betrieb und Reporting über mehrere Standorte hinweg.",
+            "Ein skalierbares Programm benötigt klare Priorisierungsregeln, wiederverwendbare Bausteine und zentrale Governance. So wird aus Einzelmaßnahmen ein belastbarer Ausbaupfad mit planbarer Qualität und Geschwindigkeit."
+          ],
+          fit: ["Filialnetze", "Kommunale Netzwerke", "Logistikcluster", "Mobilitätsverbünde"],
+          highlights: [
+            { value: "2-15+", label: "Standorte in Rollout-Stufen" },
+            { value: "klar priorisiert", label: "Budget und Reihenfolge" },
+            { value: "standardisiert", label: "Weniger Abstimmungsaufwand" }
+          ],
+          easyPoints: [
+            "Wir priorisieren Standorte nach Netzreife, Nachfrage und wirtschaftlichem Hebel.",
+            "Wir standardisieren Planung, Beschaffung und Betrieb über alle Rollout-Wellen.",
+            "Wir steuern das Portfolio mit einheitlichen KPI- und Entscheidungsregeln."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Schnelleres Wachstum bei gleichbleibender Qualität." },
+            { title: "Ihr Risiko sinkt", text: "Weniger Reibung zwischen Ausbauphasen und Teams." },
+            { title: "Ihr nächster Schritt", text: "Rollout-Roadmap mit Clustern und Meilensteinen aufsetzen." }
+          ],
+          tableRows: [
+            ["Pilotcluster", "2-5 Standorte", "Lernen mit geringem Risiko"],
+            ["Stufe 1", "5-15 Standorte", "Skalierbarer Standardprozess"],
+            ["Stufe 2", "> 15 Standorte", "Portfolio-Steuerung mit Governance"]
+          ],
+          priorities: [
+            { label: "Standardisierung", score: 94 },
+            { label: "Standortpriorisierung", score: 85 },
+            { label: "Rollout-Governance", score: 88 }
+          ],
+          note: "Kundenfrage: Welche Standorte liefern den größten Hebel zuerst?",
+          cta: "Skalierungsfahrplan aufsetzen"
+        },
+        busdepot: {
+          kicker: "Bus und ÖPNV",
+          title: "Kerninformation: Ladeplanung entlang von Umläufen und Depotfenstern",
+          intro: "Der Kern ist die präzise Verzahnung von Fahrplan, Standzeiten und Ladeleistung, damit der Linienbetrieb stabil und wirtschaftlich bleibt.",
+          longRead: [
+            "Im ÖPNV sind Ladeentscheidungen direkt betriebskritisch: Jede Abweichung beeinflusst Umlaufstabilität, Pünktlichkeit und Fahrzeugverfügbarkeit. Deshalb müssen Fahrplandaten, Standzeiten und Ladeleistung in einem integrierten Modell geplant werden.",
+            "Besonders wirksam ist die Kombination aus Depotladung und gezielter Zwischenladung auf kritischen Linien. Diese Strategie erhöht die Robustheit im Tagesbetrieb und reduziert gleichzeitig unnötige Spitzenlasten am Standort."
+          ],
+          fit: ["Verkehrsbetriebe", "Kommunen", "Depotstandorte", "Mobilitätsgesellschaften"],
+          highlights: [
+            { value: "4-8 h", label: "Typische Depot-Ladefenster nachts" },
+            { value: "1-2 MW", label: "Leistung für mittelgroße Depots" },
+            { value: "hoch", label: "Betriebsrelevanz pro Umlauf" }
+          ],
+          easyPoints: [
+            "Wir legen Ladefenster entlang realer Umläufe statt nach rein technischer Maximalleistung aus.",
+            "Wir kombinieren Depot- und Zwischenladung für kritische Betriebsfenster.",
+            "Wir sichern Verfügbarkeit durch priorisierte Lade- und Reservekonzepte je Linie."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Hohe Verfügbarkeit im Linienbetrieb mit planbaren Energiekosten." },
+            { title: "Ihr Risiko sinkt", text: "Weniger Störungen durch abgestimmte Ladefenster und Reservekonzepte." },
+            { title: "Ihr nächster Schritt", text: "Umlaufdaten, Standzeiten und Ziel-Flottengröße gemeinsam auslegen." }
+          ],
+          tableRows: [
+            ["Depotfokus", "über Nacht", "Für planbare Standardumläufe"],
+            ["Mischbetrieb", "Nacht + Zwischenladung", "Für hohe Tagesauslastung"],
+            ["Linienkritisch", "hohe Priorisierung", "Für enge Taktung und Spitzenverkehr"]
+          ],
+          priorities: [
+            { label: "Umlaufpassung", score: 93 },
+            { label: "Depotleistung", score: 88 },
+            { label: "Verfügbarkeitsstrategie", score: 90 }
+          ],
+          note: "Kundenfrage: Wo sind Ihre kritischsten Umläufe und welche Ladefenster sind dort realistisch?",
+          cta: "Bus-Depot-Strategie entwickeln"
+        },
+        elkw: {
+          kicker: "E-LKW",
+          title: "Kerninformation: Hochleistungsladen für schwere Flotten",
+          intro: "Der Kern ist die Priorisierung leistungsstarker Standorte entlang realer Transportrelationen, weil Zeitfenster und Leistungsklassen deutlich anspruchsvoller sind.",
+          longRead: [
+            "E-LKW-Infrastruktur unterscheidet sich grundlegend von klassischen Pkw-Anwendungen. Höhere Leistungsklassen, engere Zeitfenster und tourenabhängige Verfügbarkeit erzeugen deutlich komplexere Anforderungen an Netz, Standort und Betrieb.",
+            "Der größte wirtschaftliche Hebel entsteht, wenn Ladehubs entlang realer Transportkorridore geplant werden. Damit lassen sich Standzeiten reduzieren, Touren stabilisieren und Investitionen zielgerichtet in die leistungsrelevantesten Relationen lenken."
+          ],
+          fit: ["Logistikzentren", "Speditionen", "Autobahnnahe Hubs", "Industrieareale"],
+          highlights: [
+            { value: "0,75-1,5 MW", label: "Leistung je Ladepunkt im Hochlastbereich" },
+            { value: "20-45 min", label: "Zielkorridor für Zwischenladung" },
+            { value: "24/7", label: "Betriebsanforderung bei Fernverkehr" }
+          ],
+          easyPoints: [
+            "Wir priorisieren Hochleistungs-Ladepunkte nach operativem Impact auf Touren und Umschlag.",
+            "Wir verbinden Ladeinfrastruktur mit Touren-, Schicht- und Pausenlogik.",
+            "Wir dimensionieren Netzreserve für Flottenwachstum und höhere Fahrzeugleistungen."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Bessere Tourenstabilität und geringere Standzeitkosten." },
+            { title: "Ihr Risiko sinkt", text: "Weniger Engpässe durch vorausschauende Anschluss- und Hubplanung." },
+            { title: "Ihr nächster Schritt", text: "Ladekorridore nach Tourprofil und Standortkapazität priorisieren." }
+          ],
+          tableRows: [
+            ["Depot-Laden", "0,15-0,4 MW", "Bei langen Standzeiten"],
+            ["Hub-Laden", "0,4-0,9 MW", "Für regionale Umschlagpunkte"],
+            ["Hochleistung", "0,75-1,5 MW", "Für zeitkritische Fernverkehrsprofile"]
+          ],
+          priorities: [
+            { label: "Netzleistung", score: 95 },
+            { label: "Standortkorridor", score: 89 },
+            { label: "Tourenintegration", score: 87 }
+          ],
+          note: "Kundenfrage: Welche Relationen in Ihrer Flotte brauchen zuerst Hochleistungs-Laden?",
+          cta: "E-LKW-Konzept aufsetzen"
+        },
+        tankstelle: {
+          kicker: "Tankstellen-Umrüstung",
+          title: "Kerninformation: Tankstellen zu leistungsfähigen Ladehubs entwickeln",
+          intro: "Der Kern ist eine abgestimmte Umrüstung aus Netzleistung, Verkehrsführung und Betrieb, damit der Standort während der Transformation zuverlässig funktioniert.",
+          longRead: [
+            "Tankstellen besitzen einen klaren Standortvorteil durch bestehende Kundenfrequenz und etablierte Verkehrsachsen. Für den Umbau zum Ladehub ist jedoch eine saubere Abstimmung aus Netzleistung, Flächenlogik und Aufenthaltskonzept erforderlich.",
+            "Professionelle Umrüstung bedeutet, den laufenden Betrieb mitzudenken und Ausbaustufen wirtschaftlich zu strukturieren. So kann der Standort schrittweise wachsen, ohne Servicequalität oder Verfügbarkeit im Tagesgeschäft zu verlieren."
+          ],
+          fit: ["Tankstellenbetreiber", "Energieversorger", "Franchise-Standorte", "Transitachsen"],
+          highlights: [
+            { value: "hohe Lagequalität", label: "Standorte mit bestehender Frequenz" },
+            { value: "mehrstufig", label: "Umbau in Rollout-Phasen" },
+            { value: "24/7", label: "Betriebsmodell mit hoher Verfügbarkeit" }
+          ],
+          easyPoints: [
+            "Wir staffeln Umrüstungsschritte so, dass das Tagesgeschäft weitgehend unterbrechungsfrei bleibt.",
+            "Wir positionieren Ladepunkte nach Zufahrt, Verweildauer und Frequenzprofil.",
+            "Wir koppeln Ausbauphasen mit Netzreserve für einen wirtschaftlich belastbaren Hubbetrieb."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Wir aktivieren bestehende Standorte schneller für neue Umsatzmodelle." },
+            { title: "Ihr Risiko sinkt", text: "Verkehrs- und Lastspitzen werden durch saubere Standortlogik beherrschbar." },
+            { title: "Ihr nächster Schritt", text: "Pilotstandorte entlang Ihrer Hauptachsen priorisieren." }
+          ],
+          tableRows: [
+            ["Pilot-Umrüstung", "4-8 Ladepunkte", "Für schnellen Markttest"],
+            ["Korridor-Ausbau", "8-20 Ladepunkte", "Für stark frequentierte Achsen"],
+            ["Hub-Betrieb", "20+ Ladepunkte", "Für hohe Tagesdurchsätze"]
+          ],
+          priorities: [
+            { label: "Standortlogik", score: 92 },
+            { label: "Netz- und Ausbaureserve", score: 90 },
+            { label: "Betriebsverfügbarkeit", score: 88 }
+          ],
+          note: "Kundenfrage: Welche Tankstellen sollen zuerst als Ladehub wirtschaftlich aktiviert werden?",
+          cta: "Tankstellen-Retrofit bewerten"
+        },
+        tiefgarage: {
+          kicker: "Tiefgaragen-Strategie",
+          title: "Kerninformation: Tiefgaragen als wirtschaftliche Ladeinfrastruktur entwickeln",
+          intro: "Der Kern ist ein etagenweiser Ausbaupfad, der bauliche Machbarkeit, Sicherheitsanforderungen und Lastverteilung im Bestand integriert.",
+          longRead: [
+            "Tiefgaragen sind für die Elektrifizierung besonders relevant, weil sie direkt an Wohn- und Arbeitsstandorte angebunden sind. Gleichzeitig stellen sie hohe Anforderungen an Trassenführung, Lastverteilung, Brandschutz und Lüftung.",
+            "Ein belastbares Konzept arbeitet mit klaren Ausbaustufen je Ebene und integriert technische wie genehmigungsrelevante Aspekte frühzeitig. Dadurch entsteht ein sicherer, wirtschaftlicher Betrieb, der mit wachsender Nachfrage kontrolliert skaliert."
+          ],
+          fit: ["Immobilienbetreiber", "Wohnungswirtschaft", "Quartiersgaragen", "Bestandsparkhäuser"],
+          highlights: [
+            { value: "Bestand", label: "Nutzung vorhandener Stellplätze" },
+            { value: "mehrstufig", label: "Ausbau mit klaren Lastgrenzen" },
+            { value: "kritisch", label: "Sicherheits- und Lüftungskonzept" }
+          ],
+          easyPoints: [
+            "Wir prüfen Trassen, Unterverteilungen und Leistungsreserven je Ebene frühzeitig.",
+            "Wir integrieren Brandschutz und Lüftung verbindlich in die Ladeplanung.",
+            "Wir staffeln den Ausbau so, dass Betriebssicherheit und Nutzerkomfort stabil bleiben."
+          ],
+          customerCards: [
+            { title: "Ihr Vorteil", text: "Wir machen Bestandsflächen zukunftssicher nutzbar, ohne Komplettumbau in einem Schritt." },
+            { title: "Ihr Risiko sinkt", text: "Technische und genehmigungsrelevante Engpässe werden früh minimiert." },
+            { title: "Ihr nächster Schritt", text: "Vor-Ort-Check mit Last- und Sicherheitskonzept je Ebene starten." }
+          ],
+          tableRows: [
+            ["Startausbau", "5-15 Ladepunkte", "Für erste Nutzergruppen"],
+            ["Ausbaustufe 1", "15-40 Ladepunkte", "Für steigende Nachfrage im Objekt"],
+            ["Ausbaustufe 2", "40+ Ladepunkte", "Für langfristige Vollintegration"]
+          ],
+          priorities: [
+            { label: "Bauliche Machbarkeit", score: 91 },
+            { label: "Sicherheitskonzept", score: 95 },
+            { label: "Lastverteilung je Ebene", score: 86 }
+          ],
+          note: "Kundenfrage: Welche Tiefgaragenflächen bieten den höchsten Hebel für einen stufenweisen Ladeausbau?",
+          cta: "Tiefgaragen-Strategie starten"
+        }
+      };
+
+      const topicVariants = {
+        netz: { tone: "teal", profile: "alpha", modeOrder: ["easy", "numbers", "customer"] },
+        last: { tone: "blue", profile: "beta", modeOrder: ["numbers", "easy", "customer"] },
+        energie: { tone: "amber", profile: "gamma", modeOrder: ["easy", "customer", "numbers"] },
+        foerderung: { tone: "amber", profile: "beta", modeOrder: ["customer", "numbers", "easy"] },
+        betrieb: { tone: "slate", profile: "alpha", modeOrder: ["customer", "easy", "numbers"] },
+        skalierung: { tone: "blue", profile: "gamma", modeOrder: ["numbers", "customer", "easy"] },
+        busdepot: { tone: "teal", profile: "beta", modeOrder: ["easy", "customer", "numbers"] },
+        elkw: { tone: "blue", profile: "alpha", modeOrder: ["numbers", "easy", "customer"] },
+        tankstelle: { tone: "amber", profile: "gamma", modeOrder: ["customer", "numbers", "easy"] },
+        tiefgarage: { tone: "slate", profile: "beta", modeOrder: ["easy", "numbers", "customer"] }
+      };
+
+      function applyModeOrder(order) {
+        const normalizedOrder = Array.isArray(order) && order.length ? order : ["easy", "customer", "numbers"];
+        modeButtons.forEach(function (btn) {
+          const index = normalizedOrder.indexOf(btn.dataset.mode || "easy");
+          btn.style.order = String(index === -1 ? 99 : index);
+        });
+      }
+
+      function renderEasyMode(info, profile) {
+        if (profile === "beta") {
+          const timelineHtml = (info.easyPoints || []).map(function (item, index) {
+            return '<li class="timeline-step" style="--i:' + index + '"><em>' + String(index + 1).padStart(2, "0") + '</em><span>' + item + '</span></li>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>Umsetzungsweg in 3 Schritten</h4>' +
+            '<ol class="timeline-list">' + timelineHtml + '</ol>';
+          return;
+        }
+
+        if (profile === "gamma") {
+          const signalHtml = (info.highlights || []).map(function (item, index) {
+            return '<article class="signal-card" style="--i:' + index + '"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>Kerninformationen auf einen Blick</h4>' +
+            '<div class="signal-grid">' + signalHtml + '</div>';
+          return;
+        }
+
+        const explainHtml = (info.easyPoints || []).map(function (item, index) {
+          return '<li style="--i:' + index + '">' + item + '</li>';
+        }).join("");
+        detailPanel.innerHTML =
+          '<h4>Kerninformationen in 3 Punkten</h4>' +
+          '<ul class="explain-list">' + explainHtml + '</ul>';
+      }
+
+      function renderCustomerMode(info, profile) {
+        if (profile === "beta") {
+          const cards = info.customerCards || [];
+          const primary = cards[0] || { title: "Ihr Vorteil", text: "" };
+          const secondaryOne = cards[1] || { title: "Ihr Risiko sinkt", text: "" };
+          const secondaryTwo = cards[2] || { title: "Ihr nächster Schritt", text: "" };
+          detailPanel.innerHTML =
+            '<h4>Ihr Nutzen im Projektkontext</h4>' +
+            '<div class="customer-split">' +
+            '<article class="customer-pill" style="--i:0"><strong>' + primary.title + '</strong><p>' + primary.text + '</p></article>' +
+            '<div class="customer-grid">' +
+            '<article class="customer-pill" style="--i:1"><strong>' + secondaryOne.title + '</strong><p>' + secondaryOne.text + '</p></article>' +
+            '<article class="customer-pill" style="--i:2"><strong>' + secondaryTwo.title + '</strong><p>' + secondaryTwo.text + '</p></article>' +
+            '</div>' +
+            '</div>';
+          return;
+        }
+
+        if (profile === "gamma") {
+          const checklistHtml = (info.customerCards || []).map(function (item, index) {
+            return '<li style="--i:' + index + '"><strong>' + item.title + ':</strong> ' + item.text + '</li>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>Kundennutzen als Entscheidungs-Check</h4>' +
+            '<ul class="explain-list">' + checklistHtml + '</ul>';
+          return;
+        }
+
+        const cardsHtml = (info.customerCards || []).map(function (item, index) {
+          return '<article class="customer-card" style="--i:' + index + '"><strong>' + item.title + '</strong><p>' + item.text + '</p></article>';
+        }).join("");
+        detailPanel.innerHTML =
+          '<h4>Was bedeutet das konkret für Ihr Unternehmen?</h4>' +
+          '<div class="customer-grid">' + cardsHtml + '</div>';
+      }
+
+      function renderNumbersMode(info, profile) {
+        if (currentTopicKey === "netz") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Netzanschluss als Ausbaupfad</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Leistungsstufen vom Startbetrieb bis zum Zielbild inklusive typischer Zeit- und Kostenwirkung.</span></div>' +
+            '<div class="milestone-row">' +
+            '<article class="milestone-card" style="--i:0"><strong>Startbetrieb</strong><span>200-500 kVA</span><span>schneller Einstieg</span></article>' +
+            '<article class="milestone-card" style="--i:1"><strong>Ausbauphase</strong><span>500-1.200 kVA</span><span>Reserve sichern</span></article>' +
+            '<article class="milestone-card" style="--i:2"><strong>Zielbild</strong><span>> 1.200 kVA</span><span>langfristig tragfähig</span></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Entscheidend ist nicht nur die Startleistung, sondern eine belastbare Stufenplanung mit Reserve für die nächste Ausbauentscheidung.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "last") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Lastmanagement im Tagesverlauf</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Vergleich der Standortlast ohne und mit Lastmanagement im gleichen Tagesfenster.</span></div>' +
+            '<svg class="line-viz" viewBox="0 0 560 220" role="img" aria-label="Vergleich Lastverlauf ohne und mit Lastmanagement">' +
+            '<rect x="0" y="0" width="560" height="220" fill="transparent"></rect>' +
+            '<line x1="50" y1="180" x2="520" y2="180" stroke="rgba(80,96,110,0.35)" stroke-width="1"></line>' +
+            '<line x1="50" y1="40" x2="50" y2="180" stroke="rgba(80,96,110,0.35)" stroke-width="1"></line>' +
+            '<text x="52" y="195" font-size="11" fill="currentColor">06:00</text><text x="170" y="195" font-size="11" fill="currentColor">10:00</text><text x="288" y="195" font-size="11" fill="currentColor">14:00</text><text x="406" y="195" font-size="11" fill="currentColor">18:00</text><text x="504" y="195" font-size="11" fill="currentColor">22:00</text>' +
+            '<polyline points="50,166 120,142 190,78 260,56 330,92 400,70 470,132 520,156" fill="none" stroke="#d9875a" stroke-width="3" stroke-linecap="round"></polyline>' +
+            '<polyline points="50,168 120,154 190,118 260,106 330,112 400,108 470,136 520,152" fill="none" stroke="#2e7d6d" stroke-width="3" stroke-linecap="round"></polyline>' +
+            '<text x="360" y="60" font-size="11" fill="#d9875a">ohne Steuerung</text><text x="355" y="102" font-size="11" fill="#2e7d6d">mit Lastmanagement</text>' +
+            '</svg>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Die Kurve zeigt, wie Spitzen durch Steuerung geglättet werden. Das bedeutet geringere Leistungsspitzenkosten und mehr Reserve für zusätzliche Ladepunkte.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "energie") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Energiefluss im gekoppelten System</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Energiepfade zwischen PV, Speicher, Netz und Ladepunkten inklusive typischer Hebel auf den Netzbezug.</span></div>' +
+            '<div class="flow-grid">' +
+            '<article class="flow-node" style="--i:0"><strong>PV</strong><span>10-20%</span></article>' +
+            '<div class="flow-arrow">→</div>' +
+            '<article class="flow-node" style="--i:1"><strong>Speicher</strong><span>20-40%</span></article>' +
+            '<div class="flow-arrow">→</div>' +
+            '<article class="flow-node" style="--i:2"><strong>Laden</strong><span>15-30% Peak-Senkung</span></article>' +
+            '<div class="flow-arrow">→</div>' +
+            '<article class="flow-node" style="--i:3"><strong>Netz</strong><span>geringerer Bezug</span></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Je stärker PV und Speicher in die Lade-Logik integriert werden, desto geringer ist der teure Netzbezug in Spitzenzeiten.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "foerderung") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Förderprozess mit Erfolgsfaktoren</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Funnel vom Programm-Matching bis zur Auszahlung mit typischen Erfolgsfaktoren je Prozessstufe.</span></div>' +
+            '<div class="funnel-stack">' +
+            '<article class="funnel-step" style="--i:0"><strong>1. Programm-Matching</strong><div class="funnel-track"><div class="funnel-fill" style="--w:100%"></div></div></article>' +
+            '<article class="funnel-step" style="--i:1"><strong>2. Antragsreife Unterlagen</strong><div class="funnel-track"><div class="funnel-fill" style="--w:82%"></div></div></article>' +
+            '<article class="funnel-step" style="--i:2"><strong>3. Fristen- und Vergabekonformität</strong><div class="funnel-track"><div class="funnel-fill" style="--w:68%"></div></div></article>' +
+            '<article class="funnel-step" style="--i:3"><strong>4. Bewilligung und Abruf</strong><div class="funnel-track"><div class="funnel-fill" style="--w:54%"></div></div></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Die größte Wirkung entsteht durch frühe Nachweisführung und synchronisierte Fristen. Genau dort sollte das Projektmanagement priorisiert werden.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "betrieb") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Betriebsqualität im KPI-Cockpit</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Verfügbarkeitsziel als Tacho plus zentrale Steuergrößen für Service und Betriebssicherheit.</span></div>' +
+            '<div class="kpi-cockpit">' +
+            '<svg class="gauge-viz" viewBox="0 0 220 140" role="img" aria-label="Verfügbarkeits-Tacho">' +
+            '<path d="M20 120 A90 90 0 0 1 200 120" fill="none" stroke="rgba(80,96,110,0.22)" stroke-width="16"/>' +
+            '<path d="M20 120 A90 90 0 0 1 188 82" fill="none" stroke="#2e7d6d" stroke-width="16" stroke-linecap="round"/>' +
+            '<text x="110" y="95" text-anchor="middle" font-size="28" font-family="Montserrat, sans-serif" fill="currentColor">99%</text>' +
+            '<text x="110" y="114" text-anchor="middle" font-size="12" fill="currentColor">Zielverfügbarkeit</text>' +
+            '</svg>' +
+            '<div class="number-chip-grid">' +
+            '<article class="number-chip" style="--i:0"><strong>MTTR</strong><span>Reaktionszeit im Störfall</span></article>' +
+            '<article class="number-chip" style="--i:1"><strong>SLA-Erfüllung</strong><span>monatlich transparent</span></article>' +
+            '<article class="number-chip" style="--i:2"><strong>Ticketquote</strong><span>pro Ladepunkt</span></article>' +
+            '</div>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Für kritische Standorte zählt nicht nur die Technik, sondern ein messbares SLA-Modell mit klaren Servicezeiten.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "skalierung") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Rollout-Roadmap über Standortstufen</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Skalierungslogik nach Standortanzahl und Governance-Tiefe vom Pilot bis zum Portfolio.</span></div>' +
+            '<div class="roadmap-grid">' +
+            '<article class="roadmap-step" style="--i:0"><strong>Pilotcluster</strong><span>2-5 Standorte</span><span>Lernen mit geringem Risiko</span></article>' +
+            '<article class="roadmap-step" style="--i:1"><strong>Stufe 1</strong><span>5-15 Standorte</span><span>Standardprozesse etablieren</span></article>' +
+            '<article class="roadmap-step" style="--i:2"><strong>Stufe 2</strong><span>> 15 Standorte</span><span>zentrale Portfolio-Steuerung</span></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Die größte Hebelwirkung entsteht, wenn Standards bereits im Pilot für spätere Standortwellen vorbereitet werden.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "busdepot") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Ladefenster-Heatmap im Depotbetrieb</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Belastung nach Zeitfenstern und Umlaufkritikalität zur Priorisierung im Tagesbetrieb.</span></div>' +
+            '<div class="heatmap-grid">' +
+            '<div class="heat-cell" style="--v:18%">Nacht\nBasisladung</div><div class="heat-cell" style="--v:34%">Früh\nAbfahrtsfenster</div><div class="heat-cell" style="--v:42%">Mittag\nZwischenladung</div><div class="heat-cell" style="--v:28%">Abend\nRücklauf</div>' +
+            '<div class="heat-cell" style="--v:20%">Linie A\nnormal</div><div class="heat-cell" style="--v:38%">Linie B\nhoch</div><div class="heat-cell" style="--v:46%">Linie C\nkritisch</div><div class="heat-cell" style="--v:30%">Reserve\nmittel</div>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Priorisieren Sie Ladeleistung in den kritischsten Umlauffenstern, nicht gleichmäßig über den Tag.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "elkw") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Leistungsklassen nach Einsatzprofil</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Leistungskorridore je Einsatzzweck, um Ladepunkte auf Tourenanforderungen statt auf Durchschnittswerte auszulegen.</span></div>' +
+            '<div class="matrix-table-wrap" style="--i:0"><table class="matrix-table"><thead><tr><th>Einsatzprofil</th><th>Leistungskorridor</th><th>Kundennutzen</th></tr></thead><tbody>' +
+            '<tr><td><strong>Depot-Laden</strong></td><td>0,15-0,4 MW</td><td>niedrige Peak-Kosten bei langen Standzeiten</td></tr>' +
+            '<tr><td><strong>Hub-Laden</strong></td><td>0,4-0,9 MW</td><td>stabiler Regionalverkehr mit kurzen Umläufen</td></tr>' +
+            '<tr><td><strong>Hochleistung</strong></td><td>0,75-1,5 MW</td><td>zeitkritische Fernverkehrsrelationen absichern</td></tr>' +
+            '</tbody></table></div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Starten Sie mit den Relationen mit höchster Zeitkritikalität, dort ist der Business-Impact am größten.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "tankstelle") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Standort-Quadrant für Ladehub-Potenziale</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Einordnung von Standorten nach Frequenz und Anschlussfähigkeit für priorisierte Umrüstung.</span></div>' +
+            '<div class="quad-grid">' +
+            '<article class="quad-card" style="--i:0"><strong>hoch/hoch</strong><span>Sofort-Umrüstung als Hub</span></article>' +
+            '<article class="quad-card" style="--i:1"><strong>hoch/niedrig</strong><span>Netzausbau zuerst planen</span></article>' +
+            '<article class="quad-card" style="--i:2"><strong>niedrig/hoch</strong><span>Pilot für regionale Nachfrage</span></article>' +
+            '<article class="quad-card" style="--i:3"><strong>niedrig/niedrig</strong><span>spätere Rollout-Stufe</span></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Priorisieren Sie Standorte mit hoher Frequenz und hoher Anschlussqualität für den ersten wirtschaftlichen Hebel.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (currentTopicKey === "tiefgarage") {
+          detailPanel.innerHTML =
+            '<h4>Zahlen und Optionen: Etagenweise Ausbau- und Sicherheitsmatrix</h4>' +
+            '<article class="viz-card" style="--i:0">' +
+            '<div class="viz-head"><strong>Was wird gezeigt?</strong><span>Ausbaupriorisierung nach Etage in Kombination aus Lastreserve, Sicherheitsanforderung und Nutzerdichte.</span></div>' +
+            '<div class="funnel-stack">' +
+            '<article class="funnel-step" style="--i:0"><strong>Ebene 1 - Startausbau</strong><div class="funnel-track"><div class="funnel-fill" style="--w:92%"></div></div></article>' +
+            '<article class="funnel-step" style="--i:1"><strong>Ebene 2 - Ausbaustufe 1</strong><div class="funnel-track"><div class="funnel-fill" style="--w:76%"></div></div></article>' +
+            '<article class="funnel-step" style="--i:2"><strong>Ebene 3 - Ausbaustufe 2</strong><div class="funnel-track"><div class="funnel-fill" style="--w:58%"></div></div></article>' +
+            '</div>' +
+            '<div class="viz-decision"><strong>Entscheidungshilfe:</strong> Beginnen Sie auf den Etagen mit der besten Kombination aus Lastreserve und Nutzerfrequenz, um Investitionsrisiken zu senken.</div>' +
+            '</article>';
+          return;
+        }
+
+        if (profile === "beta") {
+          const barsHtml = (info.priorities || []).map(function (item, index) {
+            return '<article class="priority-item">' +
+              '<div class="priority-head"><span>' + item.label + '</span><strong>' + item.score + '%</strong></div>' +
+              '<div class="priority-track"><div class="priority-fill" style="--score:' + item.score + '%; --i:' + index + '"></div></div>' +
+              '</article>';
+          }).join("");
+          const chipsHtml = (info.highlights || []).map(function (item, index) {
+            return '<article class="number-chip" style="--i:' + index + '"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>Kennzahlen und Prioritäten</h4>' +
+            '<div class="priority-bars">' + barsHtml + '</div>' +
+            '<div class="number-chip-grid">' + chipsHtml + '</div>';
+          return;
+        }
+
+        if (profile === "gamma") {
+          const matrixRows = (info.tableRows || []).map(function (row) {
+            return '<tr><td><strong>' + row[0] + '</strong></td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>Entscheidungsmatrix für Ausbauoptionen</h4>' +
+            '<div class="matrix-table-wrap" style="--i:0"><table class="matrix-table"><thead><tr><th>Szenario</th><th>Korridor</th><th>Nutzenprofil</th></tr></thead><tbody>' + matrixRows + '</tbody></table></div>';
+          return;
+        }
+
+        const rowsHtml = (info.tableRows || []).map(function (row) {
+          return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+        }).join("");
+        const barsHtml = (info.priorities || []).map(function (item, index) {
+          return '<article class="priority-item" style="--i:' + index + '">' +
+            '<div class="priority-head"><span>' + item.label + '</span><strong>' + item.score + '%</strong></div>' +
+            '<div class="priority-track"><div class="priority-fill" style="--score:' + item.score + '%; --i:' + index + '"></div></div>' +
+            '</article>';
+        }).join("");
+        detailPanel.innerHTML =
+          '<h4>Zahlen und Optionen für Ihre Entscheidung</h4>' +
+          '<div class="decision-table-wrap" style="--i:0"><table class="decision-table"><thead><tr><th>Option</th><th>Typischer Korridor</th><th>Wann sinnvoll?</th></tr></thead><tbody>' + rowsHtml + '</tbody></table></div>' +
+          '<div class="priority-bars">' + barsHtml + '</div>';
+      }
+
+      function animatePanel() {
+        detailPanel.classList.remove("panel-animate");
+        void detailPanel.offsetWidth;
+        detailPanel.classList.add("panel-animate");
+      }
+
+      function animateModalFresh() {
+        modal.classList.remove("modal-fresh");
+        void modal.offsetWidth;
+        modal.classList.add("modal-fresh");
+      }
+
+      function renderMode(mode, info) {
+        const variant = topicVariants[currentTopicKey] || { profile: "alpha" };
+        const profile = variant.profile || "alpha";
+
+        if (mode === "customer") {
+          renderCustomerMode(info, profile);
+          animatePanel();
+          return;
+        }
+
+        if (mode === "numbers") {
+          renderNumbersMode(info, profile);
+          animatePanel();
+          return;
+        }
+
+        renderEasyMode(info, profile);
+        animatePanel();
+      }
+
+      function setMode(mode) {
+        currentMode = mode;
+        modeButtons.forEach(function (btn) {
+          const active = btn.dataset.mode === mode;
+          btn.classList.toggle("is-active", active);
+          btn.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        if (currentTopic) {
+          renderMode(mode, currentTopic);
+        }
+      }
+
+      function openModal(card) {
+        const info = details[card.dataset.topic];
+        if (!info) {
+          return;
+        }
+
+        currentTopic = info;
+        currentTopicKey = card.dataset.topic || "";
+        lastTrigger = card;
+        const variant = topicVariants[currentTopicKey] || { tone: "teal", modeOrder: ["easy", "customer", "numbers"] };
+
+        modal.dataset.tone = variant.tone || "teal";
+        applyModeOrder(variant.modeOrder);
+
+        const topicMedia = card.querySelector(".topic-media");
+        let topicBackground = "";
+        if (topicMedia) {
+          topicBackground = topicMedia.getAttribute("data-bg") || "";
+
+          if (!topicBackground) {
+            const computedBg = window.getComputedStyle(topicMedia).backgroundImage;
+            if (computedBg && computedBg !== "none") {
+              topicBackground = computedBg;
+            }
+          }
+        }
+
+        if (topicBackground) {
+          if (/^url\(/i.test(topicBackground)) {
+            modal.style.setProperty("--topic-bg", topicBackground);
+          } else {
+            modal.style.setProperty("--topic-bg", `url("${topicBackground}")`);
+          }
+        } else {
+          modal.style.removeProperty("--topic-bg");
+        }
+
+        cards.forEach(function (item) {
+          item.classList.remove("is-active");
+          item.setAttribute("aria-expanded", "false");
+        });
+
+        card.classList.add("is-active");
+        card.setAttribute("aria-expanded", "true");
+
+        detailKicker.textContent = info.kicker;
+        detailTitle.textContent = info.title;
+        detailIntro.textContent = info.intro;
+        detailNote.textContent = info.note;
+        detailLink.textContent = info.cta;
+
+        detailFit.innerHTML = "";
+        (info.fit || []).forEach(function (item) {
+          const li = document.createElement("li");
+          li.className = "detail-chip";
+          li.textContent = item;
+          detailFit.appendChild(li);
+        });
+
+        detailHighlights.innerHTML = "";
+        (info.highlights || []).forEach(function (item, index) {
+          const cardEl = document.createElement("article");
+          cardEl.className = "detail-highlight-card";
+          cardEl.style.setProperty("--i", String(index));
+          const value = document.createElement("strong");
+          value.textContent = item.value;
+          const label = document.createElement("span");
+          label.textContent = item.label;
+          cardEl.append(value, label);
+          detailHighlights.appendChild(cardEl);
+        });
+
+        const longReadHtml = (info.longRead || []).map(function (paragraph) {
+          return '<p>' + paragraph + '</p>';
+        }).join("");
+        detailLongread.innerHTML =
+          '<h4>Projektkontext und Entscheidungsrelevanz</h4>' +
+          longReadHtml;
+
+        animateModalFresh();
+
+        const firstMode = Array.isArray(variant.modeOrder) && variant.modeOrder.length ? variant.modeOrder[0] : "easy";
+        setMode(firstMode);
+
+        modal.hidden = false;
+        document.body.classList.add("modal-open");
+        modalClose.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.classList.remove("modal-open");
+        modal.style.removeProperty("--topic-bg");
+        modal.dataset.tone = "teal";
+        modal.classList.remove("modal-fresh");
+        detailPanel.classList.remove("panel-animate");
+        currentTopic = null;
+        currentTopicKey = "";
+
+        cards.forEach(function (item) {
+          item.classList.remove("is-active");
+          item.setAttribute("aria-expanded", "false");
+        });
+
+        if (lastTrigger) {
+          lastTrigger.focus();
+        }
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener("click", function (event) {
+          if (event.target.closest(".topic-link")) {
+            return;
+          }
+          openModal(card);
+        });
+
+        card.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openModal(card);
+          }
+        });
+      });
+
+      modeButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setMode(button.dataset.mode || "easy");
+        });
+      });
+
+      modalClose.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target instanceof HTMLElement && event.target.dataset.closeModal === "true") {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
