@@ -912,6 +912,13 @@ details[open]{border-color:#dfe7e5}
   .site-footer nav{justify-content:flex-start;row-gap:8px;column-gap:10px}
 }
 
+@media (max-width:600px){
+  .site-footer{align-items:center;text-align:center}
+  .site-footer nav{width:100%;justify-content:center}
+  .site-footer nav a[href$="#impressum"]{padding-left:0;margin-left:0}
+  .site-footer nav a[href$="#impressum"]::before{display:none}
+}
+
 /* Reveal (Scroll-Animationen) */
 .reveal-up{opacity:0;transform:translateY(16px);
   -webkit-transition:opacity .6s ease, transform .6s ease;

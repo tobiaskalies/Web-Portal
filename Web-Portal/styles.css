@@ -491,6 +491,12 @@ details[open]{border-color:#dfe7e5}
 .site-footer nav a{color:#4b5156;margin-left:12px;text-decoration:none}
 .site-footer nav a:hover{color:var(--green)}
 
+@media (max-width:600px){
+  .site-footer{flex-direction:column;align-items:center;gap:10px;text-align:center}
+  .site-footer nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;row-gap:8px;column-gap:10px;width:100%}
+  .site-footer nav a{margin-left:0}
+}
+
 /* Reveal (Scroll-Animationen) */
 .reveal-up{opacity:0;transform:translateY(16px);
   -webkit-transition:opacity .6s ease, transform .6s ease;
