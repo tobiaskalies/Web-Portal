@@ -1,32 +1,36 @@
-// TEST: Sichtbarkeit und Debug
-console.log('DEBUG: script.js geladen');
-['features','projects-teaser','about','faq','cta-band'].forEach(id => {
-  const el = document.querySelector('.'+id);
-  if (el) {
-    const style = window.getComputedStyle(el);
-    console.log(`DEBUG: .${id} display=${style.display}, opacity=${style.opacity}`);
-  } else {
-    console.log(`DEBUG: .${id} nicht gefunden!`);
-  }
-});
-
-// Jahr im Footer
-// News-&-Blog: Modal/Popup für News-Details
 const newsDetails = [
-  '<h2>Ladeinfrastruktur im Unternehmensbetrieb</h2><p><strong>Praxisfokus:</strong> Skalierbare Systeme statt Einzelloesungen.</p><p>DRIVEPLAN zeigt, wie Ladeinfrastruktur technisch belastbar und wirtschaftlich sinnvoll in bestehende Betriebsprozesse integriert wird.</p>',
-  '<h2>Energiemanagement: Trends 2026</h2><p><strong>Ausblick:</strong> Daten, Steuerung und Flexibilitaet.</p><p>Unternehmen profitieren von integrierten Energiesystemen mit Monitoring, Lastprognose und intelligenter Betriebsfuehrung.</p>',
-  '<h2>Fördermöglichkeiten 2026</h2><p><strong>Chancen:</strong> Investitionen strategisch absichern.</p><p>Mit der richtigen Strukturierung lassen sich Förderprogramme effizient für Infrastruktur-, Energie- und Transformationsprojekte nutzen.</p>',
-  '<h2>Mobilitaetskonzepte im Quartier</h2><p>Kommunale und betriebliche Mobilitaet verlangt integrierte Planung von Verkehr, Energie und digitalem Betrieb.</p>',
-  '<h2>Sektorkopplung in der Praxis</h2><p>Strom, Waerme und Mobilitaet werden zu einem steuerbaren Gesamtsystem verbunden.</p>',
-  '<h2>Ladeinfrastruktur als Netzelement</h2><p>Mit Lastmanagement, Speicher und PV wird Ladeinfrastruktur vom Verbraucher zum aktiven Systembaustein.</p>',
-  '<h2>E-LKW Flotten strategisch skalieren</h2><p>Flottenelektrifizierung gelingt durch abgestimmte Planung von Standortenergie, Ladefenstern und Tourenlogik.</p>'
+  '<h2>Ladeinfrastruktur in Wohngebäuden</h2><p><strong>Praxisfokus:</strong> Das Wohnhaus als gemeinsam genutztes Energiesystem.</p><p>Das gezeigte Bild passt besonders gut zu Wohngebäuden mit Stellplätzen, Tiefgarage oder gemeinschaftlich genutzten Ladebereichen. Genau dort wird Ladeinfrastruktur zu einer Frage der Alltagsnutzung: Wer parkt wo, wann wird geladen, und wie wird verhindert, dass Leistungsspitzen oder unklare Zuständigkeiten den Betrieb erschweren?</p><p>Fachlich wichtig sind vor allem drei Ebenen. Erstens die <strong>Verteilungslogik</strong>: Mehrere Bewohner laden nicht immer gleichzeitig, aber die Anlage muss dafür vorbereitet sein. Zweitens die <strong>Netzlogik</strong>: Der Hausanschluss und die elektrische Hausinstallation setzen Grenzen, die mit Lastmanagement und intelligenter Steuerung sinnvoll genutzt werden können. Drittens die <strong>Ausbauperspektive</strong>: Ein Wohngebäude sollte heute so geplant werden, dass weitere Parteien oder Stellplätze später ohne Komplettumbau angeschlossen werden können.</p><p>Gerade im Mehrfamilienhaus entscheidet die saubere Kombination aus Technik, Zugangsregeln und Reserven über die Akzeptanz im Alltag. Wenn Ladepunkte verständlich organisiert, leistungsseitig sauber verteilt und räumlich sinnvoll angeordnet sind, entsteht eine Infrastruktur, die nicht nur vorhanden ist, sondern im Wohnbetrieb auch wirklich funktioniert.</p>',
+  '<h2>Vehicle-to-Grid: Wenn Parkplätze zu Energiespeichern werden</h2><p><strong>Ausblick:</strong> Fahrzeuge als flexible Speicher im Energiesystem.</p><p>Vehicle-to-Grid verändert die Rolle des Elektrofahrzeugs grundlegend. Das Fahrzeug ist nicht mehr nur Stromverbraucher, sondern ein potenzieller Speicher im Netz. Genau darin liegt die fachliche Spannung dieses Ansatzes: Standzeiten werden nicht länger als Leerlauf betrachtet, sondern als zeitliche und energetische Ressource.</p><p>Damit Vehicle-to-Grid funktioniert, müssen mehrere Bedingungen zusammenkommen. Die Fahrzeuge müssen bidirektional laden können, die Ladeinfrastruktur muss dafür ausgelegt sein, und die Steuerung muss Ladezustand, Nutzung und Verfügbarkeit der Flotte kennen. Dazu kommen regulatorische Fragen, die in der praktischen Umsetzung oft den größten Einfluss haben.</p><p>Spannend ist vor allem die Wirkung auf Lastspitzen und Eigenverbrauch. Wenn Fahrzeuge kontrolliert Energie aufnehmen und wieder abgeben können, lassen sich lokale Energieströme besser glätten und vorhandene Kapazitäten effizienter nutzen. Vehicle-to-Grid ist deshalb kein Zukunftsbild für später, sondern eine konkrete Option für Standorte mit hoher Fahrzeugverfügbarkeit und sauberer Systemintegration.</p>',
+  '<h2>Mobilitätskonzepte im Quartier</h2><p>Quartiersmobilität ist dann erfolgreich, wenn sie nicht nur den Verkehr, sondern auch Energie, Flächen und Nutzerverhalten mitdenkt. In gemischten Quartieren treffen häufig sehr unterschiedliche Anforderungen aufeinander: Bewohner, Besucher, Lieferverkehr, Dienstleister und kommunale Ziele müssen auf derselben Fläche koordiniert werden. Daraus entsteht schnell ein komplexes System, das ohne gute Struktur unübersichtlich wird.</p><p>Ein tragfähiges Mobilitätskonzept braucht deshalb eine klare Betriebslogik. Wo wird geparkt? Wo wird geladen? Wie werden Zufahrten organisiert? Wie werden Ladepunkte so angeordnet, dass sie im Alltag tatsächlich genutzt werden und nicht bloß formal vorhanden sind? Erst wenn diese Fragen zusammen beantwortet werden, wird die Fläche zu einem funktionierenden Mobilitätssystem.</p><p>Der fachliche Wert liegt in der Verbindung von Alltagstauglichkeit und Zukunftsfähigkeit. Quartierskonzepte müssen robust genug sein, um heute zu funktionieren, und flexibel genug, um morgen neue Nutzungen aufzunehmen. Genau diese Mischung aus Struktur, Skalierbarkeit und Akzeptanz macht sie zu einem zentralen Baustein nachhaltiger Infrastrukturplanung.</p>',
+  '<h2>Sektorkopplung in der Praxis</h2><p>Sektorkopplung beschreibt die Verknüpfung bislang getrennter Energiesektoren zu einem steuerbaren Gesamtsystem. Strom, Wärme und Mobilität werden dabei nicht separat optimiert, sondern so aufeinander abgestimmt, dass sie sich gegenseitig stützen. Der eigentliche Mehrwert liegt nicht im einzelnen Baustein, sondern in der besseren Nutzung des Gesamtsystems.</p><p>Besonders deutlich wird das bei Standorten mit Photovoltaik, Speicher und Ladeinfrastruktur. Hier entstehen Rückkopplungen: Erzeugung beeinflusst Verbrauch, Verbrauch beeinflusst Speicher, und Lastmanagement beeinflusst die Wirtschaftlichkeit. Wer diese Wechselwirkungen berücksichtigt, kann Lastspitzen senken, Eigenverbrauch erhöhen und Betriebskosten strukturiert steuern.</p><p>In der Praxis ist Sektorkopplung deshalb ein Planungsprinzip. Sie zwingt dazu, technische Anlagen nicht isoliert, sondern in ihrem Zusammenspiel zu denken. Genau darin liegt ihre Stärke: bessere Ausnutzung vorhandener Ressourcen, mehr Transparenz über Energieflüsse und ein Standort, der auf Veränderungen flexibler reagieren kann.</p>',
+  '<h2>Ladeinfrastruktur als Netzelement</h2><p>Ladeinfrastruktur kann weit mehr sein als ein zusätzlicher Verbraucher. Wenn sie mit Lastmanagement, Speicher und Erzeugung verknüpft wird, wird sie zu einem aktiven Netzelement, das Energieflüsse mitsteuert. Das ist vor allem dort relevant, wo Netzanschlüsse begrenzt sind oder Standorte wachsen sollen, ohne sofort teuer nachgerüstet zu werden.</p><p>Die Grundlage ist eine intelligente Regelung. Leistung wird dann nicht einfach maximal verteilt, sondern abhängig von Verfügbarkeit, Prioritäten und lokaler Erzeugung gesteuert. So lassen sich Lastspitzen glätten, Anschlussleistungen besser ausnutzen und Betriebskosten stabiler halten. Die Infrastruktur arbeitet dadurch nicht gegen das Energiesystem, sondern mit ihm.</p><p>Für die Standortstrategie ist das ein wichtiger Hebel. Ladeinfrastruktur wird dadurch vom Kostenfaktor zu einem Baustein der Energiearchitektur. Wer diese Perspektive früh einnimmt, kann Investitionen schrittweise steuern, Wachstumsreserven vorhalten und die Ladeinfrastruktur in eine langfristig tragfähige Systemlogik einbetten.</p>',
+  '<h2>E-LKW Flotten strategisch skalieren</h2><p>Die Elektrifizierung von LKW-Flotten ist eine operative und energetische Großaufgabe. Es geht nicht nur um neue Fahrzeuge, sondern um Depotlogistik, Ladefenster, Standortleistung und Tourenplanung. Gerade deshalb scheitern viele Projekte nicht an der Technik selbst, sondern an der fehlenden Abstimmung zwischen Flotte, Infrastruktur und Betrieb.</p><p>Eine erfolgreiche Skalierung beginnt mit der richtigen Reihenfolge. Zuerst muss klar sein, wie viel Energie wann benötigt wird, wie lange Fahrzeuge tatsächlich am Standort stehen und welche Anforderungen sich aus Touren und Ladezeiten ergeben. Daraus entstehen die Leistungsklassen, die der Standort wirklich braucht. Wird zu früh zu groß geplant, steigen Kosten unnötig; wird zu knapp geplant, entsteht im Betrieb Druck.</p><p>Wer die Flotte systemisch denkt, schafft dagegen Handlungsspielraum. Dann werden Ladefenster planbar, Reservekapazitäten sinnvoll und Betriebskosten nachvollziehbar. E-LKW-Flotten sind damit nicht nur ein Beitrag zur Dekarbonisierung, sondern ein anspruchsvolles Infrastrukturprojekt mit hoher wirtschaftlicher und organisatorischer Relevanz.</p>'
+];
+
+const newsVisuals = [
+  { image: 'assets/Garage.jpg', badge: '⚡ Intelligente Infrastruktur' },
+  { image: 'assets/Batterie.jpg', badge: '⚡ Vehicle-to-Grid' },
+  { image: 'assets/Ladesäulen.jpg', badge: '🚗 Mobilität' },
+  { image: 'assets/Fabrik.jpg', badge: '🏭 Energiesystem' },
+  { image: 'assets/Vernetzung.jpg', badge: '🔌 Vernetzung' },
+  { image: 'assets/E-LKW.png', badge: '🚛 E-LKW Flotten' }
 ];
 
 function openNewsModal(idx) {
   const modal = document.getElementById('news-modal');
   const body = document.getElementById('news-modal-body');
+  const visual = newsVisuals[idx] || newsVisuals[0];
   if (!modal || !body) return;
-  body.innerHTML = newsDetails[idx] || '<h2>Beitrag</h2><p>Inhalte werden aktualisiert.</p>';
+  body.innerHTML = `
+    <article class="news-detail-card">
+      <div class="news-detail-hero" style="background-image: linear-gradient(135deg, rgba(10, 16, 24, 0.55), rgba(10, 16, 24, 0.15)), url('${visual.image}')">
+        <span class="news-detail-badge">${visual.badge}</span>
+      </div>
+      <div class="news-detail-content">
+        ${newsDetails[idx] || '<h2>Beitrag</h2><p>Inhalte werden aktualisiert.</p>'}
+      </div>
+    </article>
+  `;
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   setTimeout(() => modal.classList.add('active'), 10);
