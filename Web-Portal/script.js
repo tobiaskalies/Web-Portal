@@ -17,16 +17,20 @@ const newsDetails = [
   <p><strong>Datum:</strong> 28. Dezember 2025</p>
   <p><em>Wie ein mittelständisches Unternehmen zum Vorreiter der Elektromobilität wurde:</em></p>
   <p>Stellen Sie sich vor, Ihr Firmenparkplatz wird zum Innovationszentrum. 2025 begleitete DRIVEPLAN ein traditionsreiches Logistikunternehmen auf dem Weg zur eigenen Ladeinfrastruktur. Nach einer umfassenden Analyse entwickelten wir ein maßgeschneidertes Konzept: 20 Ladepunkte, intelligente Steuerung, Solarstrom vom eigenen Dach und ein dynamisches Lastmanagement, das auch in Spitzenzeiten für reibungslosen Betrieb sorgt. Die Geschäftsführung berichtet heute von gesunkenen Betriebskosten, motivierten Mitarbeitenden und einem neuen Image als nachhaltiger Arbeitgeber. <br><br><strong>Unser Versprechen:</strong> Wir machen Ihr Unternehmen fit für die Zukunft – mit Technik, die begeistert, und Lösungen, die sich rechnen. Lassen Sie sich inspirieren und erfahren Sie, wie auch Sie von unserer Erfahrung profitieren können!</p>`,
-  `<h2>Energiemanagement: Trends 2026</h2>
-  <p><strong>Datum:</strong> 15. Dezember 2025</p>
-  <p><em>Die Zukunft der Energie ist digital, vernetzt und nachhaltig.</em></p>
-  <p>2026 steht im Zeichen der Transformation: Unternehmen setzen auf smarte Energiemanagement-Systeme, die nicht nur den Verbrauch überwachen, sondern aktiv steuern. Ein Beispiel aus der Praxis: Ein Industriebetrieb konnte durch die Einführung von KI-gestützter Verbrauchsoptimierung seine Energiekosten um 18% senken – und das bei wachsender Produktion! DRIVEPLAN begleitet Sie von der ersten Analyse bis zur Implementierung modernster Technologien. <br><br>Wir zeigen Ihnen, wie Sie mit intelligenten Speicherlösungen, flexiblen Tarifen und der Integration erneuerbarer Energien nicht nur Kosten sparen, sondern auch Ihre Nachhaltigkeitsziele erreichen. <strong>Entdecken Sie die Trends, die Ihr Unternehmen 2026 prägen werden!</strong></p>`,
-  `<h2>Fördermöglichkeiten 2026: So profitieren Unternehmen</h2>
-  <p><strong>Datum:</strong> 01. Dezember 2025</p>
-  <p><em>Förderprogramme als Schlüssel zur nachhaltigen Transformation:</em></p>
-  <p>2026 steht im Zeichen der nachhaltigen Entwicklung und Digitalisierung. Unternehmen, die in innovative Technologien, Energieeffizienz oder neue Mobilitätslösungen investieren, können von einer Vielzahl an Fördermöglichkeiten profitieren. Doch der Weg durch die Förderlandschaft ist oft komplex: Es gilt, die passenden Programme zu finden, die eigenen Ziele klar zu definieren und überzeugende Konzepte zu entwickeln.<br><br>
-DRIVEPLAN begleitet Unternehmen auf diesem Weg – von der ersten Idee bis zur erfolgreichen Umsetzung. Wir analysieren gemeinsam die individuellen Potenziale, beraten zu aktuellen Trends und helfen, Projekte strategisch auszurichten. So wird Förderung nicht nur zum finanziellen Vorteil, sondern zum echten Innovationsmotor. <br><br>
-Wer die Chancen erkennt und gezielt nutzt, kann sein Unternehmen zukunftssicher aufstellen, neue Märkte erschließen und nachhaltigen Mehrwert schaffen. Lassen Sie sich inspirieren, wie Fördermöglichkeiten 2026 Ihr Unternehmen voranbringen können!</p>`,
+  `<h2>Infrastruktur, die mitdenkt: Der neue Standard für Energie & Mobilität</h2>
+  <p><strong>Datum:</strong> 04. Juni 2026</p>
+  <p><em>Infrastruktur wird künftig nicht mehr nur gebaut. Sie wird mitdenken müssen.</em></p>
+  <p>Steigende Energiebedarfe, volatile Strommärkte und neue Mobilitätsanforderungen verändern die Rolle von Netzen und Standorten grundlegend. Klassische Infrastrukturplanung reicht nicht mehr aus, wenn Lastspitzen dynamisch auftreten, Preise stündlich schwanken und gleichzeitig E-Mobilität, Gebäudeversorgung und Betriebsprozesse zusammenwirken.<br><br>
+Intelligente Steuerung, flexible Lastverteilung und Energiespeicher entwickeln sich deshalb vom Zusatz zur Voraussetzung. Entscheidend ist nicht mehr allein die installierte Leistung, sondern die Fähigkeit eines Systems, auf neue Bedingungen in Echtzeit zu reagieren - wirtschaftlich, stabil und skalierbar.<br><br>
+Standorte der Zukunft sind lernfähig: Sie priorisieren Verbräuche automatisch, verschieben Lasten in günstige Zeitfenster, koppeln Erzeugung und Nutzung und machen verfügbare Energie dort nutzbar, wo sie betrieblich den höchsten Mehrwert schafft. Genau an dieser Schnittstelle entsteht der nächste Wettbewerbsvorteil für Unternehmen und Kommunen.<br><br>
+<strong>Die Zukunft der Energie- und Mobilitätsinfrastruktur entsteht dort, wo Systeme anpassbar werden.</strong> DRIVEPLAN unterstützt dabei, aus technischer Infrastruktur eine resiliente, mitdenkende Plattform zu entwickeln.</p>`,
+  `<h2>Vehicle-to-Grid: Wenn Parkplätze zu Energiespeichern werden</h2>
+  <p><strong>Datum:</strong> 04. Juni 2026</p>
+  <p><em>Vielleicht stehen die größten Energiespeicher der Zukunft längst auf unseren Parkplätzen.</em></p>
+  <p>Moderne Elektrofahrzeuge besitzen heute Batteriekapazitäten von typischerweise 60 bis über 100 kWh und stehen gleichzeitig durchschnittlich mehr als 20 Stunden pro Tag ungenutzt. Wenn künftig nur 1 Million Fahrzeuge jeweils 20 kWh flexibel bereitstellen würden, entspräche das bereits rund 20 GWh Speicherkapazität.<br><br>
+Zum Vergleich: Das entspricht etwa der Größenordnung großer deutscher Pumpspeicherkraftwerke wie Goldisthal in Thüringen mit rund 8,5 GWh. Bereits wenige Millionen vernetzte Elektroautos könnten damit rechnerisch die Speicherkapazität mehrerer Großanlagen erreichen.<br><br>
+Besonders spannend wird das vor dem Hintergrund zunehmender negativer Strompreise durch hohe Wind- und Solarproduktion. Allein 2024 gab es in Deutschland laut Fraunhofer ISE deutlich über 400 Stunden mit negativen Strompreisen an der Börse. Energie ist also zunehmend verfügbar, aber oft zum falschen Zeitpunkt.<br><br>
+<strong>Vehicle-to-Grid kann hier eine entscheidende Rolle spielen:</strong> Fahrzeuge verbrauchen dann nicht nur Strom, sondern tragen aktiv zur Stabilisierung intelligenter Energiesysteme bei.</p>`,
   `<h2>Mobilitätskonzepte 2026: Die Stadt bewegt sich neu</h2>
   <p><strong>Datum:</strong> 15. Dezember 2025</p>
   <p><em>Wie innovative Ideen Städte verändern:</em></p>
@@ -54,10 +58,32 @@ Fuer Unternehmen bedeutet das einen klaren Wettbewerbsvorteil: Hohe Fahrzeugverf
 <strong>DRIVEPLAN begleitet diesen Wandel von der Standortanalyse bis zum rollierenden Flottenausbau</strong> - mit technischen Konzepten, die auf reale Logistikprozesse abgestimmt sind und mit jedem zusaetzlichen E-LKW stabil mitwachsen.</p>`
 ];
 
+const newsVisuals = [
+  { image: 'assets/Ladesäulen.jpg', badge: '⚡ Top News' },
+  { image: 'assets/Garage.jpg', badge: '⚡ Intelligente Infrastruktur' },
+  { image: 'assets/Batterie.jpg', badge: '⚡ Vehicle-to-Grid' },
+  { image: 'assets/Ladesäulen.jpg', badge: '🚗 Mobilität' },
+  { image: 'assets/Fabrik.jpg', badge: '🏭 Energiesystem' },
+  { image: 'assets/Vernetzung.jpg', badge: '🔌 Vernetzung' },
+  { image: 'assets/E-LKW.png', badge: '🚛 E-LKW Flotten' }
+];
+
 function openNewsModal(idx) {
   const modal = document.getElementById('news-modal');
+  const modalBody = document.getElementById('news-modal-body');
+  const detailHtml = newsDetails[idx] || '<h2>Beitrag nicht gefunden</h2><p>Bitte versuchen Sie es erneut.</p>';
+  const visual = newsVisuals[idx] || { image: 'assets/Ladesäulen.jpg', badge: '📰 News & Blog' };
+
+  modalBody.innerHTML = `
+    <article class="news-detail-card">
+      <div class="news-detail-hero" style="background-image:linear-gradient(135deg, rgba(10,16,24,.55), rgba(10,16,24,.15)), url('${visual.image}')">
+        <span class="news-detail-badge">${visual.badge}</span>
+      </div>
+      <div class="news-detail-content">${detailHtml}</div>
+    </article>
+  `;
+
   modal.style.display = 'flex';
-  document.getElementById('news-modal-body').innerHTML = newsDetails[idx];
   document.body.style.overflow = 'hidden';
   setTimeout(() => modal.classList.add('active'), 10);
 }
