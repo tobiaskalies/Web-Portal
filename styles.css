@@ -867,11 +867,11 @@ details[open]{border-color:#dfe7e5}
 
 body.modal-open{overflow:hidden}
 .project-modal[hidden]{display:none}
-.project-modal{position:fixed;inset:0;z-index:11000;display:grid;place-items:center;padding:18px;--accent-1:#2e7d6d;--accent-2:#6ab7ff}
+.project-modal{position:fixed;top:0;right:0;bottom:0;left:0;inset:0;z-index:11000;display:grid;place-items:center;padding:18px;--accent-1:#2e7d6d;--accent-2:#6ab7ff}
 .project-modal[data-tone="blue"]{--accent-1:#1f6fb2;--accent-2:#5ec2ff}
 .project-modal[data-tone="amber"]{--accent-1:#a66a14;--accent-2:#e2a949}
-.project-modal-backdrop{position:absolute;inset:0;background:rgba(7,14,20,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.project-modal-dialog{position:relative;width:min(920px,100%);max-height:min(88vh,840px);overflow:auto;border:1px solid #d7e3e8;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(236,246,243,.94));box-shadow:0 24px 56px rgba(7,16,24,.28);padding:18px;display:grid;gap:12px;transform:translateY(12px) scale(.985);opacity:0;transition:transform .24s ease, opacity .24s ease}
+.project-modal-backdrop{position:absolute;top:0;right:0;bottom:0;left:0;inset:0;background:rgba(7,14,20,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.project-modal-dialog{position:relative;width:100%;max-width:920px;width:min(920px,100%);max-height:88vh;max-height:min(88vh,840px);overflow:auto;border:1px solid #d7e3e8;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(236,246,243,.94));box-shadow:0 24px 56px rgba(7,16,24,.28);padding:18px;display:grid;gap:12px;transform:translateY(12px) scale(.985);opacity:0;transition:transform .24s ease, opacity .24s ease}
 .project-modal.is-open .project-modal-dialog{transform:translateY(0) scale(1);opacity:1}
 .project-modal-close{position:sticky;top:0;margin-left:auto;width:44px;height:44px;border:1px solid rgba(28,44,54,.16);border-radius:999px;background:rgba(255,255,255,.9);color:#1a2e37;font-size:1.25rem;cursor:pointer;z-index:3}
 .project-modal-close:focus-visible{outline:2px solid rgba(46,125,109,.4);outline-offset:2px}
