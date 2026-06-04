@@ -1048,11 +1048,11 @@ body.modal-open{overflow:hidden}
 }
 
 @media (max-width:600px){
-  .site-header{gap:10px;padding:10px 12px}
+  .site-header{gap:10px;padding:10px 12px;align-items:flex-start}
   .brand{min-width:0;flex:1}
   .wordmark{min-width:0}
   .wordmark .name{font-size:.98rem;white-space:normal;line-height:1.1}
-  .wordmark .tagline{display:block;font-size:.68rem;line-height:1.2;margin-top:1px;white-space:normal}
+  .wordmark .tagline{display:block!important;font-size:.66rem;line-height:1.2;margin-top:1px;white-space:normal;max-width:100%}
   .nav-toggle{flex:0 0 auto;padding:6px;margin-left:8px}
   .site-footer{align-items:center;text-align:center}
   .site-footer nav{width:100%;justify-content:center}
