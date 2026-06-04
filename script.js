@@ -87,6 +87,7 @@ function initProjectModal() {
   const modalVisuals = document.getElementById('project-modal-visuals');
   const modalPhases = document.getElementById('project-modal-phases');
   const modalOutcomes = document.getElementById('project-modal-outcomes');
+  const modalDialog = modal.querySelector('.project-modal-dialog');
   const closeButtons = modal.querySelectorAll('[data-project-close]');
 
   const projectData = {
@@ -243,6 +244,9 @@ function initProjectModal() {
     renderVisuals(data.visuals);
     renderPhases(data.phases);
     renderOutcomes(data.outcomes);
+    if (modalDialog) {
+      modalDialog.scrollTop = 0;
+    }
 
     modal.hidden = false;
     modal.setAttribute('aria-hidden', 'false');
@@ -253,6 +257,9 @@ function initProjectModal() {
   function closeProjectModal() {
     modal.classList.remove('is-open');
     document.body.classList.remove('modal-open');
+    if (modalDialog) {
+      modalDialog.scrollTop = 0;
+    }
     window.setTimeout(() => {
       if (!modal.classList.contains('is-open')) {
         modal.hidden = true;
