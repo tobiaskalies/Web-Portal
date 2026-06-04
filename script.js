@@ -13,100 +13,52 @@ console.log('DEBUG: script.js geladen');
 // Jahr im Footer
 // News-&-Blog: Modal/Popup für News-Details
 const newsDetails = [
-  `<h2>Infrastruktur, die mitdenkt: Der neue Standard für Energie & Mobilität</h2>
-  <p><strong>Datum:</strong> 04. Juni 2026</p>
-  <p><em>Infrastruktur wird künftig nicht mehr nur gebaut. Sie wird mitdenken müssen.</em></p>
-  <p>Steigende Energiebedarfe, volatile Strommärkte und neue Mobilitätsanforderungen verändern die Rolle von Netzen und Standorten grundlegend. Klassische Infrastrukturplanung reicht nicht mehr aus, wenn Lastspitzen dynamisch auftreten, Preise stündlich schwanken und gleichzeitig E-Mobilität, Gebäudeversorgung und Betriebsprozesse zusammenwirken.<br><br>
-Intelligente Steuerung, flexible Lastverteilung und Energiespeicher entwickeln sich deshalb vom Zusatz zur Voraussetzung. Entscheidend ist nicht mehr allein die installierte Leistung, sondern die Fähigkeit eines Systems, auf neue Bedingungen in Echtzeit zu reagieren - wirtschaftlich, stabil und skalierbar.<br><br>
-Standorte der Zukunft sind lernfähig: Sie priorisieren Verbräuche automatisch, verschieben Lasten in günstige Zeitfenster, koppeln Erzeugung und Nutzung und machen verfügbare Energie dort nutzbar, wo sie betrieblich den höchsten Mehrwert schafft. Genau an dieser Schnittstelle entsteht der nächste Wettbewerbsvorteil für Unternehmen und Kommunen.<br><br>
-<strong>Die Zukunft der Energie- und Mobilitätsinfrastruktur entsteht dort, wo Systeme anpassbar werden.</strong> DRIVEPLAN unterstützt dabei, aus technischer Infrastruktur eine resiliente, mitdenkende Plattform zu entwickeln.</p>`,
-  `<h2>Vehicle-to-Grid: Wenn Parkplätze zu Energiespeichern werden</h2>
-  <p><strong>Datum:</strong> 04. Juni 2026</p>
-  <p><em>Vielleicht stehen die größten Energiespeicher der Zukunft längst auf unseren Parkplätzen.</em></p>
-  <p>Moderne Elektrofahrzeuge besitzen heute Batteriekapazitäten von typischerweise 60 bis über 100 kWh und stehen gleichzeitig durchschnittlich mehr als 20 Stunden pro Tag ungenutzt. Wenn künftig nur 1 Million Fahrzeuge jeweils 20 kWh flexibel bereitstellen würden, entspräche das bereits rund 20 GWh Speicherkapazität.<br><br>
-Zum Vergleich: Das entspricht etwa der Größenordnung großer deutscher Pumpspeicherkraftwerke wie Goldisthal in Thüringen mit rund 8,5 GWh. Bereits wenige Millionen vernetzte Elektroautos könnten damit rechnerisch die Speicherkapazität mehrerer Großanlagen erreichen.<br><br>
-Besonders spannend wird das vor dem Hintergrund zunehmender negativer Strompreise durch hohe Wind- und Solarproduktion. Allein 2024 gab es in Deutschland laut Fraunhofer ISE deutlich über 400 Stunden mit negativen Strompreisen an der Börse. Energie ist also zunehmend verfügbar, aber oft zum falschen Zeitpunkt.<br><br>
-<strong>Vehicle-to-Grid kann hier eine entscheidende Rolle spielen:</strong> Fahrzeuge verbrauchen dann nicht nur Strom, sondern tragen aktiv zur Stabilisierung intelligenter Energiesysteme bei.</p>`,
-  `<h2>Mobilitätskonzepte 2026: Die Stadt bewegt sich neu</h2>
-  <p><strong>Datum:</strong> 15. Dezember 2025</p>
-  <p><em>Wie innovative Ideen Städte verändern:</em></p>
-  <p>DRIVEPLAN arbeitet mit Kommunen und Unternehmen an der Mobilität von morgen. In einem aktuellen Projekt wurde ein ganzes Stadtquartier mit Sharing-Angeboten, E-Bussen und smarten Ladepunkten ausgestattet. Das Ergebnis: weniger Verkehr, bessere Luft und mehr Lebensqualität für die Bewohner. <br><br>Unsere Konzepte verbinden Ökologie, Ökonomie und soziale Aspekte – und machen Städte zu Vorreitern der Mobilitätswende. <strong>Erleben Sie, wie wir gemeinsam mit Ihnen neue Wege gehen und nachhaltige Mobilität erlebbar machen!</strong></p>`,
-  `<h2>Sektorkopplung: Wie aus Einzelanlagen ein intelligentes Energiesystem wird</h2>
-  <p><strong>Datum:</strong> 30. März 2026</p>
-  <p><em>Die Energiewende beginnt nicht nur bei erneuerbaren Anlagen. Sie beginnt im Energiesystem selbst.</em></p>
-  <p>Die kommenden Jahre entscheiden nicht nur darüber, wie schnell neue Technologien ausgebaut werden, sondern vor allem darüber, wie gut sie miteinander verbunden sind. Genau hier setzt Sektorkopplung an: Industrie, Stromerzeugung, Gebäude und Mobilität wachsen zu einem integrierten Gesamtsystem zusammen. Was früher getrennt geplant wurde, muss heute gemeinsam gedacht, digital gesteuert und wirtschaftlich orchestriert werden.<br><br>
-Elektrifizierung verändert dabei die Rolle klassischer Infrastruktur grundlegend. Energie wird zunehmend lokal erzeugt, flexibel gespeichert und intelligent verteilt. Ein Produktionsstandort mit PV-Anlage, Batteriespeicher, Wärmepumpe, Ladeinfrastruktur und Lastmanagement ist kein Zukunftsbild mehr, sondern ein realer Baustein eines resilienten Energiesystems. Die eigentliche Leistung entsteht nicht in einer einzelnen Komponente, sondern in der Systemlogik, die Lasten verschiebt, Netzspitzen vermeidet und Energie dort verfügbar macht, wo sie den größten Nutzen stiftet.<br><br>
-Für Unternehmen bedeutet das einen strategischen Perspektivwechsel: Weg von isolierten Einzelmaßnahmen, hin zu einem skalierbaren Architekturansatz. Wer heute nur Technik beschafft, verschenkt Potenzial. Wer stattdessen auf integrierte Planung setzt, schafft Versorgungssicherheit, reduziert Energiekosten, stärkt die Wettbewerbsfähigkeit und schafft die Grundlage für zukünftiges Wachstum.<br><br>
-<strong>Die Herausforderung der nächsten Jahre ist daher klar:</strong> nicht nur mehr Technologie, sondern bessere Integration. DRIVEPLAN unterstützt Sie dabei, aus vielen Einzelbausteinen ein stabiles, intelligentes und zukunftsfähiges Energiesystem zu formen.</p>`,
-  `<h2>Vom Verbraucher zum Netzelement: Ladeinfrastruktur als aktiver Systembaustein</h2>
-  <p><strong>Datum:</strong> 30. März 2026</p>
-  <p><em>Die nächste Evolutionsstufe der Elektromobilität ist nicht die höchste Ladeleistung, sondern die intelligente Systemintegration.</em></p>
-  <p>Ladeinfrastruktur war lange ein klassischer Energieverbraucher: Strom wird bezogen, Fahrzeuge werden geladen, Netzspitzen steigen. Dieses Modell verändert sich gerade grundlegend. Mit der Kombination aus Photovoltaik, Speicher und intelligentem Lastmanagement wird aus Ladeinfrastruktur ein aktives Netzelement, das Energie nicht nur nutzt, sondern systemdienlich steuert.<br><br>
-Die Wirkung dieser Vernetzung ist konkret messbar. Lokal erzeugte Energie kann direkt in Ladeprozesse fließen, Zwischenspeicher glätten Lastspitzen und dynamische Steuerung priorisiert Ladefenster nach Netzsituation, Tarifstruktur und betrieblichem Bedarf. Dadurch sinkt die Netzbelastung spürbar, die Wirtschaftlichkeit steigt durch besseren Eigenverbrauch und der Betrieb gewinnt Flexibilität bei schwankender Verfügbarkeit von Energie und Leistung.<br><br>
-Entscheidend ist: Nicht die einzelne Komponente schafft den Mehrwert, sondern ihr Zusammenspiel. Erst wenn Erzeugung, Speicherung und Steuerung als integriertes System geplant werden, entsteht eine robuste Infrastruktur, die mit dem Unternehmen wächst. Genau darin liegt die strategische Chance für die nächsten Jahre: Ladeinfrastruktur wird vom Kostenfaktor zur aktiven Energieplattform.<br><br>
-<strong>DRIVEPLAN entwickelt dafür skalierbare Gesamtkonzepte</strong> - technisch belastbar, wirtschaftlich fundiert und bereit für die Anforderungen eines zunehmend vernetzten Energiesystems.</p>`,
-  `<h2>E-LKW Flotten im Wandel: Vom Pilotprojekt zur skalierbaren Logistikstrategie</h2>
-  <p><strong>Datum:</strong> 30. März 2026</p>
-  <p><em>Elektrifizierung im Schwerlastverkehr wird dann erfolgreich, wenn Fahrzeuge, Ladeinfrastruktur und Energieplanung als ein gemeinsames System betrieben werden.</em></p>
-  <p>E-LKW Flotten markieren den nächsten großen Transformationsschritt in der Logistik. Während einzelne Fahrzeuge in Pilotprojekten bereits Alltag sind, liegt die eigentliche Herausforderung in der Skalierung: Mehr Fahrzeuge, engere Zeitfenster, höhere Energieleistungen und gleichzeitig maximale Betriebssicherheit. Genau hier entscheidet sich, ob Elektromobilität zur strategischen Stärke oder zum operativen Engpass wird.<br><br>
-Der Schlüssel liegt in der intelligenten Kopplung von Tourenplanung, Ladefenstern und Standortenergie. Wenn Ladepunkte nicht isoliert betrieben, sondern mit Lastmanagement, Speichern und lokaler Erzeugung verknüpft werden, entsteht ein robustes Gesamtsystem. Lastspitzen lassen sich reduzieren, Standzeiten aktiv nutzen und Energiekosten dynamisch optimieren. Das Ergebnis ist eine Flotte, die nicht nur emissionsärmer fährt, sondern auch wirtschaftlicher und planbarer arbeitet.<br><br>
-Für Unternehmen bedeutet das einen klaren Wettbewerbsvorteil: Hohe Fahrzeugverfügbarkeit trotz wachsender Elektrifizierungsquote, mehr Transparenz über Energie- und Betriebskosten sowie eine belastbare Grundlage für Ausschreibungen, Nachhaltigkeitsberichte und zukünftige CO2-Anforderungen. Wer heute systemisch plant, sichert sich morgen Skalierungsfähigkeit entlang der gesamten Lieferkette.<br><br>
-<strong>DRIVEPLAN begleitet diesen Wandel von der Standortanalyse bis zum rollierenden Flottenausbau</strong> - mit technischen Konzepten, die auf reale Logistikprozesse abgestimmt sind und mit jedem zusätzlichen E-LKW stabil mitwachsen.</p>`
-];
-
-const newsVisuals = [
-  { image: 'assets/Garage.jpg', badge: '⚡ Intelligente Infrastruktur' },
-  { image: 'assets/Batterie.jpg', badge: '⚡ Vehicle-to-Grid' },
-  { image: 'assets/Ladesäulen.jpg', badge: '🚗 Mobilität' },
-  { image: 'assets/Fabrik.jpg', badge: '🏭 Energiesystem' },
-  { image: 'assets/Vernetzung.jpg', badge: '🔌 Vernetzung' },
-  { image: 'assets/E-LKW.png', badge: '🚛 E-LKW Flotten' }
+  '<h2>Ladeinfrastruktur im Unternehmensbetrieb</h2><p><strong>Praxisfokus:</strong> Skalierbare Systeme statt Einzelloesungen.</p><p>DRIVEPLAN zeigt, wie Ladeinfrastruktur technisch belastbar und wirtschaftlich sinnvoll in bestehende Betriebsprozesse integriert wird.</p>',
+  '<h2>Energiemanagement: Trends 2026</h2><p><strong>Ausblick:</strong> Daten, Steuerung und Flexibilitaet.</p><p>Unternehmen profitieren von integrierten Energiesystemen mit Monitoring, Lastprognose und intelligenter Betriebsfuehrung.</p>',
+  '<h2>Fördermöglichkeiten 2026</h2><p><strong>Chancen:</strong> Investitionen strategisch absichern.</p><p>Mit der richtigen Strukturierung lassen sich Förderprogramme effizient für Infrastruktur-, Energie- und Transformationsprojekte nutzen.</p>',
+  '<h2>Mobilitaetskonzepte im Quartier</h2><p>Kommunale und betriebliche Mobilitaet verlangt integrierte Planung von Verkehr, Energie und digitalem Betrieb.</p>',
+  '<h2>Sektorkopplung in der Praxis</h2><p>Strom, Waerme und Mobilitaet werden zu einem steuerbaren Gesamtsystem verbunden.</p>',
+  '<h2>Ladeinfrastruktur als Netzelement</h2><p>Mit Lastmanagement, Speicher und PV wird Ladeinfrastruktur vom Verbraucher zum aktiven Systembaustein.</p>',
+  '<h2>E-LKW Flotten strategisch skalieren</h2><p>Flottenelektrifizierung gelingt durch abgestimmte Planung von Standortenergie, Ladefenstern und Tourenlogik.</p>'
 ];
 
 function openNewsModal(idx) {
   const modal = document.getElementById('news-modal');
-  const modalBody = document.getElementById('news-modal-body');
-  const detailHtml = newsDetails[idx] || '<h2>Beitrag nicht gefunden</h2><p>Bitte versuchen Sie es erneut.</p>';
-  const visual = newsVisuals[idx] || { image: 'assets/Ladesäulen.jpg', badge: '📰 News & Blog' };
-
-  modalBody.innerHTML = `
-    <article class="news-detail-card">
-      <div class="news-detail-hero" style="background-image:linear-gradient(135deg, rgba(10,16,24,.55), rgba(10,16,24,.15)), url('${visual.image}')">
-        <span class="news-detail-badge">${visual.badge}</span>
-      </div>
-      <div class="news-detail-content">${detailHtml}</div>
-    </article>
-  `;
-
+  const body = document.getElementById('news-modal-body');
+  if (!modal || !body) return;
+  body.innerHTML = newsDetails[idx] || '<h2>Beitrag</h2><p>Inhalte werden aktualisiert.</p>';
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   setTimeout(() => modal.classList.add('active'), 10);
 }
+
 function closeNewsModal() {
   const modal = document.getElementById('news-modal');
+  if (!modal) return;
   modal.classList.remove('active');
   setTimeout(() => {
     modal.style.display = 'none';
     document.body.style.overflow = '';
-  }, 300);
+  }, 220);
 }
-// Schließen per Klick auf Hintergrund und Escape-Taste
+
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('news-modal');
-  if (modal) {
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) closeNewsModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (modal.style.display === 'flex' && (e.key === 'Escape' || e.key === 'Esc')) closeNewsModal();
-    });
-  }
+  if (!modal) return;
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeNewsModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (modal.style.display === 'flex' && (event.key === 'Escape' || event.key === 'Esc')) {
+      closeNewsModal();
+    }
+  });
 });
+
 document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
 
 function initFooterContactHints() {
   const footerContactLinks = document.querySelectorAll('.site-footer .footer-quick-link[href^="mailto:"], .site-footer .footer-quick-link[href^="tel:"]');
-
   footerContactLinks.forEach((link) => {
     const href = link.getAttribute('href') || '';
     const isPhoneLink = href.startsWith('tel:');
@@ -117,6 +69,227 @@ function initFooterContactHints() {
 }
 
 initFooterContactHints();
+
+function initProjectModal() {
+  const cards = document.querySelectorAll('.project-detail[data-project]');
+  const modal = document.getElementById('project-modal');
+  if (!cards.length || !modal) return;
+
+  const modalHero = document.getElementById('project-modal-hero');
+  const modalKicker = document.getElementById('project-modal-kicker');
+  const modalTitle = document.getElementById('project-modal-title');
+  const modalSummary = document.getElementById('project-modal-summary');
+  const modalDelivery = document.getElementById('project-modal-delivery');
+  const modalApproach = document.getElementById('project-modal-approach');
+  const modalValue = document.getElementById('project-modal-value');
+  const modalTrust = document.getElementById('project-modal-trust');
+  const modalKpis = document.getElementById('project-modal-kpis');
+  const modalVisuals = document.getElementById('project-modal-visuals');
+  const modalPhases = document.getElementById('project-modal-phases');
+  const modalOutcomes = document.getElementById('project-modal-outcomes');
+  const closeButtons = modal.querySelectorAll('[data-project-close]');
+
+  const projectData = {
+    ladehub: {
+      tone: 'teal',
+      kicker: 'Schnelllade-Architektur',
+      title: 'Ladehub: Skalierbarer Innenstadt-Standort',
+      summary: 'Das Projekt zeigt, wie ein urbaner Ladehub technisch stabil und wirtschaftlich leistungsfähig betrieben werden kann.',
+      delivery: 'Umgesetzt wurden Standortanalyse, Anschlussstrategie, Verkehrslogik, Betreiberlayout und ein stufenfähiger Ausbauplan für Last- und Nutzerwachstum.',
+      approach: 'Die technische Auslegung kombiniert Lastmanagement, Priorisierungslogik und netzdienliche Leistungssteuerung für hohe Verfügbarkeit bei begrenzter Netzkapazität.',
+      value: 'Der Betreiber erhält einen robusten Betrieb mit geringeren Leistungskosten, klaren Ausbaupfaden und kurzer Time-to-Market für neue Ladepunkte.',
+      background: 'assets/eCharge.PNG',
+      metrics: [
+        { value: '12', label: 'Ladepunkte initial' },
+        { value: '500 kW', label: 'Ausgelegte Spitzenleistung' },
+        { value: '-18%', label: 'Reduktion Netzspitzen' }
+      ],
+      trust: ['Technische Machbarkeitsprüfung', 'Wirtschaftlicher Ausbaupfad', 'Betriebs- und Risikokonzept'],
+      visuals: [
+        { type: 'analysis', title: 'Standortanalyse', text: 'Anschluss, Verkehr und Lastprofile wurden auf Ausbaufähigkeit abgestimmt.' },
+        { type: 'integration', title: 'Systemintegration', text: 'Leistungssteuerung und Priorisierung sichern stabile Ladezeiten.' },
+        { type: 'impact', title: 'Betriebswirkung', text: 'Netzspitzen sinken, Betriebskosten bleiben planbar.' }
+      ],
+      phases: [
+        { title: 'Phase 1: Analyse', text: 'Standort-, Netz- und Nutzungsprofile wurden technisch und wirtschaftlich bewertet.' },
+        { title: 'Phase 2: Konzeption', text: 'Layout, Leistungsgrößen und Lastmanagement wurden zu einem skalierbaren Systemdesign verdichtet.' },
+        { title: 'Phase 3: Umsetzungspfad', text: 'Ein priorisierter Rolloutplan mit klaren Investitionsstufen und Meilensteinen wurde vorbereitet.' }
+      ],
+      outcomes: [
+        'Kürzere Projektanlaufzeit durch belastbare Entscheidungsgrundlage',
+        'Planbarer Ausbau ohne unnötige Überdimensionierung',
+        'Messbar geringere Lastspitzen im späteren Betrieb'
+      ]
+    },
+    mikronetz: {
+      tone: 'blue',
+      kicker: 'Energie-Systemdesign',
+      title: 'Mikronetz: PV, Speicher und Laststeuerung aus einem Guss',
+      summary: 'Die Lösung verbindet Erzeugung, Speicherung und Verbrauch zu einem steuerbaren Energiesystem mit messbarer Wirkung auf Kosten und Emissionen.',
+      delivery: 'Lieferumfang waren Lastprofilaufnahme, Speicherdimensionierung, Betriebsstrategie für Erzeugung/Last und ein wirtschaftlicher Rolloutplan inkl. ROI-Pfad.',
+      approach: 'Die Regelstrategie verschiebt Lasten dynamisch, priorisiert Eigenverbrauch und nutzt Speicherkapazität gezielt für Lastspitzenkappung und Tarifoptimierung.',
+      value: 'Der Kunde steigert Versorgungssicherheit, reduziert externe Energiebezüge und gewinnt ein transparent steuerbares Energiesystem für weitere Standortentwicklung.',
+      background: 'assets/Micro.png',
+      metrics: [
+        { value: '1.2 MWh', label: 'Speicherkapazitaet' },
+        { value: '-24%', label: 'CO₂-Reduktion' },
+        { value: '6.5 Jahre', label: 'Wirtschaftlicher ROI' }
+      ],
+      trust: ['Systemarchitektur aus einer Hand', 'Transparenter ROI-Nachweis', 'Energie- und CO₂-Wirkung belegt'],
+      visuals: [
+        { type: 'analysis', title: 'Energieprofil', text: 'Erzeugung und Last wurden zu einem steuerbaren Gesamtbild verdichtet.' },
+        { type: 'integration', title: 'Speicherlogik', text: 'Dynamische Lade- und Entladefenster stärken Eigenverbrauch und Netzentlastung.' },
+        { type: 'impact', title: 'Wirtschaftlichkeit', text: 'CO₂- und Energiekosten sinken bei resilienterer Versorgung.' }
+      ],
+      phases: [
+        { title: 'Phase 1: Lasttransparenz', text: 'Lastgänge, Erzeugungsfenster und Kostenstrukturen wurden detailliert modelliert.' },
+        { title: 'Phase 2: Regelstrategie', text: 'Speicher- und Laststeuerung wurde auf Eigenverbrauch, Netzentlastung und Tarifoptimierung ausgerichtet.' },
+        { title: 'Phase 3: Wirtschaftlicher Rollout', text: 'Der Ausbaupfad wurde in Investitionsstufen mit klarer ROI-Priorisierung gegliedert.' }
+      ],
+      outcomes: [
+        'Reduzierte Energiebezugskosten bei höherer Versorgungssicherheit',
+        'Skalierbares Energiesystem für weitere Ausbaustufen',
+        'Nachvollziehbarer Business Case für Management und Finanzierung'
+      ]
+    },
+    smartcharge360: {
+      tone: 'amber',
+      kicker: 'Digitales Lastmanagement',
+      title: 'SmartCharge360: Datengetriebene Lade- und Leistungssteuerung',
+      summary: 'Das Projekt demonstriert, wie datenbasierte Steuerung mehr Ladeleistung bei gleichzeitig kontrollierter Netzanschlussgrenze ermöglicht.',
+      delivery: 'Implementiert wurden Monitoring, Lastprognose, Prioritätsregeln und ein Betriebsmodell für Ladepunkte mit unterschiedlichen Nutzungsprofilen.',
+      approach: 'Messwerte und Betriebslogik werden in Echtzeit zu einer dynamischen Leistungszuweisung verknüpft, um Lastspitzen zu glätten und Engpässe zu vermeiden.',
+      value: 'Der Kunde gewinnt mehr nutzbare Kapazität ohne teuren Anschlussausbau und schafft eine stabile technische Basis für weiteres Flottenwachstum.',
+      background: 'assets/Apps.png',
+      metrics: [
+        { value: '24', label: 'Steuerbare Ladepunkte' },
+        { value: '400 kW', label: 'Aktive Laststeuerung' },
+        { value: '-30%', label: 'Spitzenlastreduktion' }
+      ],
+      trust: ['Echtzeit-Datenbasis', 'Robuste Steuerlogik', 'Auslegung für Flottenwachstum'],
+      visuals: [
+        { type: 'analysis', title: 'Datenmonitoring', text: 'Messwerte werden kontinuierlich für Lastprognose und Priorisierung genutzt.' },
+        { type: 'integration', title: 'Steuerlogik', text: 'Leistung wird in Echtzeit auf Ladepunkte und Zeitfenster verteilt.' },
+        { type: 'impact', title: 'Skalierbarkeit', text: 'Mehr Flottenleistung ohne sofortigen Anschlussausbau.' }
+      ],
+      phases: [
+        { title: 'Phase 1: Datenmodell', text: 'Ladeverhalten, Betriebsfenster und Anschlussgrenzen wurden in ein belastbares Steuerungsmodell überführt.' },
+        { title: 'Phase 2: Echtzeit-Regelung', text: 'Prioritätslogiken für Fahrzeugklassen und Zeitfenster wurden in den laufenden Betrieb integriert.' },
+        { title: 'Phase 3: Skalierungsbetrieb', text: 'Das System wurde auf wachsende Flottenlasten ausgelegt, ohne frühzeitigen Netzausbau zu erzwingen.' }
+      ],
+      outcomes: [
+        'Höhere Ladeverfügbarkeit im Tagesgeschäft',
+        'Deutlich kontrolliertere Spitzenlasten im Betrieb',
+        'Sichere Basis für den nächsten Flottenausbau'
+      ]
+    }
+  };
+
+  function renderTrust(items) {
+    modalTrust.innerHTML = items
+      .map((item) => `<span class="project-trust-pill">${item}</span>`)
+      .join('');
+  }
+
+  function renderMetrics(items) {
+    modalKpis.innerHTML = items
+      .map((item) => `<article class="project-kpi-card"><strong>${item.value}</strong><span>${item.label}</span></article>`)
+      .join('');
+  }
+
+  function renderVisuals(items) {
+    modalVisuals.innerHTML = items
+      .map((item) => `
+        <article class="project-mini-card project-mini-card--${item.type}">
+          <span class="project-mini-icon" aria-hidden="true"></span>
+          <h4>${item.title}</h4>
+          <p>${item.text}</p>
+        </article>
+      `)
+      .join('');
+  }
+
+  function renderPhases(items) {
+    modalPhases.innerHTML = items
+      .map((item) => `
+        <li class="project-phase-item">
+          <h5>${item.title}</h5>
+          <p>${item.text}</p>
+        </li>
+      `)
+      .join('');
+  }
+
+  function renderOutcomes(items) {
+    modalOutcomes.innerHTML = items
+      .map((item) => `<li>${item}</li>`)
+      .join('');
+  }
+
+  function openProjectModal(key) {
+    const data = projectData[key];
+    if (!data) return;
+
+    modal.dataset.tone = data.tone;
+    modalHero.style.setProperty('--project-bg', `url('${data.background}')`);
+    modalKicker.textContent = data.kicker;
+    modalTitle.textContent = data.title;
+    modalSummary.textContent = data.summary;
+    modalDelivery.textContent = data.delivery;
+    modalApproach.textContent = data.approach;
+    modalValue.textContent = data.value;
+    renderTrust(data.trust);
+    renderMetrics(data.metrics);
+    renderVisuals(data.visuals);
+    renderPhases(data.phases);
+    renderOutcomes(data.outcomes);
+
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    requestAnimationFrame(() => modal.classList.add('is-open'));
+  }
+
+  function closeProjectModal() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+    window.setTimeout(() => {
+      if (!modal.classList.contains('is-open')) {
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 220);
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest('a, button')) return;
+      const key = card.getAttribute('data-project');
+      if (key) openProjectModal(key);
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const key = card.getAttribute('data-project');
+        if (key) openProjectModal(key);
+      }
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', closeProjectModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!modal.hidden && (event.key === 'Escape' || event.key === 'Esc')) {
+      closeProjectModal();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initProjectModal);
 
 // Mobile Navigation
 const toggle = document.querySelector('.nav-toggle');

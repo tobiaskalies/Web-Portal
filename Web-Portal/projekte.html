@@ -43,7 +43,7 @@
   </section>
 
   <section class="project-list">
-    <article id="Ladehub" class="project-detail reveal-up delay-1">
+    <article id="Ladehub" class="project-detail reveal-up delay-1" data-project="ladehub" tabindex="0" aria-label="Ladehub Projektbriefing öffnen">
       <div class="pd-media" data-bg="assets/ladehub.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
       <div class="pd-body">
         <h2>Ladehub – urbane Schnellladeinfrastruktur</h2>
@@ -56,7 +56,7 @@
       </div>
     </article>
 
-    <article id="mikronetz" class="project-detail reveal-up delay-2">
+    <article id="mikronetz" class="project-detail reveal-up delay-2" data-project="mikronetz" tabindex="0" aria-label="Mikronetz Projektbriefing öffnen">
       <div class="pd-media" data-bg="assets/Micro.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
       <div class="pd-body">
         <h2>Mikronetz – PV, Speicher &amp; Laststeuerung</h2>
@@ -69,7 +69,7 @@
       </div>
     </article>
 
-    <article id="smartcharge360" class="project-detail reveal-up delay-3">
+    <article id="smartcharge360" class="project-detail reveal-up delay-3" data-project="smartcharge360" tabindex="0" aria-label="SmartCharge360 Projektbriefing öffnen">
       <div class="pd-media" data-bg="assets/Apps.png" style="background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
       <div class="pd-body">
         <h2>SmartCharge360 – Energie- &amp; Lastmanagement</h2>
@@ -82,6 +82,49 @@
       </div>
     </article>
   </section>
+
+  <div class="project-modal" id="project-modal" hidden aria-hidden="true" data-tone="teal">
+    <div class="project-modal-backdrop" data-project-close></div>
+    <section class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button class="project-modal-close" type="button" aria-label="Fenster schließen" data-project-close>×</button>
+      <header class="project-modal-hero" id="project-modal-hero">
+        <span class="project-modal-kicker" id="project-modal-kicker">Projektbriefing</span>
+        <h3 id="project-modal-title">Projekt</h3>
+        <p id="project-modal-summary"></p>
+      </header>
+      <div class="project-trust-strip" id="project-modal-trust" aria-label="Qualitätsbausteine"></div>
+      <div class="project-modal-grid">
+        <article class="project-modal-card">
+          <h4>Was gemacht wurde</h4>
+          <p id="project-modal-delivery"></p>
+        </article>
+        <article class="project-modal-card">
+          <h4>Technischer Ansatz</h4>
+          <p id="project-modal-approach"></p>
+        </article>
+        <article class="project-modal-card">
+          <h4>Kundennutzen</h4>
+          <p id="project-modal-value"></p>
+        </article>
+      </div>
+      <div class="project-modal-kpis" id="project-modal-kpis"></div>
+      <section class="project-mini-visuals" id="project-modal-visuals" aria-label="Technische Schwerpunkte"></section>
+      <section class="project-deep-dive">
+        <article class="project-deep-card">
+          <h4>Projektverlauf</h4>
+          <ol class="project-phase-list" id="project-modal-phases"></ol>
+        </article>
+        <article class="project-deep-card">
+          <h4>Ergebnisse für den Kunden</h4>
+          <ul class="project-outcome-list" id="project-modal-outcomes"></ul>
+        </article>
+      </section>
+      <div class="project-modal-actions">
+        <span>Auf Wunsch erhalten Sie das vollständige Projekt-Deck mit technischer Auslegung, Wirtschaftlichkeitsmodell und Umsetzungsfahrplan.</span>
+        <a class="btn btn-primary" href="kontakt.html">Projektgespräch anfragen</a>
+      </div>
+    </section>
+  </div>
 
   <footer class="site-footer">
     <div>© <span id="y"></span> DRIVEPLAN</div>
