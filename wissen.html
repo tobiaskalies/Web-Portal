@@ -1990,6 +1990,7 @@
       <a href="projekte.html">Projekte</a>
       <a class="active" href="wissen.html">Wissen</a>
       <a href="news.html">News & Blog</a>
+      <a href="ueber-uns.html">Über uns</a>
       <a href="kontakt.html" class="btn btn-outline">Kontakt</a>
     </nav>
     <button class="mode-toggle" aria-label="Darstellung umschalten">🌙</button>
@@ -2050,7 +2051,7 @@
           <div class="topic-body">
             <span class="topic-tag">Energie</span>
             <h3>PV und Speicher</h3>
-            <p>PV-Anlagen und Batteriespeicher erhöhen den Eigenverbrauch und glätten Leistungsspitzen im Netzbezug. In Kombination mit intelligenter Steuerung sinken Energiekosten spuerbar und Lastfenster werden planbarer.</p>
+            <p>PV-Anlagen und Batteriespeicher erhöhen den Eigenverbrauch und glätten Leistungsspitzen im Netzbezug. In Kombination mit intelligenter Steuerung sinken Energiekosten spürbar und Lastfenster werden planbarer.</p>
             <span class="topic-link">Mehr zum Thema</span>
           </div>
         </article>
@@ -2110,7 +2111,7 @@
           <div class="topic-body">
             <span class="topic-tag">Bestand</span>
             <h3>Tankstellen umrüsten</h3>
-            <p>Bei Tankstellen steht die Umrüstung auf hohe Verfügbarkeit, klare Verkehrsführung und wirtschaftlichen Betrieb unter laufender Nutzung im Fokus. So entsteht ein belastbarer Ladehub, ohne das Tagesgeschaeft unnoetig zu unterbrechen.</p>
+            <p>Bei Tankstellen steht die Umrüstung auf hohe Verfügbarkeit, klare Verkehrsführung und wirtschaftlichen Betrieb unter laufender Nutzung im Fokus. So entsteht ein belastbarer Ladehub, ohne das Tagesgeschäft unnötig zu unterbrechen.</p>
             <span class="topic-link">Mehr zum Thema</span>
           </div>
         </article>
@@ -2166,6 +2167,12 @@
     </nav>
   </footer>
 
+  <button class="scroll-to-top" aria-label="Nach oben scrollen" title="Nach oben">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <div id="wissen-topic-modal" class="wissen-topic-modal" hidden>
     <div class="wissen-topic-modal-backdrop" data-close-modal="true"></div>
     <section class="wissen-topic-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="wissen-detail-title" aria-describedby="wissen-detail-intro">
@@ -2220,7 +2227,7 @@
         return;
       }
 
-      const details = {
+      const detailsDe = {
         netz: {
           kicker: "Netzanschluss",
           title: "Kerninformation: Ausreichende Leistung am richtigen Standort",
@@ -2593,6 +2600,431 @@
         }
       };
 
+      const detailsEn = {
+        netz: {
+          kicker: "Grid connection",
+          title: "Core insight: Sufficient capacity at the right location",
+          intro: "The core is robust connection capacity with reserve, so your project starts predictably and scales without costly retrofits.",
+          longRead: [
+            "In practice, grid connection is often addressed too late. This delays timelines and reshapes project economics. Early alignment with grid operator, load profile, and expansion stages reduces this risk significantly.",
+            "Professional planning looks beyond day-one operation and already includes the next expansion phase. This creates resilient decisions that remain technically and economically viable as charging points grow."
+          ],
+          fit: ["Logistics", "Commercial", "Industry", "Municipalities"],
+          highlights: [
+            { value: "4-10 months", label: "Typical corridor to approval" },
+            { value: "up to 30%", label: "Lower retrofit costs with reserve" },
+            { value: "3 stages", label: "Start, expansion, target state" }
+          ],
+          easyPoints: [
+            "We define target capacity based on real load profiles, not generic assumptions.",
+            "We secure expansion reserves so the next stage can connect without structural breaks.",
+            "We reduce retrofit costs by early alignment of grid, routing, and distribution."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Predictable investment instead of later surprises." },
+            { title: "Your risk decreases", text: "Early grid coordination reduces implementation delays." },
+            { title: "Your next step", text: "Define power demand for the next 3-5 years as a staged path." }
+          ],
+          tableRows: [
+            ["Start operation", "200-500 kVA", "Reliable launch with reserve"],
+            ["Expansion phase", "500-1,200 kVA", "Growth without structural breaks"],
+            ["Target state", "> 1,200 kVA", "Long-term resilient infrastructure"]
+          ],
+          priorities: [
+            { label: "Grid availability", score: 92 },
+            { label: "Load data quality", score: 86 },
+            { label: "Reserve planning", score: 80 }
+          ],
+          note: "Client question: What charging capacity do you truly need in the target state?",
+          cta: "Get grid connection advice"
+        },
+        last: {
+          kicker: "Load management",
+          title: "Core insight: Control charging capacity intelligently",
+          intro: "The core is prioritized power control to secure availability while lowering peak-load costs in daily operation.",
+          longRead: [
+            "Load management is the central lever between technical feasibility and business performance. Without clear priority logic, peak loads and operating costs increase despite available infrastructure.",
+            "The key is linking vehicle priorities, time windows, and tariff signals. With clean control logic, you secure high availability and create reserve for future fleet growth."
+          ],
+          fit: ["Fleets", "Depots", "Service vehicles", "Commercial parks"],
+          highlights: [
+            { value: "10-25%", label: "Peak reduction in operation" },
+            { value: "24/7", label: "Continuous prioritization" },
+            { value: "1 control logic", label: "Unified steering" }
+          ],
+          easyPoints: [
+            "We prioritize charging by departure time and operational criticality.",
+            "We couple control with grid limits, tariff windows, and power caps.",
+            "We increase usable charging capacity without blanket oversizing."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Lower operating costs through reduced peak loads." },
+            { title: "Your risk decreases", text: "Higher availability despite growing charging points." },
+            { title: "Your next step", text: "Define priorities by departure time and vehicle class." }
+          ],
+          tableRows: [
+            ["Basic", "5-15% peak reduction", "Fast entry"],
+            ["Dynamic", "15-25% peak reduction", "Better cost control"],
+            ["Tariff-optimized", "up to 30% OPEX leverage", "High profitability impact"]
+          ],
+          priorities: [
+            { label: "Operational priorities", score: 90 },
+            { label: "Data quality", score: 78 },
+            { label: "Control strategy", score: 84 }
+          ],
+          note: "Client question: Which vehicles must be reliably available at which times?",
+          cta: "Plan load management"
+        },
+        energie: {
+          kicker: "PV and storage",
+          title: "Core insight: Use self-generated energy economically",
+          intro: "The core is integrated control of PV, storage, and charging to increase self-consumption and reduce expensive grid peaks.",
+          longRead: [
+            "PV and storage create maximum value only in an integrated architecture with charging infrastructure and load management. Isolated components often deliver limited impact.",
+            "Robust decisions require joint evaluation of seasonal generation, charging windows, and peak demand. This aligns self-consumption, grid relief, and cost stability."
+          ],
+          fit: ["Production", "Logistics", "Depots", "Municipal operations"],
+          highlights: [
+            { value: "up to 40%", label: "Higher self-consumption" },
+            { value: "15-30%", label: "Lower grid peaks" },
+            { value: "1 system", label: "PV, storage, charging coupled" }
+          ],
+          easyPoints: [
+            "We use PV energy in charging windows with strongest grid impact.",
+            "We use storage for peak shaving and load shifting.",
+            "We combine generation, storage, and charging in one operating logic."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Higher independence from power price peaks." },
+            { title: "Your risk decreases", text: "Lower pressure on grid connection during peak times." },
+            { title: "Your next step", text: "Build a seasonal energy flow model for summer and winter." }
+          ],
+          tableRows: [
+            ["PV only", "10-20%", "Base benefit without storage"],
+            ["PV + storage", "20-40%", "Higher self-consumption"],
+            ["System coupled", "15-30% fewer peaks", "Best combined impact"]
+          ],
+          priorities: [
+            { label: "PV-to-load fit", score: 76 },
+            { label: "Storage sizing", score: 88 },
+            { label: "System control", score: 91 }
+          ],
+          note: "Client question: Where do you currently lose the most energy efficiency?",
+          cta: "Discuss energy concept"
+        },
+        foerderung: {
+          kicker: "Funding",
+          title: "Core insight: Combine funding programs strategically",
+          intro: "The core is a coordinated funding strategy that synchronizes programs, deadlines, and evidence along your expansion path.",
+          longRead: [
+            "Funding is most effective when treated as part of an overall strategy, not as isolated applications. Sequence, evidence quality, and synchronization with planning and procurement are decisive.",
+            "Companies and municipalities benefit when funding logic and technical rollout are aligned. This increases planning reliability and capital impact while reducing formal and timing risks."
+          ],
+          fit: ["SME", "Municipalities", "Housing sector", "Industry"],
+          highlights: [
+            { value: "10-40%", label: "Typical funding corridors" },
+            { value: "1 roadmap", label: "Clear procedural sequence" },
+            { value: "high leverage", label: "Noticeable capex relief" }
+          ],
+          easyPoints: [
+            "We match your project with programs that truly fit technically and in timing.",
+            "We synchronize deadlines with planning, procurement, and execution.",
+            "We secure evidence early so funds are not lost through formal errors."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "More predictable investment with clear financing line." },
+            { title: "Your risk decreases", text: "Fewer delays through structured application steps." },
+            { title: "Your next step", text: "Run program matching by project phase." }
+          ],
+          tableRows: [
+            ["Single measure", "10-25%", "Fast project start"],
+            ["Combined funding", "20-40%", "Higher financial leverage"],
+            ["Program strategy", "multi-year", "Stable expansion planning"]
+          ],
+          priorities: [
+            { label: "Application quality", score: 89 },
+            { label: "Deadline control", score: 82 },
+            { label: "Documentation", score: 86 }
+          ],
+          note: "Client question: Which funding stage fits your budget and timeline?",
+          cta: "Start funding strategy"
+        },
+        betrieb: {
+          kicker: "Operations",
+          title: "Core insight: Build stable and scalable operations",
+          intro: "The core is a resilient operating model that secures availability, service quality, and transparent billing over time.",
+          longRead: [
+            "Long-term success of charging infrastructure is decided in operations. Even technically strong projects lose impact when responsibilities, service paths, and monitoring are unclear.",
+            "A professional operating model links SLA, billing, maintenance, and performance KPIs in one controllable system. This creates transparent processes that scale with utilization."
+          ],
+          fit: ["Operators", "Real estate", "Fleets", "Campus sites"],
+          highlights: [
+            { value: "98-99.5%", label: "Typical availability targets" },
+            { value: "live", label: "Monitoring and billing" },
+            { value: "modular", label: "Scalable operations" }
+          ],
+          easyPoints: [
+            "We define clear responsibilities for operations, incident handling, and service communication.",
+            "We steer quality and costs via binding KPI and SLA rules.",
+            "We design processes so extensions integrate without friction."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Fewer disruptions and higher user satisfaction." },
+            { title: "Your risk decreases", text: "Clear SLAs reduce uncertainty in day-to-day operation." },
+            { title: "Your next step", text: "Define service levels and escalation paths explicitly." }
+          ],
+          tableRows: [
+            ["Base", "98%", "Entry with standard service"],
+            ["Service contract", "99%", "High operational reliability"],
+            ["Pro operations", "99.5%", "For critical fleet processes"]
+          ],
+          priorities: [
+            { label: "Service processes", score: 93 },
+            { label: "Monitoring", score: 87 },
+            { label: "Contract clarity", score: 82 }
+          ],
+          note: "Client question: What availability do your processes really need?",
+          cta: "Develop operating model"
+        },
+        skalierung: {
+          kicker: "Scaling",
+          title: "Core insight: From pilot to professional rollout",
+          intro: "The core is managing multiple sites as one program with clear prioritization, standards, and governance.",
+          longRead: [
+            "Many projects work in pilot mode but stall during rollout. The main cause is missing standardization across planning, procurement, operations, and reporting.",
+            "A scalable program needs clear prioritization rules, reusable building blocks, and central governance. This turns isolated measures into a reliable expansion path."
+          ],
+          fit: ["Branch networks", "Municipal networks", "Logistics clusters", "Mobility alliances"],
+          highlights: [
+            { value: "2-15+", label: "Sites across rollout stages" },
+            { value: "clearly prioritized", label: "Budget and sequence" },
+            { value: "standardized", label: "Less coordination overhead" }
+          ],
+          easyPoints: [
+            "We prioritize sites by grid readiness, demand, and business leverage.",
+            "We standardize planning, procurement, and operations across rollout waves.",
+            "We steer the portfolio with unified KPI and decision rules."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Faster growth with consistent quality." },
+            { title: "Your risk decreases", text: "Less friction between expansion phases and teams." },
+            { title: "Your next step", text: "Set up rollout roadmap with clusters and milestones." }
+          ],
+          tableRows: [
+            ["Pilot cluster", "2-5 sites", "Learn with low risk"],
+            ["Stage 1", "5-15 sites", "Scalable standard process"],
+            ["Stage 2", "> 15 sites", "Portfolio governance and steering"]
+          ],
+          priorities: [
+            { label: "Standardization", score: 94 },
+            { label: "Site prioritization", score: 85 },
+            { label: "Rollout governance", score: 88 }
+          ],
+          note: "Client question: Which sites create the largest leverage first?",
+          cta: "Set up scaling roadmap"
+        },
+        busdepot: {
+          kicker: "Bus and public transport",
+          title: "Core insight: Plan charging along routes and depot windows",
+          intro: "The core is precise integration of timetables, standstill windows, and charging power to keep operations stable and economical.",
+          longRead: [
+            "In public transport, charging decisions are operationally critical. Any mismatch affects punctuality and fleet availability. Route data, stand times, and power must be planned as one model.",
+            "A strong strategy combines depot charging and targeted opportunity charging on critical lines. This increases robustness while limiting unnecessary peak load."
+          ],
+          fit: ["Transit operators", "Municipalities", "Depot sites", "Mobility companies"],
+          highlights: [
+            { value: "4-8 h", label: "Typical night depot windows" },
+            { value: "1-2 MW", label: "Power level for mid-size depots" },
+            { value: "high", label: "Operational relevance per route" }
+          ],
+          easyPoints: [
+            "We size charging windows by real route cycles, not by theoretical max power.",
+            "We combine depot and opportunity charging for critical operating windows.",
+            "We secure availability through line-specific priority and reserve concepts."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "High line availability with predictable energy costs." },
+            { title: "Your risk decreases", text: "Fewer disruptions through aligned charging windows and reserve plans." },
+            { title: "Your next step", text: "Align route data, stand times, and target fleet size together." }
+          ],
+          tableRows: [
+            ["Depot focus", "overnight", "For standard predictable routes"],
+            ["Mixed mode", "night + opportunity charging", "For high daytime utilization"],
+            ["Line critical", "high prioritization", "For tight intervals and peaks"]
+          ],
+          priorities: [
+            { label: "Route fit", score: 93 },
+            { label: "Depot power", score: 88 },
+            { label: "Availability strategy", score: 90 }
+          ],
+          note: "Client question: Where are your most critical routes and realistic charging windows?",
+          cta: "Develop bus depot strategy"
+        },
+        elkw: {
+          kicker: "E-truck",
+          title: "Core insight: High-power charging for heavy fleets",
+          intro: "The core is prioritizing high-capacity sites along real transport corridors because time windows and power classes are much more demanding.",
+          longRead: [
+            "E-truck infrastructure differs fundamentally from passenger-car charging. Higher power classes, tighter time windows, and tour-dependent availability create substantially more complex requirements.",
+            "The biggest business leverage comes from planning hubs along actual freight corridors. This reduces dwell times, stabilizes tours, and directs investment to the most relevant relations."
+          ],
+          fit: ["Logistics hubs", "Freight operators", "Motorway hubs", "Industrial sites"],
+          highlights: [
+            { value: "0.75-1.5 MW", label: "Power per high-load point" },
+            { value: "20-45 min", label: "Target corridor for opportunity charging" },
+            { value: "24/7", label: "Operational need in long-haul" }
+          ],
+          easyPoints: [
+            "We prioritize high-power charging points by operational impact on tours and throughput.",
+            "We align infrastructure with route, shift, and break logic.",
+            "We dimension grid reserve for fleet growth and higher vehicle power."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Higher tour stability and lower standstill costs." },
+            { title: "Your risk decreases", text: "Fewer bottlenecks through proactive connection and hub planning." },
+            { title: "Your next step", text: "Prioritize charging corridors by route profile and site capacity." }
+          ],
+          tableRows: [
+            ["Depot charging", "0.15-0.4 MW", "For long standstill windows"],
+            ["Hub charging", "0.4-0.9 MW", "For regional transfer points"],
+            ["High-power", "0.75-1.5 MW", "For time-critical long-haul profiles"]
+          ],
+          priorities: [
+            { label: "Grid power", score: 95 },
+            { label: "Corridor location", score: 89 },
+            { label: "Tour integration", score: 87 }
+          ],
+          note: "Client question: Which fleet relations need high-power charging first?",
+          cta: "Set up e-truck concept"
+        },
+        tankstelle: {
+          kicker: "Fuel station retrofit",
+          title: "Core insight: Transform stations into high-performance charging hubs",
+          intro: "The core is coordinated retrofit of grid power, traffic flow, and operations so the site remains reliable during transformation.",
+          longRead: [
+            "Fuel stations have a location advantage through existing customer traffic and established corridors. Converting into charging hubs requires aligned grid power, site layout, and dwell-time concepts.",
+            "Professional retrofit includes ongoing operations and phased expansion economics. This allows growth without sacrificing service quality or daily availability."
+          ],
+          fit: ["Station operators", "Utilities", "Franchise locations", "Transit corridors"],
+          highlights: [
+            { value: "high location value", label: "Sites with existing traffic" },
+            { value: "multi-stage", label: "Retrofit in rollout phases" },
+            { value: "24/7", label: "High-availability operating model" }
+          ],
+          easyPoints: [
+            "We phase retrofit steps so daily business continues with minimal interruption.",
+            "We position charging points by access logic, dwell time, and demand profile.",
+            "We link expansion phases with grid reserve for resilient hub operations."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Faster activation of existing sites for new revenue models." },
+            { title: "Your risk decreases", text: "Traffic and load peaks become manageable through clear site logic." },
+            { title: "Your next step", text: "Prioritize pilot sites along your main corridors." }
+          ],
+          tableRows: [
+            ["Pilot retrofit", "4-8 charging points", "Fast market validation"],
+            ["Corridor expansion", "8-20 charging points", "For high-traffic corridors"],
+            ["Hub operation", "20+ charging points", "For high daily throughput"]
+          ],
+          priorities: [
+            { label: "Site logic", score: 92 },
+            { label: "Grid and reserve", score: 90 },
+            { label: "Operational availability", score: 88 }
+          ],
+          note: "Client question: Which stations should be activated first as profitable charging hubs?",
+          cta: "Assess station retrofit"
+        },
+        tiefgarage: {
+          kicker: "Underground garage strategy",
+          title: "Core insight: Develop underground garages as viable charging infrastructure",
+          intro: "The core is a floor-by-floor expansion path integrating structural feasibility, safety requirements, and load distribution in existing assets.",
+          longRead: [
+            "Underground garages are crucial for electrification because they connect directly to living and working locations. At the same time, they require robust routing, load distribution, fire safety, and ventilation concepts.",
+            "A resilient concept uses clear expansion stages per level and integrates technical and permitting aspects early. This enables safe and economical scaling with demand."
+          ],
+          fit: ["Property operators", "Housing sector", "District garages", "Existing car parks"],
+          highlights: [
+            { value: "existing asset", label: "Use existing parking inventory" },
+            { value: "multi-stage", label: "Expansion with clear load limits" },
+            { value: "critical", label: "Safety and ventilation concept" }
+          ],
+          easyPoints: [
+            "We check routes, sub-distribution, and power reserves per level early.",
+            "We integrate fire safety and ventilation requirements into charging design.",
+            "We phase expansion so operational reliability and user comfort remain stable."
+          ],
+          customerCards: [
+            { title: "Your benefit", text: "Future-proof use of existing space without one-shot full rebuild." },
+            { title: "Your risk decreases", text: "Technical and permitting bottlenecks are reduced early." },
+            { title: "Your next step", text: "Start with on-site check, load concept, and safety concept per level." }
+          ],
+          tableRows: [
+            ["Initial stage", "5-15 charging points", "For first user groups"],
+            ["Expansion stage 1", "15-40 charging points", "For increasing demand"],
+            ["Expansion stage 2", "40+ charging points", "For long-term full integration"]
+          ],
+          priorities: [
+            { label: "Structural feasibility", score: 91 },
+            { label: "Safety concept", score: 95 },
+            { label: "Load distribution by level", score: 86 }
+          ],
+          note: "Client question: Which garage areas provide the highest leverage for phased expansion?",
+          cta: "Start underground strategy"
+        }
+      };
+
+      const modalUi = {
+        de: {
+          easyHeadline: "Kerninformationen",
+          easyThreeSteps: "Umsetzungsweg in 3 Schritten",
+          easyQuickView: "Kerninformationen auf einen Blick",
+          customerHeadline: "Was bedeutet das konkret für Ihr Unternehmen?",
+          customerProjectContext: "Ihr Nutzen im Projektkontext",
+          customerDecisionCheck: "Kundennutzen als Entscheidungs-Check",
+          numbersHeadline: "Zahlen und Optionen für Ihre Entscheidung",
+          numbersKpis: "Kennzahlen und Prioritäten",
+          numbersMatrix: "Entscheidungsmatrix für Ausbauoptionen",
+          tableHeadOption: "Option",
+          tableHeadCorridor: "Typischer Korridor",
+          tableHeadWhen: "Wann sinnvoll?",
+          matrixHeadScenario: "Szenario",
+          matrixHeadCorridor: "Korridor",
+          matrixHeadBenefit: "Nutzenprofil"
+        },
+        en: {
+          easyHeadline: "Executive summary",
+          easyThreeSteps: "Three-step implementation path",
+          easyQuickView: "Key insights at a glance",
+          customerHeadline: "What does this mean for your company?",
+          customerProjectContext: "Business value in your project context",
+          customerDecisionCheck: "Business value decision check",
+          numbersHeadline: "Data and options for your decision",
+          numbersKpis: "KPIs and priorities",
+          numbersMatrix: "Decision matrix for expansion options",
+          tableHeadOption: "Option",
+          tableHeadCorridor: "Typical corridor",
+          tableHeadWhen: "When does it fit?",
+          matrixHeadScenario: "Scenario",
+          matrixHeadCorridor: "Corridor",
+          matrixHeadBenefit: "Benefit profile"
+        }
+      };
+
+      function getActiveLang() {
+        const lang = (document.documentElement.getAttribute("lang") || "de").toLowerCase();
+        return lang === "en" ? "en" : "de";
+      }
+
+      function getUiCopy() {
+        return modalUi[getActiveLang()] || modalUi.de;
+      }
+
+      function getTopicDetails(topicKey) {
+        const lang = getActiveLang();
+        const byLang = lang === "en" ? detailsEn : detailsDe;
+        return byLang[topicKey] || detailsDe[topicKey] || null;
+      }
+
       const topicVariants = {
         netz: { tone: "teal", profile: "alpha", modeOrder: ["easy", "numbers", "customer"] },
         last: { tone: "blue", profile: "beta", modeOrder: ["numbers", "easy", "customer"] },
@@ -2615,12 +3047,13 @@
       }
 
       function renderEasyMode(info, profile) {
+        const ui = getUiCopy();
         if (profile === "beta") {
           const timelineHtml = (info.easyPoints || []).map(function (item, index) {
             return '<li class="timeline-step" style="--i:' + index + '"><em>' + String(index + 1).padStart(2, "0") + '</em><span>' + item + '</span></li>';
           }).join("");
           detailPanel.innerHTML =
-            '<h4>Umsetzungsweg in 3 Schritten</h4>' +
+            '<h4>' + ui.easyThreeSteps + '</h4>' +
             '<ol class="timeline-list">' + timelineHtml + '</ol>';
           return;
         }
@@ -2630,7 +3063,7 @@
             return '<article class="signal-card" style="--i:' + index + '"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
           }).join("");
           detailPanel.innerHTML =
-            '<h4>Kerninformationen auf einen Blick</h4>' +
+            '<h4>' + ui.easyQuickView + '</h4>' +
             '<div class="signal-grid">' + signalHtml + '</div>';
           return;
         }
@@ -2639,18 +3072,19 @@
           return '<li style="--i:' + index + '">' + item + '</li>';
         }).join("");
         detailPanel.innerHTML =
-          '<h4>Kerninformationen in 3 Punkten</h4>' +
+          '<h4>' + ui.easyHeadline + '</h4>' +
           '<ul class="explain-list">' + explainHtml + '</ul>';
       }
 
       function renderCustomerMode(info, profile) {
+        const ui = getUiCopy();
         if (profile === "beta") {
           const cards = info.customerCards || [];
           const primary = cards[0] || { title: "Ihr Vorteil", text: "" };
           const secondaryOne = cards[1] || { title: "Ihr Risiko sinkt", text: "" };
           const secondaryTwo = cards[2] || { title: "Ihr nächster Schritt", text: "" };
           detailPanel.innerHTML =
-            '<h4>Ihr Nutzen im Projektkontext</h4>' +
+            '<h4>' + ui.customerProjectContext + '</h4>' +
             '<div class="customer-split">' +
             '<article class="customer-pill" style="--i:0"><strong>' + primary.title + '</strong><p>' + primary.text + '</p></article>' +
             '<div class="customer-grid">' +
@@ -2666,7 +3100,7 @@
             return '<li style="--i:' + index + '"><strong>' + item.title + ':</strong> ' + item.text + '</li>';
           }).join("");
           detailPanel.innerHTML =
-            '<h4>Kundennutzen als Entscheidungs-Check</h4>' +
+            '<h4>' + ui.customerDecisionCheck + '</h4>' +
             '<ul class="explain-list">' + checklistHtml + '</ul>';
           return;
         }
@@ -2675,11 +3109,58 @@
           return '<article class="customer-card" style="--i:' + index + '"><strong>' + item.title + '</strong><p>' + item.text + '</p></article>';
         }).join("");
         detailPanel.innerHTML =
-          '<h4>Was bedeutet das konkret für Ihr Unternehmen?</h4>' +
+          '<h4>' + ui.customerHeadline + '</h4>' +
           '<div class="customer-grid">' + cardsHtml + '</div>';
       }
 
       function renderNumbersMode(info, profile) {
+        const ui = getUiCopy();
+        const isEnglish = getActiveLang() === "en";
+
+        if (isEnglish) {
+          if (profile === "beta") {
+            const barsHtml = (info.priorities || []).map(function (item, index) {
+              return '<article class="priority-item">' +
+                '<div class="priority-head"><span>' + item.label + '</span><strong>' + item.score + '%</strong></div>' +
+                '<div class="priority-track"><div class="priority-fill" style="--score:' + item.score + '%; --i:' + index + '"></div></div>' +
+                '</article>';
+            }).join("");
+            const chipsHtml = (info.highlights || []).map(function (item, index) {
+              return '<article class="number-chip" style="--i:' + index + '"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
+            }).join("");
+            detailPanel.innerHTML =
+              '<h4>' + ui.numbersKpis + '</h4>' +
+              '<div class="priority-bars">' + barsHtml + '</div>' +
+              '<div class="number-chip-grid">' + chipsHtml + '</div>';
+            return;
+          }
+
+          if (profile === "gamma") {
+            const matrixRows = (info.tableRows || []).map(function (row) {
+              return '<tr><td><strong>' + row[0] + '</strong></td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+            }).join("");
+            detailPanel.innerHTML =
+              '<h4>' + ui.numbersMatrix + '</h4>' +
+              '<div class="matrix-table-wrap" style="--i:0"><table class="matrix-table"><thead><tr><th>' + ui.matrixHeadScenario + '</th><th>' + ui.matrixHeadCorridor + '</th><th>' + ui.matrixHeadBenefit + '</th></tr></thead><tbody>' + matrixRows + '</tbody></table></div>';
+            return;
+          }
+
+          const rowsHtml = (info.tableRows || []).map(function (row) {
+            return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+          }).join("");
+          const barsHtml = (info.priorities || []).map(function (item, index) {
+            return '<article class="priority-item" style="--i:' + index + '">' +
+              '<div class="priority-head"><span>' + item.label + '</span><strong>' + item.score + '%</strong></div>' +
+              '<div class="priority-track"><div class="priority-fill" style="--score:' + item.score + '%; --i:' + index + '"></div></div>' +
+              '</article>';
+          }).join("");
+          detailPanel.innerHTML =
+            '<h4>' + ui.numbersHeadline + '</h4>' +
+            '<div class="decision-table-wrap" style="--i:0"><table class="decision-table"><thead><tr><th>' + ui.tableHeadOption + '</th><th>' + ui.tableHeadCorridor + '</th><th>' + ui.tableHeadWhen + '</th></tr></thead><tbody>' + rowsHtml + '</tbody></table></div>' +
+            '<div class="priority-bars">' + barsHtml + '</div>';
+          return;
+        }
+
         if (currentTopicKey === "netz") {
           detailPanel.innerHTML =
             '<h4>Zahlen und Optionen: Netzanschluss als Ausbaupfad</h4>' +
@@ -2934,7 +3415,7 @@
       }
 
       function openModal(card) {
-        const info = details[card.dataset.topic];
+        const info = getTopicDetails(card.dataset.topic);
         if (!info) {
           return;
         }
