@@ -736,9 +736,7 @@ function getLanguageFromUrl() {
 }
 
 function resolveLanguage() {
-  const fromUrl = getLanguageFromUrl();
-  const fromStorage = normalizeLanguage(localStorage.getItem('lang'));
-  return fromUrl || fromStorage || DEFAULT_LANG;
+  return getLanguageFromUrl() || DEFAULT_LANG;
 }
 
 function setText(selector, value) {
@@ -860,7 +858,9 @@ function withLanguageInHref(href, lang) {
   const pathPart = queryIndex >= 0 ? withoutHash.slice(0, queryIndex) : withoutHash;
   const queryPart = queryIndex >= 0 ? withoutHash.slice(queryIndex + 1) : '';
 
-  if (!/\.html$/i.test(pathPart)) return href;
+  const isHtmlPage = /\.html$/i.test(pathPart);
+  const isCleanRoute = pathPart === '/' || (pathPart !== '' && !/\.[^/]+$/.test(pathPart));
+  if (!isHtmlPage && !isCleanRoute) return href;
 
   const params = new URLSearchParams(queryPart);
   if (lang === DEFAULT_LANG) {
@@ -898,7 +898,7 @@ function syncLanguageInUrl(lang) {
 function applyLanguage(lang) {
   const nextLang = normalizeLanguage(lang) || DEFAULT_LANG;
   const copy = I18N[nextLang];
-  const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const pageName = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/i, '').toLowerCase();
 
   root.setAttribute('lang', nextLang);
   document.documentElement.lang = nextLang;
@@ -935,7 +935,7 @@ function applyLanguage(lang) {
   setInternalLinkText('.card-link-row .link', 'leistungen', copy.ctaLearnMore);
   setText('#contact-form button[type="submit"]', copy.contactSubmit);
 
-  if (pageName === 'index.html' || pageName === '') {
+  if (pageName === 'index' || pageName === '') {
     setText('.hero-inner p.reveal-up.delay-1', copy.homeHeroLead);
     setTextAt('.hero-stats span', 0, copy.homeStatProjects);
     setTextAt('.hero-stats span', 1, copy.homeStatYears);
@@ -1005,7 +1005,7 @@ function applyLanguage(lang) {
     ], nextLang);
   }
 
-  if (pageName === 'kontakt.html') {
+  if (pageName === 'kontakt') {
     setText('.page-hero h1', copy.contactHeroTitle);
     setText('.page-hero p', copy.contactHeroLead);
     setFormLabelByFieldName('name', copy.contactLabelName);
@@ -1111,7 +1111,7 @@ function applyLanguage(lang) {
     setHtmlList('#datenschutz', [privacyEnHtml], nextLang);
   }
 
-  if (pageName === 'leistungen.html') {
+  if (pageName === 'leistungen') {
     setText('.leistungen-title', copy.servicesHeroTitle);
     setText('.leistungen-subtitle', copy.servicesHeroLead);
     setText('.page-hero.compact h1', copy.servicesHeroTitle);
@@ -1158,7 +1158,7 @@ function applyLanguage(lang) {
     setAttrList('.service-sections .service .tags .tag-item', 'data-info', servicesEnInfos, nextLang);
   }
 
-  if (pageName === 'projekte.html') {
+  if (pageName === 'projekte') {
     setText('.projekte-title', copy.projectsHeroTitle);
     setText('.projekte-subtitle', copy.projectsHeroLead);
     setText('.page-hero.compact h1', copy.projectsHeroTitle);
@@ -1189,7 +1189,7 @@ function applyLanguage(lang) {
     setHtmlList('.project-list .pd-body .stats li', projectEnStats, nextLang);
   }
 
-  if (pageName === 'news.html') {
+  if (pageName === 'news') {
     setText('.news-kicker', copy.newsHeroKicker);
     setText('.news-title', copy.newsHeroTitle);
     setText('.news-subtitle', copy.newsHeroLead);
@@ -1230,7 +1230,7 @@ function applyLanguage(lang) {
     setAttrList('.share-buttons a:nth-child(3)', 'title', ['Share on Facebook', 'Share on Facebook', 'Share on Facebook', 'Share on Facebook', 'Share on Facebook', 'Share on Facebook', 'Share on Facebook'], nextLang);
   }
 
-  if (pageName === 'wissen.html') {
+  if (pageName === 'wissen') {
     setText('.wissen-title', copy.knowledgeHeroTitle);
     setText('.wissen-subtitle', copy.knowledgeHeroLead);
     setText('#wissen-themen-title', copy.knowledgeSectionTitle);
@@ -1285,7 +1285,7 @@ function applyLanguage(lang) {
     setText('#wissen-detail-link', copy.knowledgeModalButton);
   }
 
-  if (pageName === 'ueber-uns.html') {
+  if (pageName === 'ueber-uns') {
     setText('.hero-copy .eyebrow', copy.aboutHeroEyebrow);
     setText('#ueber-uns-title', copy.aboutHeroTitle);
     setText('.hero-copy .lead', copy.aboutHeroLead);
@@ -1380,7 +1380,6 @@ function applyLanguage(lang) {
 }
 
 const currentLanguage = resolveLanguage();
-localStorage.setItem('lang', currentLanguage);
 syncLanguageInUrl(currentLanguage);
 
 if (!langBtn && modeBtn && modeBtn.parentElement) {
@@ -1394,7 +1393,6 @@ if (langBtn) {
   langBtn.addEventListener('click', () => {
     const activeLang = normalizeLanguage(document.documentElement.getAttribute('lang')) || DEFAULT_LANG;
     const nextLang = activeLang === 'de' ? 'en' : 'de';
-    localStorage.setItem('lang', nextLang);
     syncLanguageInUrl(nextLang);
     applyLanguage(nextLang);
   });
