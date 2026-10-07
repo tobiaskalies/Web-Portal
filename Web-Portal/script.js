@@ -535,6 +535,7 @@ const I18N = {
     languageSwitchLabel: 'Sprache auf Englisch umstellen',
     themeToggleLabel: 'Darstellung umschalten',
     navLabel: 'Hauptnavigation',
+    navHome: 'Start',
     navServices: 'Leistungen',
     navProjects: 'Projekte',
     navKnowledge: 'Wissen',
@@ -630,6 +631,7 @@ const I18N = {
     languageSwitchLabel: 'Switch language to German',
     themeToggleLabel: 'Toggle display mode',
     navLabel: 'Main navigation',
+    navHome: 'Home',
     navServices: 'Services',
     navProjects: 'Projects',
     navKnowledge: 'Insights',
@@ -752,6 +754,28 @@ function setTextAt(selector, index, value) {
   if (items[index]) {
     items[index].textContent = value;
   }
+}
+
+function setInternalLinkText(selector, page, value, hash) {
+  if (!value) return;
+  document.querySelectorAll(selector).forEach((link) => {
+    let url;
+    try {
+      url = new URL(link.getAttribute('href') || '', window.location.href);
+    } catch {
+      return;
+    }
+    if (url.origin !== window.location.origin) return;
+
+    const segments = url.pathname.split('/').filter(Boolean);
+    const targetPage = (segments.pop() || 'index').replace(/\.html$/i, '').toLowerCase();
+    const expectedPage = page.replace(/\.html$/i, '').toLowerCase();
+    if (targetPage !== expectedPage) return;
+    if (hash === null && url.hash) return;
+    if (typeof hash === 'string' && url.hash.slice(1).toLowerCase() !== hash.toLowerCase()) return;
+
+    link.textContent = value;
+  });
 }
 
 function setTextList(selector, values, lang) {
@@ -893,20 +917,22 @@ function applyLanguage(lang) {
     mainNav.setAttribute('aria-label', copy.navLabel);
   }
 
-  setText('.main-nav a[href*="leistungen.html"]', copy.navServices);
-  setText('.main-nav a[href*="projekte.html"]', copy.navProjects);
-  setText('.main-nav a[href*="wissen.html"]', copy.navKnowledge);
-  setText('.main-nav a[href*="news.html"]', copy.navNews);
-  setText('.main-nav a[href*="ueber-uns.html"]', copy.navAbout);
-  setText('.main-nav a[href*="kontakt.html"]', copy.navContact);
+  setInternalLinkText('.main-nav a', 'index', copy.navHome);
+  setInternalLinkText('.main-nav a', 'leistungen', copy.navServices);
+  setInternalLinkText('.main-nav a', 'projekte', copy.navProjects);
+  setInternalLinkText('.main-nav a', 'wissen', copy.navKnowledge);
+  setInternalLinkText('.main-nav a', 'news', copy.navNews);
+  setInternalLinkText('.main-nav a', 'ueber-uns', copy.navAbout);
+  setInternalLinkText('.main-nav a', 'kontakt', copy.navContact);
   setText('.site-footer a.footer-quick-link[href^="mailto:"]', copy.footerEmail);
   setText('.site-footer a.footer-quick-link[href^="tel:"]', copy.footerPhone);
-  setText('.site-footer a[href="#impressum"], .site-footer a[href*="kontakt.html"][href*="#impressum"]', copy.footerLegalNotice);
-  setText('.site-footer a[href="#datenschutz"], .site-footer a[href*="kontakt.html"][href*="#datenschutz"]', copy.footerPrivacy);
-  setText('.btn.btn-primary[href*="leistungen.html"]', copy.ctaOurServices);
-  setText('.btn.btn-ghost[href*="kontakt.html"], .btn.btn-primary[href*="kontakt.html"]', copy.ctaProjectRequest);
-  setText('.section.cta .btn.btn-primary[href*="kontakt.html"]', copy.ctaContactNow);
-  setText('.card-link-row .link[href^="leistungen.html"]', copy.ctaLearnMore);
+  setInternalLinkText('.site-footer a', 'kontakt', copy.footerLegalNotice, 'impressum');
+  setInternalLinkText('.site-footer a', 'kontakt', copy.footerPrivacy, 'datenschutz');
+  setInternalLinkText('.site-footer a', 'kontakt', copy.navContact, null);
+  setInternalLinkText('.btn.btn-primary', 'leistungen', copy.ctaOurServices);
+  setInternalLinkText('.btn.btn-ghost, .btn.btn-primary', 'kontakt', copy.ctaProjectRequest);
+  setInternalLinkText('.section.cta .btn.btn-primary', 'kontakt', copy.ctaContactNow);
+  setInternalLinkText('.card-link-row .link', 'leistungen', copy.ctaLearnMore);
   setText('#contact-form button[type="submit"]', copy.contactSubmit);
 
   if (pageName === 'index.html' || pageName === '') {
@@ -987,9 +1013,6 @@ function applyLanguage(lang) {
     setFormLabelByFieldName('firma', copy.contactLabelCompany);
     setFormLabelByFieldName('telefon', copy.contactLabelPhone);
     setFormLabelByFieldName('nachricht', copy.contactLabelMessage);
-    setText('#impressum h2', copy.legalNoticeTitle);
-    setText('#datenschutz h2', copy.legalPrivacyTitle);
-
     if (nextLang === 'en') {
       document.title = 'Contact - DRIVEPLAN';
       setMetaByName('description', 'Contact DRIVEPLAN in Neuenhagen near Berlin. Request consulting for charging infrastructure, energy management, and mobility concepts for your project.');
@@ -1094,7 +1117,7 @@ function applyLanguage(lang) {
     setText('.page-hero.compact h1', copy.servicesHeroTitle);
     setText('.page-hero.compact p', copy.servicesHeroLead);
     setText('.cta-band h3', copy.servicesCtaTitle);
-    setText('.cta-band .btn.btn-primary[href*="kontakt.html"]', copy.servicesCtaButton);
+    setInternalLinkText('.cta-band .btn.btn-primary', 'kontakt', copy.servicesCtaButton);
 
     const servicesEnTitles = ['Mobility Concepts & Charging Infrastructure', 'Technical Planning & Advisory', 'Digital Energy & Charging Management'];
     const servicesEnStrong = [
@@ -1147,7 +1170,7 @@ function applyLanguage(lang) {
     setText('.project-modal-card:nth-child(3) h4', copy.projectsModalValue);
     setText('.project-deep-card:nth-child(1) h4', copy.projectsModalTimeline);
     setText('.project-deep-card:nth-child(2) h4', copy.projectsModalResults);
-    setText('.project-modal-actions .btn.btn-primary[href*="kontakt.html"]', copy.projectsModalCta);
+    setInternalLinkText('.project-modal-actions .btn.btn-primary', 'kontakt', copy.projectsModalCta);
 
     const projectEnTitles = ['Charging hub: urban fast-charging infrastructure', 'Microgrid: PV, storage, and load control', 'SmartCharge360: Energy and load management'];
     const projectEnLeads = [
@@ -1248,7 +1271,7 @@ function applyLanguage(lang) {
     });
 
     setText('.wissen-briefing .brief-cta span', copy.knowledgeJourneyCtaText);
-    setText('.wissen-briefing .brief-cta .btn.btn-primary[href*="kontakt.html"]', copy.knowledgeJourneyCtaButton);
+    setInternalLinkText('.wissen-briefing .brief-cta .btn.btn-primary', 'kontakt', copy.knowledgeJourneyCtaButton);
 
     const modalClose = document.getElementById('wissen-topic-modal-close');
     if (modalClose) modalClose.setAttribute('aria-label', copy.knowledgeModalClose);
@@ -1266,10 +1289,10 @@ function applyLanguage(lang) {
     setText('.hero-copy .eyebrow', copy.aboutHeroEyebrow);
     setText('#ueber-uns-title', copy.aboutHeroTitle);
     setText('.hero-copy .lead', copy.aboutHeroLead);
-    setText('.hero-actions .btn.btn-primary[href*="kontakt.html"]', copy.aboutHeroPrimaryCta);
-    setText('.hero-actions .btn.btn-secondary[href*="leistungen.html"]', copy.aboutHeroSecondaryCta);
+    setInternalLinkText('.hero-actions .btn.btn-primary', 'kontakt', copy.aboutHeroPrimaryCta);
+    setInternalLinkText('.hero-actions .btn.btn-secondary', 'leistungen', copy.aboutHeroSecondaryCta);
     setText('.cta-band h3', copy.aboutCtaTitle);
-    setText('.cta-band .btn.btn-primary[href*="kontakt.html"]', copy.aboutCtaButton);
+    setInternalLinkText('.cta-band .btn.btn-primary', 'kontakt', copy.aboutCtaButton);
 
     setTextList('.hero-panel .panel-title', ['Our core principle'], nextLang);
     setTextList('.hero-panel strong', ['Technical excellence meets economic reality.'], nextLang);

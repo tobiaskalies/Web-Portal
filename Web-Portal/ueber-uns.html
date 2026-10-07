@@ -390,19 +390,6 @@
         padding-right: 12px;
       }
 
-      .brand {
-        max-width: calc(100% - 94px);
-      }
-
-      .wordmark .tagline {
-        white-space: normal;
-        line-height: 1.25;
-      }
-
-      .mode-toggle {
-        flex-shrink: 0;
-      }
-
       .hero {
         min-height: 580px;
         padding-top: 52px;
@@ -432,6 +419,8 @@
 
       .section-head h2 {
         font-size: clamp(1.8rem, 7vw, 2.4rem);
+        hyphens: auto;
+        overflow-wrap: anywhere;
       }
     }
 
@@ -1425,47 +1414,6 @@
     const yearEl = document.getElementById('y');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    const root = document.documentElement;
-    const themeBtn = document.querySelector('.mode-toggle');
-    const navToggle = document.querySelector('.nav-toggle');
-    const mainNav = document.querySelector('.main-nav');
-
-    const applyTheme = (theme) => {
-      root.setAttribute('data-theme', theme);
-      if (themeBtn) themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
-    };
-
-    const savedTheme = localStorage.getItem('driveplan-theme');
-    if (savedTheme === 'dark') applyTheme('dark');
-
-    if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-        localStorage.setItem('driveplan-theme', next);
-      });
-    }
-
-    if (navToggle && mainNav) {
-      navToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(mainNav.classList.contains('open')));
-      });
-
-      mainNav.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          mainNav.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 980 && mainNav) {
-        mainNav.classList.remove('open');
-        navToggle && navToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
   </script>
 </body>
 </html>
